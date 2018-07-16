@@ -5,7 +5,8 @@
 	ui = true
 [core]
 	ignorecase = false
-	editor = /usr/bin/subl -n -w
+	# editor = /usr/bin/subl -n -w
+	editor = /usr/bin/vi
 	#autocrlf = true
 	quotepath = off
 	longpaths = true

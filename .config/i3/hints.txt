@@ -15,12 +15,15 @@ mod+shift+e exit
 mod+f fullscreen
 mod+shift+r reload settings
 
-i3lock
-sudo apt install \
-    feh # wallpaper
-    arandr # multiple monitor configuration
-    lxappearance # configure UI
-    i3blocks # for status bar
-    rofi # run menu
+
+sudo apt install
+    i3                 # i3 itself
+    i3lock             # screen locker
+    fonts-font-awesome # font
+    feh                # to change wallpaper
+    arandr             # multiple monitor configuration
+    lxappearance       # configure UI
+    i3blocks           # for status bar
+    rofi               # run menu
 
 feh --bg-scale ~/Pictures/wallpaper/default
