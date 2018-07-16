@@ -155,6 +155,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Shift+x exec i3lock --color "$base01"
+bindsym $mod+Shift+s exec systemctl suspend
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -224,6 +225,7 @@ exec_always feh --bg-scale ~/Pictures/wallpaper/default
 assign [class="Sublime_text"] $workspace2
 assign [class="Google-chrome"] $workspace7
 assign [class="Skype"] $workspace8
+assign [class="zoom"] $workspace8
 
 # https://faq.i3wm.org/question/3747/enabling-multimedia-keys.1.html
 
