@@ -119,7 +119,7 @@ set $workspace4 "4"
 set $workspace5 "5"
 set $workspace6 "6"
 set $workspace7 "7: Chrome "
-set $workspace8 "8"
+set $workspace8 "8: Skype "
 set $workspace9 "9:"
 set $workspace0 "10: Music "
 
@@ -223,6 +223,7 @@ exec_always feh --bg-scale ~/Pictures/wallpaper/default
 # xprop
 assign [class="Sublime_text"] $workspace2
 assign [class="Google-chrome"] $workspace7
+assign [class="Skype"] $workspace8
 
 # https://faq.i3wm.org/question/3747/enabling-multimedia-keys.1.html
 
