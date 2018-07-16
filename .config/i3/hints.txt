@@ -1,0 +1,26 @@
+mod+d
+mod+enter terminal
+mod+shift+q quit
+mod+v insert vertically
+mod+h insert horizontally
+mod+arrows/jkl; navigation
+mod+shift+arrows/jkl;
+mod+s stack mod
+mod+e tiling mode
+mod+w tab mode
+mod+r resize (then left/right)
+mod+1..0 switch workspace
+mod+shift+1..0 move to workspace
+mod+shift+e exit
+mod+f fullscreen
+mod+shift+r reload settings
+
+i3lock
+sudo apt install \
+    feh # wallpaper
+    arandr # multiple monitor configuration
+    lxappearance # configure UI
+    i3blocks # for status bar
+    rofi # run menu
+
+feh --bg-scale ~/Pictures/wallpaper/default
