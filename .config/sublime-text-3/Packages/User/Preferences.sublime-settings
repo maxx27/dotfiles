@@ -1,0 +1,51 @@
+{
+	"added_words":
+	[
+		"roadmap",
+		"Populus",
+		"Arwed",
+		"Alexey",
+		"Serov",
+		"Vladislav",
+		"Sindhu"
+	],
+	"caret_extra_bottom": 2,
+	"caret_extra_top": 2,
+	"caret_extra_width": 1,
+	"caret_style": "phase",
+	"color_scheme": "Packages/Theme - Cobalt2/cobalt2.tmTheme",
+	"dictionary": "Packages/User/en_ru.dic",
+	"ensure_newline_at_eof_on_save": true,
+	"fade_fold_buttons": false,
+	"file_exclude_patterns":
+	[
+		".tags",
+		".tags_sorted_by_file",
+		".gemtags"
+	],
+	"font_face": "Consolas",
+	"font_size": 14,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"FTPSync",
+		"Markdown",
+		"Vintage"
+	],
+	"indent_guide_options":
+	[
+		"draw_normal",
+		"draw_active"
+	],
+	"line_padding_bottom": 1,
+	"line_padding_top": 1,
+	"shift_tab_unindent": true,
+	"soda_classic_tabs": true,
+	"theme": "Cobalt2.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"vintage_ctrl_keys": true,
+	"vintage_start_in_command_mode": false,
+	"wide_caret": true
+}

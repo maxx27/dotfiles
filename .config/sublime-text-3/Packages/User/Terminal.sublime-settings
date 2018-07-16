@@ -1,0 +1,11 @@
+// Usage
+// https://packagecontrol.io/packages/Terminal
+
+// Open Terminal at File Press ctrl+shift+t on Windows and Linux
+// Open Terminal at Project Folder Press ctrl+alt+shift+t on Windows and Linux
+// In addition to the key bindings, terminals can also be opened via the editor context menu and the sidebar context menus.
+
+{
+	"terminal": "d:/Programs/_Admin/ConEmu/ConEmu64.exe",
+	"parameters": ["/dir", "%CWD%", "/cmd", "%ProgramFiles%/Git/bin/sh.exe", "--login", "-i", "-new_console:n"]
+}

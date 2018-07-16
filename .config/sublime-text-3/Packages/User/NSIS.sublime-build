@@ -1,0 +1,5 @@
+{
+	"cmd": ["makensis", "$file"],
+	"file_regex": "warning: .*\([^:)]+):([0-9]+)\)",
+	"selector": "source.nsis"
+}

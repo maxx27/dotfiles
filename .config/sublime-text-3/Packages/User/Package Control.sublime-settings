@@ -1,0 +1,56 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Alignment",
+		"AutoItScript",
+		"Awk",
+		"BracketHighlighter",
+		"ChannelRepositoryTools",
+		"Clipboard Manager",
+		"CMake",
+		"CTags",
+		"DiffTabs",
+		"DocBlockr",
+		"Dockerfile Syntax Highlighting",
+		"Emmet",
+		"External Command",
+		"FileDiffs",
+		"FindKeyConflicts",
+		"FTPSync",
+		"Groovy Snippets",
+		"Indent XML",
+		"INI",
+		"Keymaps",
+		"Markdown Table Formatter",
+		"MarkdownEditing",
+		"MarkdownPreview",
+		"MarkdownTOC",
+		"Markmon real-time markdown preview",
+		"ModernPerl",
+		"NSIS",
+		"NSIS Completions & Snippets",
+		"Origami",
+		"Package Control",
+		"PackageResourceViewer",
+		"perl-Test-Class",
+		"perl-Test-More",
+		"PerlTidy",
+		"sublime-expand-selection-to-quotes",
+		"SublimeAStyleFormatter",
+		"SublimeCodeIntel",
+		"SublimeLinter",
+		"SublimeLinter-annotations",
+		"SublimeLinter-contrib-perlcritic",
+		"Theme - Cobalt2",
+		"Theme - Soda",
+		"TrailingSpaces"
+	],
+	"repositories":
+	[
+		"https://github.com/kek/sublime-expand-selection-to-quotes"
+	]
+}
