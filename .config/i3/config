@@ -249,3 +249,8 @@ bindsym XF86AudioPrev exec playerctl previous
 exec_always gsettings set org.gnome.desktop.background show-desktop-icons false
 exec_always gsettings set org.nemo.desktop show-desktop-icons false
 exec_always compton -f
+
+# Keyboard layout
+# `man setxkbmap` for parameters
+# `man xkeyboard-config` for grp:*
+exec_always "setxkbmap -model pc104 -layout us,ru -variant , -option grp:win_space_toggle"
