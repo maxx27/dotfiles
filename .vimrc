@@ -117,8 +117,8 @@ set softtabstop=4     " On editing tab and BS count as 4 spaces
 " - Use :.retab to convert only the current line to use spaces
 
 " show line numbers
-set number
-set relativenumber
+"set number
+"set relativenumber
 
 " show status bar    " всегда показывать строку состояния
 "set laststatus=2
@@ -126,7 +126,8 @@ set relativenumber
 " show unprintable symbols $
 " set listchars=eol:¬,tab:→→,extends:>,precedes:<
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
-set list
+"set list
+set nolist
 noremap  <F5> :set list!<CR>
 inoremap <F5> <C-o>:set list!<CR>
 cnoremap <F5> <C-c>:set list!<CR>
