@@ -2,6 +2,7 @@
 "\e[A":history-search-backward
 ## arrow down
 "\e[B":history-search-forward
+
 ## home and end keys
 # https://wiki.archlinux.org/index.php/Home_and_End_keys_not_working
 #"\e[1~": beginning-of-line
@@ -13,3 +14,6 @@
 #"\e[H": beginning-of-line
 #"\e[F": end-of-line
 
+## allow to type russian letters
+# set output-meta on
+# set convert-meta off

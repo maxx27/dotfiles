@@ -8,6 +8,16 @@ case $- in
       *) return;;
 esac
 
+case $HOSTNAME in
+    beta|MSuslov)
+        # set terminal type, if you have installed Dwimperl
+        # http://stackoverflow.com/questions/11219266/how-to-fix-warning-terminal-is-not-fully-functional-error-in-command-console
+        # export TERM=msys
+        # export TERM=xterm
+        export TERM='cygwin'
+    ;;
+esac
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -37,7 +47,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+    xterm-color|cygwin) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -58,6 +68,8 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    # Custom bash prompt via kirsle.net/wizards/ps1.html
+    # PS1="\[$(tput bold)\]\[$(tput setaf 4)\][\[$(tput setaf 5)\]\u\[$(tput setaf 4)\]@\[$(tput setaf 5)\]\h \[$(tput setaf 2)\]\W\[$(tput setaf 4)\]]\\$ \[$(tput sgr0)\]"
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -71,27 +83,6 @@ xterm*|rxvt*)
 *)
     ;;
 esac
-
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -113,6 +104,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Custom bash prompt via kirsle.net/wizards/ps1.html
-export PS1="\[$(tput bold)\]\[$(tput setaf 4)\][\[$(tput setaf 5)\]\u\[$(tput setaf 4)\]@\[$(tput setaf 5)\]\h \[$(tput setaf 2)\]\W\[$(tput setaf 4)\]]\\$ \[$(tput sgr0)\]"
-
+case $HOSTNAME in
+    beta)
+        PATH="/d/Users/suslo/perl5/bin${PATH:+:${PATH}}"; export PATH;
+        PERL5LIB="/d/Users/suslo/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+        PERL_LOCAL_LIB_ROOT="/d/Users/suslo/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+        PERL_MB_OPT="--install_base \"/d/Users/suslo/perl5\""; export PERL_MB_OPT;
+        PERL_MM_OPT="INSTALL_BASE=/d/Users/suslo/perl5"; export PERL_MM_OPT;
+    ;;
+esac

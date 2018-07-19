@@ -1,7 +1,13 @@
+#
+*.bak
+*.log
 
 # Cache
+.cache/
+
+# Sublime
 .config/sublime-text-3/Packages/User/Package Control.cache
-.cache
+.codeintel
 
 # local history
 .kshdb_hist
@@ -9,7 +15,12 @@
 .mysql_history
 .bash_history
 .viminfo
+_viminfo
 
 # other
 .sudo_as_admin_successful
+.oracle_jre_usage/
+.p2/
 
+# Windows
+NTUSER.DAT*
