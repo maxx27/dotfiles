@@ -10,12 +10,14 @@
 .codeintel
 
 # local history
+.bash_history
 .kshdb_hist
 .lesshst
 .mysql_history
-.bash_history
+.python-history
 .viminfo
 _viminfo
+.wget-hsts
 
 # other
 .sudo_as_admin_successful
@@ -24,3 +26,4 @@ _viminfo
 
 # Windows
 NTUSER.DAT*
+
