@@ -46,8 +46,9 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
+# screen is set by tmux
 case "$TERM" in
-    xterm-color|cygwin) color_prompt=yes;;
+    xterm-color|cygwin|screen) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
