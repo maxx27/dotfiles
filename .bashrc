@@ -109,6 +109,11 @@ if ! shopt -oq posix; then
 fi
 
 case $HOSTNAME in
+    msuslov-lnx)
+        # at Luxoft ESET issue
+        export MAN_DISABLE_SECCOMP=1
+        # at Luxoft https://stackoverflow.com/questions/27835619/urllib-and-ssl-certificate-verify-failed-error
+        export PYTHONHTTPSVERIFY=0
     beta)
         PATH="/d/Users/suslo/perl5/bin${PATH:+:${PATH}}"; export PATH;
         PERL5LIB="/d/Users/suslo/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
@@ -117,3 +122,4 @@ case $HOSTNAME in
         PERL_MM_OPT="INSTALL_BASE=/d/Users/suslo/perl5"; export PERL_MM_OPT;
     ;;
 esac
+
