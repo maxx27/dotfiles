@@ -114,6 +114,7 @@ case $HOSTNAME in
         export MAN_DISABLE_SECCOMP=1
         # at Luxoft https://stackoverflow.com/questions/27835619/urllib-and-ssl-certificate-verify-failed-error
         export PYTHONHTTPSVERIFY=0
+    ;;
     beta)
         PATH="/d/Users/suslo/perl5/bin${PATH:+:${PATH}}"; export PATH;
         PERL5LIB="/d/Users/suslo/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
