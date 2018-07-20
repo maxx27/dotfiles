@@ -1,0 +1,43 @@
+use Cwd;
+use FindBin qw($Bin);
+use File::Spec::Functions;
+use File::Touch;
+use Data::Dumper;
+
+sub afterinit {
+    # print "AFTERINIT\n";
+    # for my $cmdfile ($ENV{PERLDB_MYCOMMANDFILE},
+    #                  catfile(getcwd(), '.perldbinit'),
+    #                  catfile($Bin, '.perldbinit')) {
+    #     if (-e $cmdfile) {
+    #         print STDERR "Running commands from $cmdfile...\n";
+    #         open my $cmdh, "<", $cmdfile or
+    #             die "Cannot open $cmdfile:$!";
+    #         push @DB::typeahead, <$cmdh>;
+    #         close $cmdh;
+    #         last;
+    #     }
+    # }
+}
+
+# print "PERLDB\n";
+# print STDERR "PERLDB\n";
+
+# save file
+# source file
+
+# touch('one.txt');
+
+package DB;
+
+# http://perldoc.perl.org/perldebug.html#Debugger-Customization
+# http://www.perlmonks.org/?node_id=1137043
+# http://www.perlmonks.org/?node_id=1154358
+# https://stackoverflow.com/questions/6433241/can-the-perl-debugger-save-the-readline-history-to-a-file
+# http://blogs.perl.org/users/matthew_persico/2016/12/saving-breakpoints-in-the-perl-debugger.html
+# sub sab {
+#     print "AAAAAAAAAA!!!!!!!!!!!!!!!!!\n";
+#     print Dumper(\@{"_<$filename"}) . "\n";
+#     print Dumper(\%{"_<$filename"}) . "\n";
+# }
+
