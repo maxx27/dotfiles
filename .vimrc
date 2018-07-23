@@ -42,12 +42,14 @@ endif
 " http://vim.wikia.com/wiki/Change_font
 if has('gui_running')
     set guifont=Lucida_Console:h12
+else
+    set term=xterm " Allow use arrows
+    set t_Co=256 " set 256 colors
+    set mouse=a " Allow scroll using mouse
+    let &t_AB="\e[48;5;%dm"
+    let &t_AF="\e[38;5;%dm"
 endif
 
-" Allow use arrows
-if !has('gui_running')
-    set term=xterm
-endif
 
 " CDC = Change to Directory of Current file
 " http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
@@ -116,9 +118,9 @@ set softtabstop=4     " On editing tab and BS count as 4 spaces
 " - Use :retab with a range
 " - Use :.retab to convert only the current line to use spaces
 
-" show line numbers
-"set number
-"set relativenumber
+" line numbers
+set nonumber
+set norelativenumber
 
 " show status bar    " всегда показывать строку состояния
 "set laststatus=2
@@ -153,3 +155,4 @@ set makeprg=make\ -j\ $(nproc)
 " - :cl to list errors
 " - :cc# to jump to error by number
 " - :cn and :cp to navigate forward and back
+
