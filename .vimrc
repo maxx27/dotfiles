@@ -2,31 +2,44 @@
 " - reload seeting from it :so %
 " - :so $MYVIMRC
 
-" Если команда имеет формат `set XYZ`, тогда для обратного эффекта используется команда `set noXYZ`
-" Если команда имеет формат `XYZ on`, тогда для обратного эффекта используется команда `XYZ off`
+" Enable/disable command patterns:
+" set XYZ / set noXYZ
+" XYZ on / XYZ off
 
-" enter current millenium
-set nocompatible
+set nocompatible                    " enter current millenium
 
-set langmenu=en_US
-let $LANG='en_US'
-
-" enable syntax (except on mingw)
-if !has("win32unix")
-"let uname = system('uname -a')
-"if uname !~ 'MINGW'
-    "colorscheme cobalt2
-    " colorscheme cobalt2_short
-    " colorscheme cobalt2_1
+"====================================
+" PLUGINS
+"====================================
+" Check for vim-plug; install if missing
+let plugpath = expand('<sfile>:p:h') . '/.vim/autoload/plug.vim'
+if !filereadable(plugpath)
+    if executable('curl')
+        call system('curl -fLo ' . shellescape(plugpath) . ' --create-dirs ' .
+            \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
+        if v:shell_error
+            echo "Error downloading vim-plug. Please install it manually.\n"
+            exit
+        endif
+    else
+        echo "Unable to download vim-plug. Please install it manually or install curl.\n"
+        exit
+    endif
 endif
-syntax enable
 
-" make the backspace work like in most other programs
-set backspace=indent,eol,start
-nnoremap <BS> X
+" Load up all of our plugins
+if filereadable(expand("~/.vim/plugins.vim"))
+  source ~/.vim/plugins.vim
+endif
 
-" enable plugin (for netrw)
-filetype plugin on
+"====================================
+" GENERAL
+"====================================
+
+if has("menu") && has("multi_lang")
+    set langmenu=en_US
+    let $LANG='en_US'
+endif
 
 " http://vim.wikia.com/wiki/Working_with_Unicode
 if has("multi_byte")
@@ -39,32 +52,201 @@ if has("multi_byte")
     set fileencodings=ucs-bom,utf-8,latin1
 endif
 
-" http://vim.wikia.com/wiki/Change_font
-if has('gui_running')
-    set guifont=Lucida_Console:h12
-else
-    set term=xterm " Allow use arrows
-    set t_Co=256 " set 256 colors
-    set mouse=a " Allow scroll using mouse
-    let &t_AB="\e[48;5;%dm"
-    let &t_AF="\e[38;5;%dm"
+set shortmess+=I                    " Don't show the Vim welcome screen.
+
+set magic                           " Set magic on, for regex
+noremap / /\v                       " Use perl-ish regexp style, otherwise use :s/\vfoo/bar/g for substitutions
+
+" Enable mouse support if it's available
+if has("mouse")
+    set mousehide                   " hide the mouse cursor when typing
+    set mouse=a                     " full mouse support
+    set ttymouse=xterm2
 endif
 
+set autoread                        " detect when a file is changed
 
-" CDC = Change to Directory of Current file
-" http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
-command! CDC cd %:p:h
+"set splitright                     " split new vertical windows right of current window
+"set splitbelow                     " split new horizontal windows under current window
 
-" Searcg down into subfolders
+set clipboard=unnamed               " Yank to the system clipboard
+
+" Search down into subfolders
 " Provides tab-completion for all file-related tasks
 set path+=**
 
 " Display all matching files when we tab complete
 set wildmenu
+"set wildmode=list:longest           " complete files like a shell
+set completeopt+=longest
+set completeopt-=preview             " Don't show the preview window when completing
+set wildignore+=*.pyc,*.obj,*.bin,a.out " Ignore binary files in the standard vim file finder
+
 " NOW WE CAN:
 " - Hit tab to :find by partial match
 " - Use * to make it fuzzy
 " - :b lets you autocomplete any open buffer
+
+set incsearch                       " go to search results as typing
+set hlsearch                        " highlight search things
+highlight search ctermbg=5          " highlight background color
+set ignorecase                      " ignore case for pattern matches
+set smartcase                       " override 'ignorecase' if pattern contains uppercase
+
+" enable plugin (for netrw)
+filetype plugin on
+
+"====================================
+" Swap and undo files and directories
+"====================================
+
+set nobackup                        " do not keep backup files
+set backupcopy=yes                  " Overwrite the original file when saving
+set directory^=~/.vim/.tmp//        " swap directory
+set updatecount=20                  " update the swap file every 20 characters
+
+set undolevels=1000
+if v:version >= 703                 " options only for Vim >= 7.3
+    set undofile
+    set undodir=~/.vim/.undo        " undo file directory
+endif
+
+"====================================
+" APPEARANCE
+"====================================
+
+" enable syntax (except on mingw)
+if !has("win32unix")
+"let uname = system('uname -a')
+"if uname !~ 'MINGW'
+    "colorscheme cobalt2
+    " colorscheme cobalt2_short
+    " colorscheme cobalt2_1
+endif
+syntax enable
+
+set ruler                           " always show current position
+set showcmd                         " Show typed commands in the cmd area
+set showmode                        " display the mode you're in
+set laststatus=2                    " always show the statusline
+
+" line numbers
+set nonumber         " show line numbers
+set norelativenumber
+set numberwidth=4    " minimum of 4 columns for line numbers
+
+set nocursorline                    " (!) highlight current line, for quick orientation
+
+set scrolloff=3                     " show 3 lines of context around the cursor (top and bottom)
+set sidescrolloff=5                 " show 5 lines of context around the cursor (left and right)
+set sidescroll=1                    " number of chars to scroll when scrolling sideways
+
+set nowrap                          " Don't wrap text by default
+
+set list                  " show unprintable symbols $
+" set listchars=eol:¬,tab:→→,extends:>,precedes:<
+" set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+set showbreak=↪
+
+" http://vim.wikia.com/wiki/Change_font
+if has('gui_running')
+    set guifont=Lucida_Console:h12
+    " set antialias
+else
+    set term=xterm " Allow use arrows
+    set t_Co=256 " set 256 colors
+    let &t_AB="\e[48;5;%dm"
+    let &t_AF="\e[38;5;%dm"
+endif
+
+if &term =~ '256color'
+    set t_ut=                       " disable background color erase
+endif
+
+" switch cursor to line when in insert mode, and block when not
+set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
+\,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
+\,sm:block-blinkwait175-blinkoff150-blinkon175
+
+" enable 24 bit color support if supported
+if has('mac') && empty($TMUX) && has("termguicolors")
+    set termguicolors
+endif
+
+" highlight conflicts
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
+"" error bells
+"set noerrorbells
+"set visualbell
+"set t_vb=
+"set tm=500
+
+"====================================
+" Editing
+"====================================
+
+" make the backspace work like in most other programs
+set backspace=indent,eol,start
+nnoremap <BS> X
+
+" http://vim.wikia.com/wiki/Converting_tabs_to_spaces
+set autoindent                      " always set autoindenting on
+set nosmartindent                   " 'smartindent' breaks right-shifting of # lines
+set tabstop=4                       " show existing tab with 4 spaces width
+set shiftwidth=4                    " when indenting with '>', use 4 spaces width
+set expandtab                       " On pressing tab, insert spaces
+set softtabstop=4                   " On editing tab and BS count as 4 spaces
+" NOW WE CAN:
+" - Use :retab with a range
+" - Use :.retab to convert only the current line to use spaces
+
+set nomodeline                      " Ignore modelines
+set nojoinspaces                    " Only insert 1 space after a period when joining lines
+set textwidth=0                     " don't auto-wrap lines except for specific filetypes
+
+set formatoptions+=ron              " Automatically format comments and numbered lists
+
+"====================================
+" BUILD INTEGRATION
+"====================================
+
+" Configure the `make` command to run the following
+set makeprg=make\ -j\ $(nproc)
+" NOW WE CAN:
+" - Run :make to run the command above
+" - :cl to list errors
+" - :cc# to jump to error by number
+" - :cn and :cp to navigate forward and back
+
+"====================================
+" General Mappings
+"====================================
+
+noremap  <F5> :set list!<CR>
+inoremap <F5> <C-o>:set list!<CR>
+cnoremap <F5> <C-c>:set list!<CR>
+" NOW YOU CAN:
+" - Toggle to it so you can see the changes mid editing easily
+
+" Press Space to turn off highlighting and clear any message already displayed
+"nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
+" set pastetoggle=<F2> "F2 before pasting to preserve indentation
+" "Copy paste to/from clipboard
+" vnoremap <C-c> "*y
+" map <silent><Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>"
+" map <silent><Leader><S-p> :set paste<CR>O<esc>"*]p:set nopaste<cr>"
+
+"====================================
+" COMMANDS
+"====================================
+
+" CDC = Change to Directory of Current file
+" http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
+command! CDC cd %:p:h
+
 
 " Create the `tags` file (may need to install ctags first)
 command! MakeTags !ctags -R .
@@ -83,76 +265,9 @@ command! MakeTags !ctags -R .
 " NOW WE CAN:
 " - Use ^n and ^p to go back and forth in the suggestion list
 
-" FILE BROWSING:
-" Tweaks for browsing
-let g:netrw_banner=0       " disable annoying banner
-let g:netrw_browse_split=4 " open in prior window
-let g:netrw_altv=1         " open splits to the right
-let g:netrw_liststyle=3    " tree view
-let g:netrw_list_hide=netrw_gitignore#Hide()
-let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
-" NOW WE CAN:
-" - :edit a folder to open a file browser
-" - <CR>/v/t to open in an h-split/v-split/tab
-" - check |netrw-browse-maps| for more mappings
-" HOW TO:
-" - edit over SSH?
-
-" Search options: make it a highlighted incremental search
-set hls is
-" highlight background color
-highlight search ctermbg=5
-" Press Space to turn off highlighting and clear any message already displayed
-"nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
-" Ignore case sensitivity when searching
-set ignorecase
-
-
-" http://vim.wikia.com/wiki/Converting_tabs_to_spaces
-set autoindent        " always set autoindenting on
-set tabstop=4         " show existing tab with 4 spaces width
-set shiftwidth=4      " when indenting with '>', use 4 spaces width
-set expandtab         " On pressing tab, insert spaces
-set softtabstop=4     " On editing tab and BS count as 4 spaces
-" NOW WE CAN:
-" - Use :retab with a range
-" - Use :.retab to convert only the current line to use spaces
-
-" line numbers
-set nonumber
-set norelativenumber
-
-" show status bar    " всегда показывать строку состояния
-"set laststatus=2
-
-" show unprintable symbols $
-" set listchars=eol:¬,tab:→→,extends:>,precedes:<
-set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
-"set list
-set nolist
-noremap  <F5> :set list!<CR>
-inoremap <F5> <C-o>:set list!<CR>
-cnoremap <F5> <C-c>:set list!<CR>
-" NOW YOU CAN:
-" - Toggle to it so you can see the changes mid editing easily
-
-" (no)wrap - динамический (не)перенос длинных строк
-" set wrap
-
-" показывать незавершенные команды в статусбаре (автодополнение ввода)
-" set showcmd
-
-" SNIPPETS:
+"====================================
+" SNIPPETS
+"====================================
 
 " Read an empty HTML tempale and move cursor to title
 nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
-
-" BUILD INTEGRATION:
-" Configure the `make` command to run the following
-set makeprg=make\ -j\ $(nproc)
-" NOW WE CAN:
-" - Run :make to run the command above
-" - :cl to list errors
-" - :cc# to jump to error by number
-" - :cn and :cp to navigate forward and back
-
