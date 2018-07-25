@@ -6,37 +6,14 @@
 " set XYZ / set noXYZ
 " XYZ on / XYZ off
 
-set nocompatible                    " enter current millenium
-
-"====================================
-" PLUGINS
-"====================================
-" Check for vim-plug; install if missing
-let plugpath = expand('<sfile>:p:h') . '/.vim/autoload/plug.vim'
-if !filereadable(plugpath)
-    if executable('curl')
-        call system('curl -fLo ' . shellescape(plugpath) . ' --create-dirs ' .
-            \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
-        if v:shell_error
-            echo "Error downloading vim-plug. Please install it manually.\n"
-            exit
-        endif
-    else
-        echo "Unable to download vim-plug. Please install it manually or install curl.\n"
-        exit
-    endif
-endif
-
-" Load up all of our plugins
-if filereadable(expand("~/.vim/plugins.vim"))
-  source ~/.vim/plugins.vim
-endif
-
 "====================================
 " GENERAL
 "====================================
 
+set nocompatible                    " enter current millenium
+
 if has("menu") && has("multi_lang")
+    language en_US.utf8
     set langmenu=en_US
     let $LANG='en_US'
 endif
@@ -52,6 +29,8 @@ if has("multi_byte")
     set fileencodings=ucs-bom,utf-8,latin1
 endif
 
+set spelllang=en
+
 set shortmess+=I                    " Don't show the Vim welcome screen.
 
 set magic                           " Set magic on, for regex
@@ -64,7 +43,8 @@ if has("mouse")
     set ttymouse=xterm2
 endif
 
-set autoread                        " detect when a file is changed
+set autowrite                       " Automatically :write before running commands
+set autoread                        " Reload files changed outside vim
 
 "set splitright                     " split new vertical windows right of current window
 "set splitbelow                     " split new horizontal windows under current window
@@ -123,7 +103,14 @@ if !has("win32unix")
     " colorscheme cobalt2_short
     " colorscheme cobalt2_1
 endif
-syntax enable
+
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
+    syntax on
+    "syntax enable
+endif
+
 
 set ruler                           " always show current position
 set showcmd                         " Show typed commands in the cmd area
@@ -183,6 +170,8 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 "set t_vb=
 "set tm=500
 
+set diffopt+=vertical               " Always use vertical diffs
+
 "====================================
 " Editing
 "====================================
@@ -224,11 +213,65 @@ set makeprg=make\ -j\ $(nproc)
 " General Mappings
 "====================================
 
-noremap  <F5> :set list!<CR>
-inoremap <F5> <C-o>:set list!<CR>
-cnoremap <F5> <C-c>:set list!<CR>
-" NOW YOU CAN:
-" - Toggle to it so you can see the changes mid editing easily
+" Set mapleader
+let mapleader = ","
+let g:mapleader = ","
+" Map default leader to what , does normally
+nnoremap \ ,
+
+" Fast saving
+nnoremap <leader>w :up!<cr>
+" Fast reloading of the .vimrc
+noremap <leader>s :source $MYVIMRC<cr>
+" Fast editing of .vimrc
+noremap <leader>v :e! $MYVIMRC<cr>
+
+" toggle spell checking
+map <leader>spell :setlocal spell!<cr>
+
+" toggle `set list`
+nmap <leader>l :set list!<cr>
+
+" Change directory to current buffer
+map <leader>cd :cd %:p:h<cr>
+
+" noremap <leader>t :tabnew<cr>
+" noremap <C-j> :bn<CR>
+" noremap <C-k> :bp<CR>
+noremap <leader>d :BW!<cr>
+noremap <leader>. <C-^>
+
+" Quicker window movement
+"nnoremap <C-j> <C-w>j
+"nnoremap <C-k> <C-w>k
+"nnoremap <C-h> <C-w>h
+"nnoremap <C-l> <C-w>l
+noremap <silent> <C-h> :call WinMove('h')<cr>
+noremap <silent> <C-j> :call WinMove('j')<cr>
+noremap <silent> <C-k> :call WinMove('k')<cr>
+noremap <silent> <C-l> :call WinMove('l')<cr>
+noremap <leader>q :wincmd q<cr>
+
+
+" Remap code completion from Ctrl+x, Ctrl+o to Ctrl+Space
+" inoremap <C-Space> <C-x><C-o>
+" inoremap <C-@> <C-x><C-o>
+
+" surround.vim
+nmap <silent> dsf ds)db
+
+" Fugitive
+noremap <leader>gd :Gdiff<cr>
+noremap <leader>gc :Gcommit -v<cr>
+noremap <leader>gs :Gstatus<cr>
+
+" Syntastic
+"nmap <leader>err :Errors<CR><C-W>j
+"noremap <leader>y :SyntasticCheck<cr>
+
+" NERDTree
+"nnoremap ,f :NERDTreeToggle<CR>
+"nnoremap ,F :NERDTreeFocus<CR>
 
 " Press Space to turn off highlighting and clear any message already displayed
 "nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
@@ -240,12 +283,15 @@ cnoremap <F5> <C-c>:set list!<CR>
 " map <silent><Leader><S-p> :set paste<CR>O<esc>"*]p:set nopaste<cr>"
 
 "====================================
-" COMMANDS
+" SNIPPETS
 "====================================
 
-" CDC = Change to Directory of Current file
-" http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
-command! CDC cd %:p:h
+" Read an empty HTML tempale and move cursor to title
+nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
+
+"====================================
+" COMMANDS
+"====================================
 
 
 " Create the `tags` file (may need to install ctags first)
@@ -265,9 +311,41 @@ command! MakeTags !ctags -R .
 " NOW WE CAN:
 " - Use ^n and ^p to go back and forth in the suggestion list
 
-"====================================
-" SNIPPETS
-"====================================
 
-" Read an empty HTML tempale and move cursor to title
-nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
+"====================================
+" FUNCTIONS
+"====================================
+if filereadable(expand("~/.vim/functions.vim"))
+    source ~/.vim/functions.vim
+endif
+
+"====================================
+" LOCAL CONFIG
+"====================================
+if filereadable(expand("~/.vim.local"))
+    source ~/.vim.local
+endif
+
+"====================================
+" PLUGINS
+"====================================
+" Check for vim-plug; install if missing
+let plugpath = expand('<sfile>:p:h') . '/.vim/autoload/plug.vim'
+if !filereadable(plugpath)
+    if executable('curl')
+        call system('curl -fLo ' . shellescape(plugpath) . ' --create-dirs ' .
+            \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
+        if v:shell_error
+            echo "Error downloading vim-plug. Please install it manually.\n"
+            exit
+        endif
+    else
+        echo "Unable to download vim-plug. Please install it manually or install curl.\n"
+        exit
+    endif
+endif
+
+" Load up all of our plugins
+if filereadable(expand("~/.vim/plugins.vim"))
+    source ~/.vim/plugins.vim
+endif

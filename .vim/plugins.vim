@@ -4,7 +4,34 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-fugitive'                  " Git utilities
 Plug 'tpope/vim-surround'                  " for manipulating parens and such
+
+" NERDTree
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFocus', 'NERDTreeFind'] }
+let g:NERDTreeHighlightCursorline=1
+let g:NERDTreeShowHidden=1
+let g:NERDTreeMinimalUI=1
+let g:NERDTreeWinSize=40
+let g:NERDTreeIgnore=['\~$', '\.pyc', '__pycache__']
+
+" NERDTree
+" ---------------------------------------------------------------------
+let g:NERDTreeAutoDeleteBuffer=1
+let g:NERDTreeMinimalUI=1
+let g:NERDTreeWinSize=40
+let g:NERDTreeDirArrowExpandable = '▷'
+let g:NERDTreeDirArrowCollapsible = '▼'
+let g:NERDTreeRespectWildIgnore = 1
+
+function! ToggleNerdTree()
+    if @% != "" && (!exists("g:NERDTree") || (g:NERDTree.ExistsForTab() && !g:NERDTree.IsOpen()))
+        :NERDTreeFind
+    else
+        :NERDTreeToggle
+    endif
+endfunction
+
+map <silent> <Leader>n :call ToggleNerdTree()<CR>
+
 "Plug 'christoomey/vim-tmux-navigator'      " Easy movement between vim and tmux panes
 
 call plug#end()
