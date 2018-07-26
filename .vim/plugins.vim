@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-fugitive'                  " Git utilities
 Plug 'tpope/vim-surround'                  " for manipulating parens and such
+Plug 'tpope/vim-repeat'                    "allow plugins to utilize . command
 
 " NERDTree
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFocus', 'NERDTreeFind'] }
@@ -32,7 +33,39 @@ endfunction
 
 map <silent> <Leader>n :call ToggleNerdTree()<CR>
 
-"Plug 'christoomey/vim-tmux-navigator'      " Easy movement between vim and tmux panes
+" [2]
+map <silent> <C-n> :NERDTreeToggle<cr>
+nnoremap <C-t> :call ToggleRelativeOn()<cr>
+" Close vim if only NERDTree is open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Several plugins to help work with Tmux
+Plug 'christoomey/vim-tmux-navigator'      " Easy movement between vim and tmux panes
+Plug 'https://github.com/christoomey/vim-tmux-runner'
+Plug 'christoomey/vim-run-interactive'
+
+" Allow moving around between Tmux windows
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+let g:tmux_navigator_no_mappings = 1
+let g:tmux_navigator_save_on_switch = 1
+"
+"Open a tmux pane with Node
+nnoremap <leader>node :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'node'}<cr>
+
+" search filesystem with ctrl+p
+Plug 'ctrlpvim/ctrlp.vim'
+
+" Code linting
+Plug 'scrooloose/syntastic' "Run linters and display errors etc
+
+" [8] Diary, notes, whatever. It's amazing
+Plug 'vimwiki/vimwiki'
+
+" Opens a browser to preview markdown files
+"Plug 'suan/vim-instant-markdown', {'do': 'npm install -g instant-markdown-d'}
 
 call plug#end()
 
