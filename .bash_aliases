@@ -34,6 +34,7 @@ if which tmux > /dev/null; then
     alias tls='tmux ls'
     alias tat='tmux attach -t'
     alias tns='tmux new-session -s'
+    alias tso='tmux show-options'
 fi
 
 # FROM DEFAULT CONFIG
