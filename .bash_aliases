@@ -28,6 +28,14 @@ case $HOSTNAME in
     ;;
 esac
 
+# tmux aliases
+if which tmux > /dev/null; then
+    alias ta='tmux attach'
+    alias tls='tmux ls'
+    alias tat='tmux attach -t'
+    alias tns='tmux new-session -s'
+fi
+
 # FROM DEFAULT CONFIG
 
 # enable color support of ls and also add handy aliases
