@@ -21,6 +21,10 @@
 .viminfo
 _viminfo
 
+# Tmux
+.tmux/plugins
+!.tmux/plugins/tpm
+
 # local history
 .bash_history
 .kshdb_hist
@@ -36,4 +40,3 @@ _viminfo
 
 # Windows
 NTUSER.DAT*
-
