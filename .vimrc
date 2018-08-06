@@ -34,7 +34,8 @@ set spelllang=en
 set shortmess+=I                    " Don't show the Vim welcome screen.
 
 set magic                           " Set magic on, for regex
-noremap / /\v                       " Use perl-ish regexp style, otherwise use :s/\vfoo/bar/g for substitutions
+
+" noremap / /\v                       " Use perl-ish regexp style, otherwise use :s/\vfoo/bar/g for substitutions
 
 " Enable mouse support if it's available
 if has("mouse")
@@ -99,16 +100,16 @@ endif
 if !has("win32unix")
 "let uname = system('uname -a')
 "if uname !~ 'MINGW'
-    "colorscheme cobalt2
+    colorscheme cobalt2
     " colorscheme cobalt2_short
     " colorscheme cobalt2_1
 endif
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
+syntax off
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-    syntax on
-    "syntax enable
+    "syntax on
 endif
 
 
