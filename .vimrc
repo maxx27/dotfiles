@@ -173,6 +173,41 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 set diffopt+=vertical               " Always use vertical diffs
 
+set equalalways                     " Split with the same size
+set eadirection=both                " for both vertical and horizontal splits
+" Opening and closing a window:
+" - Use C-w s or :split  to split current window in two horizontally
+" - Use C-w v or :vsplit to split current window in two vertically
+" - Use C-w n or :new    to create a new window with empty file horizontally
+" - Use          :vnew   to create a new window with empty file vertically
+" - Use C-w q or :quit   to quit current window
+" - Use C-w c or :close  to close current window
+" - Use C-w o or :only   to make the current window the only one on the screen. All other windows are closed
+" Moving cursor to other windows:
+" - Use C-arrow or C-hjkl to move cursor to Nth window left/below/above/right of current one.
+" - Use C-w w or C-w C-w to move cursor to window below/right of the current one
+" - Use C-w W or C-w C-W to move cursor to window above/left of current one
+" - Use C-w t or C-w C-t to move cursor to top-left window
+" - Use C-w b or C-w C-b to move cursor to bottom-right window
+" - Use C-w p or C-w C-p to go to previous (last accessed) window
+" - Use C-w P            to go to preview window
+" Moving windows around:
+" - Use C-w x to exchange current window with next one
+" - Use C-w r to rotate windows downwards/rightwards
+" - Use C-w R to rotate windows upwards/leftwards
+" - Use C-w K to move the current window to be at the very top, using the full width of the screen
+" - Use C-w J to move the current window to be at the very bottom, using the full width of the screen
+" - Use C-w H to move the current window to be at the far left, using the full height of the screen
+" - Use C-w L to move the current window to be at the far right, using the full height of the screen
+" - Use C-w T to move the current window to a new tab page
+" Window resizing:
+" - Use C-w =               to make all windows (almost) equally high and wide
+" - Use C-w - or :resize -N to decrease current window height by N (default 1)
+" - Use C-w + or :resize +N to increase current window height by N (default 1)
+" - Use C-w <               to decrease current window width by N (default 1).
+" - Use C-w >               to increase current window width by N (default 1).
+
+
 "====================================
 " Editing
 "====================================
