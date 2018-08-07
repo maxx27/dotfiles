@@ -109,7 +109,7 @@ endif
 " Also switch on highlighting the last used search pattern.
 syntax off
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-    "syntax on
+    syntax on
 endif
 
 
@@ -132,9 +132,9 @@ set sidescroll=1                    " number of chars to scroll when scrolling s
 set nowrap                          " Don't wrap text by default
 
 set list                  " show unprintable symbols $
-" set listchars=eol:¬,tab:→→,extends:>,precedes:<
+set listchars=eol:¬,tab:→→,extends:>,precedes:<
 " set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
-set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+" set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
 set showbreak=↪
 
 " http://vim.wikia.com/wiki/Change_font
