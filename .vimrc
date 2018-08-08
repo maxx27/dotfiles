@@ -3,8 +3,11 @@
 " - :so $MYVIMRC
 
 " Enable/disable command patterns:
-" set XYZ / set noXYZ
-" XYZ on / XYZ off
+" :set XYZ / :set noXYZ
+" :XYZ on / :XYZ off
+
+" Show option value:
+" :set expandtab?
 
 "====================================
 " GENERAL
