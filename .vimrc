@@ -263,10 +263,18 @@ noremap <leader>s :source $MYVIMRC<cr>
 noremap <leader>v :e! $MYVIMRC<cr>
 
 " Toggle highlighting
-nmap <leader>h :set hlsearch!<cr>
+nmap <leader>h :set hlsearch! \| set list?<cr>
 
 " Toggle `set list`
-nmap <leader>l :set list!<cr>
+nmap <leader>l :set list! \| set list?<cr>
+
+" Toggle paste indent
+map <leader>p :set paste! \| set paste?<cr>
+" set pastetoggle=<F2> "F2 before pasting to preserve indentation
+" "Copy paste to/from clipboard
+" vnoremap <C-c> "*y
+" map <silent><Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>"
+" map <silent><Leader><S-p> :set paste<CR>O<esc>"*]p:set nopaste<cr>"
 
 " Toggle spell checking
 map <leader>spell :setlocal spell!<cr>
@@ -290,12 +298,6 @@ noremap <silent> <C-j> :call WinMove('j')<cr>
 noremap <silent> <C-k> :call WinMove('k')<cr>
 noremap <silent> <C-l> :call WinMove('l')<cr>
 noremap <leader>q :wincmd q<cr>
-
-" set pastetoggle=<F2> "F2 before pasting to preserve indentation
-" "Copy paste to/from clipboard
-" vnoremap <C-c> "*y
-" map <silent><Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>"
-" map <silent><Leader><S-p> :set paste<CR>O<esc>"*]p:set nopaste<cr>"
 
 "====================================
 " SNIPPETS
