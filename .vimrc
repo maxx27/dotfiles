@@ -143,10 +143,10 @@ set showbreak=↪
 " http://vim.wikia.com/wiki/Change_font
 if has('gui_running')
     set guifont=Lucida_Console:h12
-    " set antialias
+    set antialias
 else
-    set term=xterm " Allow use arrows
-    set t_Co=256 " set 256 colors
+    set term=xterm                  " allow use arrows and other special keys
+    set t_Co=256                    " set 256 colors
     let &t_AB="\e[48;5;%dm"
     let &t_AF="\e[38;5;%dm"
 endif
@@ -155,13 +155,8 @@ if &term =~ '256color'
     set t_ut=                       " disable background color erase
 endif
 
-" switch cursor to line when in insert mode, and block when not
-set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
-\,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
-\,sm:block-blinkwait175-blinkoff150-blinkon175
-
 " enable 24 bit color support if supported
-if has('mac') && empty($TMUX) && has("termguicolors")
+if empty($TMUX) && has("termguicolors")
     set termguicolors
 endif
 
@@ -261,9 +256,9 @@ nnoremap \ ,
 " Fast saving
 nnoremap <leader>w :up!<cr>
 " Fast reloading of the .vimrc
-noremap <leader>s :source $MYVIMRC<cr>
+noremap <leader>r :source $MYVIMRC<cr>
 " Fast editing of .vimrc
-noremap <leader>v :e! $MYVIMRC<cr>
+noremap <leader>s :e! $MYVIMRC<cr>
 
 " Toggle highlighting
 nmap <leader>h :set hlsearch! \| set list?<cr>
