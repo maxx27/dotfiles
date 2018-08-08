@@ -74,8 +74,8 @@ highlight search ctermbg=5          " highlight background color
 set ignorecase                      " ignore case for pattern matches
 set smartcase                       " override 'ignorecase' if pattern contains uppercase
 
-" enable plugin (for netrw)
-filetype plugin on
+filetype on                         " enable file type detection
+filetype plugin on                  " load options and mappings only for current buffer
 
 "====================================
 " Swap and undo files and directories
@@ -262,11 +262,14 @@ noremap <leader>s :source $MYVIMRC<cr>
 " Fast editing of .vimrc
 noremap <leader>v :e! $MYVIMRC<cr>
 
-" toggle spell checking
-map <leader>spell :setlocal spell!<cr>
+" Toggle highlighting
+nnoremap <silent><expr> <Leader>h (&hlsearch && v:hlsearch ? ':set nohlsearch' : ':set hlsearch')."\n"
 
-" toggle `set list`
+" Toggle `set list`
 nmap <leader>l :set list!<cr>
+
+" Toggle spell checking
+map <leader>spell :setlocal spell!<cr>
 
 " Change directory to current buffer
 map <leader>cd :cd %:p:h<cr>
@@ -288,30 +291,6 @@ noremap <silent> <C-k> :call WinMove('k')<cr>
 noremap <silent> <C-l> :call WinMove('l')<cr>
 noremap <leader>q :wincmd q<cr>
 
-
-" Remap code completion from Ctrl+x, Ctrl+o to Ctrl+Space
-" inoremap <C-Space> <C-x><C-o>
-" inoremap <C-@> <C-x><C-o>
-
-" surround.vim
-nmap <silent> dsf ds)db
-
-" Fugitive
-noremap <leader>gd :Gdiff<cr>
-noremap <leader>gc :Gcommit -v<cr>
-noremap <leader>gs :Gstatus<cr>
-
-" Syntastic
-"nmap <leader>err :Errors<CR><C-W>j
-"noremap <leader>y :SyntasticCheck<cr>
-
-" NERDTree
-"nnoremap ,f :NERDTreeToggle<CR>
-"nnoremap ,F :NERDTreeFocus<CR>
-
-" Press Space to turn off highlighting and clear any message already displayed
-"nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
-
 " set pastetoggle=<F2> "F2 before pasting to preserve indentation
 " "Copy paste to/from clipboard
 " vnoremap <C-c> "*y
@@ -329,7 +308,6 @@ nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 " COMMANDS
 "====================================
 
-
 " Create the `tags` file (may need to install ctags first)
 command! MakeTags !ctags -R .
 " NOW WE CAN:
@@ -340,17 +318,27 @@ command! MakeTags !ctags -R .
 " AUTOCOMPLETE:
 " The good stuff is documented in |ins-completion|
 " HIGHLIGHTS:
-" - ^x^n for JUST this file
-" - ^x^f for filenames (works with our path trick!)
+" - ^x^l for whole lines
+" - ^x^n for keywords forward
+" - ^x^p for keywords backward
+" - ^x^k for keywords in 'dictionary'
+" - ^x^t for keywords in 'thesaurus'
+" - ^x^i for keywords in the current and included files
 " - ^x^] for tags only
+" - ^x^f for filenames (works with our path trick!)
+" - ^x^d for definitions or macros
+" - ^x^v for vim command-line
+" - ^x^u for user defined completion
+" - ^x^o for omni completion
+" - ^x^s for spelling suggestions
 " - ^n for anything specified by the 'complete' option
 " NOW WE CAN:
 " - Use ^n and ^p to go back and forth in the suggestion list
 
-
 "====================================
 " FUNCTIONS
 "====================================
+
 if filereadable(expand("~/.vim/functions.vim"))
     source ~/.vim/functions.vim
 endif
@@ -358,6 +346,7 @@ endif
 "====================================
 " LOCAL CONFIG
 "====================================
+
 if filereadable(expand("~/.vim.local"))
     source ~/.vim.local
 endif
@@ -365,6 +354,7 @@ endif
 "====================================
 " PLUGINS
 "====================================
+
 " Check for vim-plug; install if missing
 let plugpath = expand('<sfile>:p:h') . '/.vim/autoload/plug.vim'
 if !filereadable(plugpath)

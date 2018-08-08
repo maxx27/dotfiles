@@ -6,6 +6,23 @@ Plug 'tpope/vim-fugitive'                  " Git utilities
 Plug 'tpope/vim-surround'                  " for manipulating parens and such
 Plug 'tpope/vim-repeat'                    "allow plugins to utilize . command
 
+" surround.vim
+nmap <silent> dsf ds)db
+
+" Fugitive
+noremap <leader>gd :Gdiff<cr>
+noremap <leader>gc :Gcommit -v<cr>
+noremap <leader>gs :Gstatus<cr>
+
+" Syntastic
+"nmap <leader>err :Errors<CR><C-W>j
+"noremap <leader>y :SyntasticCheck<cr>
+
+" NERDTree
+"nnoremap ,f :NERDTreeToggle<CR>
+"nnoremap ,F :NERDTreeFocus<CR>
+
+
 " NERDTree
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFocus', 'NERDTreeFind'] }
 let g:NERDTreeHighlightCursorline=1
