@@ -277,12 +277,14 @@ map <leader>p :set paste! \| set paste?<cr>
 " Toggle spell checking
 map <leader>spell :setlocal spell!<cr>
 
+" Easier moving between tabs
+"nmap <leader>[ :tabprevious<cr>
+"nmap <leader>[ :tabnext<cr>
+"nmap <leader>t :tabnew<cr>
+
 " Change directory to current buffer
 map <leader>cd :cd %:p:h<cr>
 
-" noremap <leader>t :tabnew<cr>
-" noremap <C-j> :bn<CR>
-" noremap <C-k> :bp<CR>
 noremap <leader>d :BW!<cr>
 noremap <leader>. <C-^>
 
@@ -291,11 +293,11 @@ noremap <leader>. <C-^>
 "nnoremap <C-k> <C-w>k
 "nnoremap <C-h> <C-w>h
 "nnoremap <C-l> <C-w>l
-noremap <silent> <C-h> :call WinMove('h')<cr>
-noremap <silent> <C-j> :call WinMove('j')<cr>
-noremap <silent> <C-k> :call WinMove('k')<cr>
-noremap <silent> <C-l> :call WinMove('l')<cr>
-noremap <leader>q :wincmd q<cr>
+"noremap <silent> <C-h> :call WinMove('h')<cr>
+"noremap <silent> <C-j> :call WinMove('j')<cr>
+"noremap <silent> <C-k> :call WinMove('k')<cr>
+"noremap <silent> <C-l> :call WinMove('l')<cr>
+"noremap <leader>q :wincmd q<cr>
 
 "====================================
 " SNIPPETS
