@@ -285,26 +285,15 @@ map <leader>spell :setlocal spell!<cr>
 " Change directory to current buffer
 map <leader>cd :cd %:p:h<cr>
 
-noremap <leader>d :BW!<cr>
-noremap <leader>. <C-^>
-
-" Quicker window movement
-"nnoremap <C-j> <C-w>j
-"nnoremap <C-k> <C-w>k
-"nnoremap <C-h> <C-w>h
-"nnoremap <C-l> <C-w>l
-"noremap <silent> <C-h> :call WinMove('h')<cr>
-"noremap <silent> <C-j> :call WinMove('j')<cr>
-"noremap <silent> <C-k> :call WinMove('k')<cr>
-"noremap <silent> <C-l> :call WinMove('l')<cr>
-"noremap <leader>q :wincmd q<cr>
+"noremap <leader>d :BW!<cr>         " https://habr.com/post/149817/
+"noremap <leader>. <C-^>            " edit alternative file
 
 "====================================
 " SNIPPETS
 "====================================
 
 " Read an empty HTML tempale and move cursor to title
-nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
+"nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 
 "====================================
 " COMMANDS
