@@ -263,7 +263,7 @@ noremap <leader>s :source $MYVIMRC<cr>
 noremap <leader>v :e! $MYVIMRC<cr>
 
 " Toggle highlighting
-nnoremap <silent><expr> <Leader>h (&hlsearch && v:hlsearch ? ':set nohlsearch' : ':set hlsearch')."\n"
+nmap <leader>h :set hlsearch!<cr>
 
 " Toggle `set list`
 nmap <leader>l :set list!<cr>
