@@ -113,6 +113,16 @@ endif
 syntax off
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
     syntax on
+
+    " Highlight trailing whitespaces
+    highlight ExtraWhitespace ctermbg=red guibg=red
+    match ExtraWhitespace /\s\+$/
+    autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+    autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+    autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+    autocmd BufWinLeave * call clearmatches()
+    " Show trailing whitepace and spaces before a tab:
+    autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/
 endif
 
 
