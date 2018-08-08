@@ -1,16 +1,4 @@
 
-sj_() {
-    ls $@
-}
-alias sj=sj_
-
-# support russian letters
-# see http://kaktusenok.blogspot.ru/2015/02/git.html
-# ls_git() {
-#     ls $@ | cat
-# }
-# alias ls=ls_git
-
 case $HOSTNAME in
     populus-*)
         alias sj='sudo -H -u jenkins'
