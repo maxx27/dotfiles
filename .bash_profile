@@ -36,7 +36,9 @@ fi
 # fi
 
 if command -v tmux > /dev/null; then
-    [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+    if [[ ! $TERM =~ screen ]] && [ -z $TMUX ]; then
+        tmux attach || tmux new
+    fi
 fi
 #if which tmux 1> /dev/null 2> /dev/null; then
 #    case $HOSTNAME in
