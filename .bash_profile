@@ -1,15 +1,6 @@
-
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-        . "$HOME/.bashrc"
-    fi
-fi
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+# include .bashrc if it exists
+if [ -f "$HOME/.bashrc" ]; then
+    . "$HOME/.bashrc"
 fi
 
 # set PATH so it includes user's private bin if it exists
@@ -17,16 +8,13 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-if [ -d "/opt/DK" ] ; then
-    export DK_ROOT=/opt/DK
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
 fi
 
-case $HOSTNAME in
-    populus-*) USE_TMUX=1;;
-    *) USE_TMUX=0;;
-esac
-if [ $USE_TMUX -eq 1 ]; then
-    tmux attach || tmux new
+if [ -d "/opt/DK" ] ; then
+    export DK_ROOT=/opt/DK
 fi
 
 if [ -f "~/.ssh/id_rsa" ]; then
@@ -47,3 +35,15 @@ fi
 #     done
 # fi
 
+if command -v tmux > /dev/null; then
+    [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+fi
+#if which tmux 1> /dev/null 2> /dev/null; then
+#    case $HOSTNAME in
+#        populus-*) USE_TMUX=1;;
+#        *) USE_TMUX=0;;
+#    esac
+#    if [ $USE_TMUX -eq 1 ]; then
+#        tmux attach || tmux new
+#    fi
+#fi
