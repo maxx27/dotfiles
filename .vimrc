@@ -43,7 +43,7 @@ set magic                           " Set magic on, for regex
 " Enable mouse support if it's available
 if has("mouse")
     set mousehide                   " hide the mouse cursor when typing
-    set mouse=a                     " full mouse support
+    set mouse=a                     " full mouse support / `set mouse=` to disable mouse
     set ttymouse=xterm2
 endif
 

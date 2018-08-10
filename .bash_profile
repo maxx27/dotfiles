@@ -35,8 +35,8 @@ fi
 #     done
 # fi
 
-if command -v tmux > /dev/null; then
-    if [[ ! $TERM =~ screen ]] && [ -z $TMUX ]; then
+if [[ ! $TERM =~ screen ]] && [ -z $TMUX ]; then
+    if command -v tmux > /dev/null; then
         tmux attach || tmux new
     fi
 fi

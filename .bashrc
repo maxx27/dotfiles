@@ -8,6 +8,9 @@ case $- in
       *) return;;
 esac
 
+if [[ ! $TERM =~ screen ]] && [ -z $TMUX ]; then
+    export TERM=xterm-256color
+fi
 case $HOSTNAME in
     beta|MSuslov)
         # set terminal type, if you have installed Dwimperl
