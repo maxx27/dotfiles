@@ -263,26 +263,29 @@ let g:mapleader = ","
 " Map default leader to what , does normally
 nnoremap \ ,
 
-" Fast saving
-nnoremap <leader>w :up!<cr>
+" Fast saving current buffer (only when the buffer has been modified)
+nnoremap <leader>w :update!<cr>
 " Fast reloading of the .vimrc
-noremap <leader>r :source $MYVIMRC<cr>
+noremap <leader>sr :source $MYVIMRC<cr>
 " Fast editing of .vimrc
-noremap <leader>s :e! $MYVIMRC<cr>
+noremap <leader>se :e! $MYVIMRC<cr>
 
 " Toggle highlighting
-nmap <leader>h :set hlsearch! \| set list?<cr>
+nmap <leader>th :set hlsearch! \| set list?<cr>
 
 " Toggle `set list`
-nmap <leader>l :set list! \| set list?<cr>
+nmap <leader>tl :set list! \| set list?<cr>
 
 " Toggle paste indent
-map <leader>p :set paste! \| set paste?<cr>
+map <leader>tp :set paste! \| set paste?<cr>
 " set pastetoggle=<F2> "F2 before pasting to preserve indentation
 " "Copy paste to/from clipboard
 " vnoremap <C-c> "*y
 " map <silent><Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>"
 " map <silent><Leader><S-p> :set paste<CR>O<esc>"*]p:set nopaste<cr>"
+
+" Toggle mouse
+map <leader>tm :exec &mouse!=""? "set mouse=" : "set mouse=a" \| echo "Mouse mode is " . &mouse<cr>
 
 " Toggle spell checking
 map <leader>spell :setlocal spell!<cr>
