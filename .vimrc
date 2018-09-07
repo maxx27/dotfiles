@@ -269,6 +269,8 @@ nnoremap <leader>w :update!<cr>
 " Insert single character (insert placeholder before then wait for single character
 " https://superuser.com/questions/581572/insert-single-character-in-vim
 nnoremap <C-i> i_<Esc>r
+"nnoremap ,i i_<Esc>r
+"nnoremap ,a a_<Esc>r
 
 " Fast reloading of the .vimrc
 noremap <leader>sr :source $MYVIMRC<cr>
