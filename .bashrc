@@ -119,6 +119,7 @@ case $HOSTNAME in
         export PYTHONHTTPSVERIFY=0
     ;;
     beta)
+        USER=msuslov
         PATH="/d/Users/suslo/perl5/bin${PATH:+:${PATH}}"; export PATH;
         PERL5LIB="/d/Users/suslo/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
         PERL_LOCAL_LIB_ROOT="/d/Users/suslo/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
