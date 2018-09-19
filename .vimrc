@@ -62,7 +62,8 @@ set wildmenu
 "set wildmode=list:longest           " complete files like a shell
 set completeopt+=longest
 set completeopt-=preview             " Don't show the preview window when completing
-set wildignore+=*.pyc,*.obj,*.bin,a.out " Ignore binary files in the standard vim file finder
+" ignore binary files in the standard vim file finder
+set wildignore+=*build/**,*.pyc,*.obj
 
 " NOW WE CAN:
 " - Hit tab to :find by partial match
@@ -74,6 +75,10 @@ set hlsearch                        " highlight search things
 highlight search ctermbg=5          " highlight background color
 set ignorecase                      " ignore case for pattern matches
 set smartcase                       " override 'ignorecase' if pattern contains uppercase
+
+" highlight conflicts
+" error messages on the command line
+"match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 filetype on                         " enable file type detection
 filetype plugin on                  " load options and mappings only for current buffer
@@ -167,9 +172,6 @@ endif
 if empty($TMUX) && has("termguicolors")
     set termguicolors
 endif
-
-" highlight conflicts
-match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 "" error bells
 "set noerrorbells
@@ -318,6 +320,12 @@ map <leader>tm :exec &mouse!=""? "set mouse=" : "set mouse=a" \| echo "Mouse mod
 
 " Toggle spell checking
 map <leader>ts :setlocal spell! \| setlocal spell?<cr>
+
+" grep for word under cursor in current file
+map <leader>gwf :execute 'vimgrep /'.expand('<cword>').'/gj '.expand('%') \| copen<cr>
+" grep for word under cursor in files with the same extention
+map <leader>gwe :execute 'vimgrep /'.expand('<cword>').'/gj *'.(expand('%:e')=='' ? '' : '.'.expand("%:e")) \| copen<cr>
+
 
 " Easier moving between tabs
 "nmap <leader>[ :tabprevious<cr>
