@@ -300,9 +300,9 @@ noremap <leader>sr :source $MYVIMRC<cr>
 noremap <leader>se :e! $MYVIMRC<cr>
 
 " Toggle highlighting
-nmap <leader>th :set hlsearch! \| set list?<cr>
+nmap <leader>th :set hlsearch! \| set hlsearch?<cr>
 
-" Toggle `set list`
+" Toggle unprintable characters
 nmap <leader>tl :set list! \| set list?<cr>
 
 " Toggle paste indent
@@ -317,7 +317,7 @@ map <leader>tp :set paste! \| set paste?<cr>
 map <leader>tm :exec &mouse!=""? "set mouse=" : "set mouse=a" \| echo "Mouse mode is " . &mouse<cr>
 
 " Toggle spell checking
-map <leader>spell :setlocal spell!<cr>
+map <leader>ts :setlocal spell! \| setlocal spell?<cr>
 
 " Easier moving between tabs
 "nmap <leader>[ :tabprevious<cr>
