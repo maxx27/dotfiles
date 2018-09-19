@@ -32,8 +32,6 @@ if has("multi_byte")
     set fileencodings=ucs-bom,utf-8,latin1
 endif
 
-set spelllang=en
-
 set shortmess+=I                    " Don't show the Vim welcome screen.
 
 set magic                           " Set magic on, for regex
@@ -242,6 +240,22 @@ set textwidth=0                     " don't auto-wrap lines except for specific 
 set formatoptions+=ron              " Automatically format comments and numbered lists
 
 "====================================
+" SPELL
+"====================================
+set spell
+set spelllang=ru,en
+" Underline words with errors
+highlight clear SpellBad
+highlight SpellBad cterm=underline
+
+" rebuild the .spl file each time the .add file has been updated when vim is started
+for d in glob('~/.vim/spell/*.add', 1, 1)
+    if filereadable(d) && (!filereadable(d . '.spl') || getftime(d) > getftime(d . '.spl'))
+        exec 'mkspell! ' . fnameescape(d)
+    endif
+endfor
+
+"====================================
 " BUILD INTEGRATION
 "====================================
 
@@ -256,6 +270,14 @@ set makeprg=make\ -j\ $(nproc)
 "====================================
 " General Mappings
 "====================================
+
+" Use Russian layout during command mode
+set keymap=russian-jcukenwin
+set iminsert=0
+set imsearch=0
+" Use another cursor color when language mapping are being used
+highlight Cursor guifg=NONE guibg=Green
+highlight lCursor guifg=NONE guibg=Cyan
 
 " Set mapleader
 let mapleader = ","
@@ -312,7 +334,7 @@ map <leader>cd :cd %:p:h<cr>
 " SNIPPETS
 "====================================
 
-" Read an empty HTML tempale and move cursor to title
+" Read an empty HTML template and move cursor to title
 "nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 
 "====================================
