@@ -9,6 +9,21 @@ Plug 'tpope/vim-repeat'                    "allow plugins to utilize . command
 Plug 'tpope/vim-surround'                  " for manipulating parens and such
 nmap <silent> dsf ds)db
 
+" Comment blocks
+"Plug 'tpope/vim-commentary'
+" NOW WE CAN:
+" Toggle comments:
+" :gcc to comment out a line (takes a count)
+" :gc  to comment out the target of a motion (for example, gcap to comment out a paragraph)
+" :gc  in visual mode to comment out the selection
+" :gc  in operator pending mode to target a comment
+" You can also use it as a command, either with a range like :7,17Commentary,
+" or as part of a :global invocation like with :g/TODO/Commentary
+" gcgc uncomments a set of adjacent commented lines
+" You just have to adjust 'commentstring'
+" autocmd FileType apache setlocal commentstring=#\ %s
+"autocmd FileType vim setlocal commentstring="\ %s
+
 " Fugitive
 Plug 'tpope/vim-fugitive'                  " Git utilities
 noremap <leader>gd :Gdiff<cr>
@@ -16,7 +31,7 @@ noremap <leader>gc :Gcommit -v<cr>
 noremap <leader>gs :Gstatus<cr>
 
 " Syntastic = Code linting
-Plug 'scrooloose/syntastic' "Run linters and display errors etc
+"Plug 'scrooloose/syntastic' "Run linters and display errors etc
 "nmap <leader>err :Errors<CR><C-W>j
 "noremap <leader>y :SyntasticCheck<cr>
 
@@ -73,7 +88,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " ?: Toggle NERD Tree's quick help
 
 " Diary, notes, whatever. It's amazing
-Plug 'vimwiki/vimwiki'
+"Plug 'vimwiki/vimwiki'
 
 " Several plugins to help work with Tmux
 "Plug 'christoomey/vim-tmux-navigator'      " Easy movement between vim and tmux panes
