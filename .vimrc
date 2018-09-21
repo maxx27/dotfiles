@@ -13,7 +13,7 @@
 " GENERAL
 "====================================
 
-set nocompatible                    " enter current millenium
+set nocompatible                    " Forget compatibility with Vi
 
 if has("menu") && has("multi_lang")
     language en_US.utf8
@@ -47,11 +47,12 @@ endif
 
 set autowrite                       " Automatically :write before running commands
 set autoread                        " Reload files changed outside vim
+"set hidden                          " Switch between buffers without saving
 
 "set splitright                     " split new vertical windows right of current window
 "set splitbelow                     " split new horizontal windows under current window
 
-set clipboard=unnamed               " Yank to the system clipboard
+"set clipboard=unnamed               " Yank to the system clipboard
 
 " Search down into subfolders
 " Provides tab-completion for all file-related tasks
