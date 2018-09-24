@@ -14,9 +14,9 @@
 .vim/.netrwhist
 .vim/.tmp/*
 .vim/.undo/*
-.vim/autoload/plug.old
-.vim/autoload/plug.vim
+.vim/autoload/*
 .vim/plugged/*
+.vim/sessions/*
 .vim/spell/*.spl
 .viminfo
 _viminfo

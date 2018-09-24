@@ -3,39 +3,54 @@ call plug#begin('~/.vim/plugged')
 " :PlugInstall to install plugins
 " :PlugClean to remove disabled plugins
 
-Plug 'tpope/vim-repeat'                    "allow plugins to utilize . command
 
-" surround.vim
-Plug 'tpope/vim-surround'                  " for manipulating parens and such
-nmap <silent> dsf ds)db
-
-" Comment blocks
-"Plug 'tpope/vim-commentary'
+"====================================
+" Session management
+"====================================
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
 " NOW WE CAN:
-" Toggle comments:
-" :gcc to comment out a line (takes a count)
-" :gc  to comment out the target of a motion (for example, gcap to comment out a paragraph)
-" :gc  in visual mode to comment out the selection
-" :gc  in operator pending mode to target a comment
-" You can also use it as a command, either with a range like :7,17Commentary,
-" or as part of a :global invocation like with :g/TODO/Commentary
-" gcgc uncomments a set of adjacent commented lines
-" You just have to adjust 'commentstring'
-" autocmd FileType apache setlocal commentstring=#\ %s
-"autocmd FileType vim setlocal commentstring="\ %s
+" :SaveSession
+" :OpenSession
+" :CloseSession
+" :DeleteSession
+" :ViewSession
+" :OpenTabSession
+" :SaveTabSession
+" :AppendTabSession
+" :CloseTabSession
+" :RestartVim (works in gvim only)
 
-" Fugitive
-Plug 'tpope/vim-fugitive'                  " Git utilities
-noremap <leader>gd :Gdiff<cr>
-noremap <leader>gc :Gcommit -v<cr>
-noremap <leader>gs :Gstatus<cr>
+set sessionoptions-=tabpages                " If you only want to save the current tab page:
+set sessionoptions-=help                    " If you don't want help windows to be restored:
+set sessionoptions-=buffers                 " Don't save hidden and unloaded buffers in sessions.
+set sessionoptions-=options                 " Don't persist options and mappings because it can corrupt sessions.
 
-" Syntastic = Code linting
-"Plug 'scrooloose/syntastic' "Run linters and display errors etc
-"nmap <leader>err :Errors<CR><C-W>j
-"noremap <leader>y :SyntasticCheck<cr>
+let g:session_directory='~/.vim/sessions'
+let g:session_autoload = "no"
+let g:session_autosave = "no"
 
+
+"====================================
+" Visualize undo tree
+"====================================
+if !has('win32unix')
+    Plug 'sjl/gundo'
+endif
+" NOW WE CAN:
+" :GundoToggle toggle gundo tree
+
+
+
+"====================================
+" Lean & mean status/tabline for vim that's light as air.
+"====================================
+Plug 'bling/vim-airline'
+
+
+"====================================
 " search filesystem with ctrl+p
+"====================================
 Plug 'ctrlpvim/ctrlp.vim'
 " NOW WE CAN:
 " :CtrlP or :CtrlP [starting-directory] to invoke CtrlP in find file mode
@@ -52,9 +67,87 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Use <c-y> to create a new file and its parent directories.
 " Use <c-z> to mark/unmark multiple files and <c-o> to open them.
 
+
+"====================================
+" Extremely fast "fuzzy" mechanism for:
+" * Opening files and buffers
+" * Jumping to tags and help
+" * Running commands, or previous searches and commands
+"====================================
+if has('ruby')
+    Plug 'wincent/Command-T'
+endif
+
+
+"====================================
+" Better markdown support
+"====================================
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+" NOW WE CAN:
+" FOLDING:
+" zr: reduces fold level throughout the buffer
+" zR: opens all folds
+" zm: increases fold level throughout the buffer
+" zM: folds everything all the way
+" za: open a fold your cursor is on
+" zA: open a fold your cursor is on recursively
+" zc: close a fold your cursor is on
+" zC: close a fold your cursor is on recursively
+" Try :help fold-expr and :help fold-commands for details.
+
+"====================================
+" Allow plugins to utilize . command
+"====================================
+"Plug 'tpope/vim-repeat'                    "
+
+
+"====================================
+" Manipulating parentheses and such
+"====================================
+"Plug 'tpope/vim-surround'
+"nmap <silent> dsf ds)db
+
+
+"====================================
+" Comment blocks
+"====================================
+"Plug 'tpope/vim-commentary'
+" NOW WE CAN:
+" Toggle comments:
+" :gcc to comment out a line (takes a count)
+" :gc  to comment out the target of a motion (for example, gcap to comment out a paragraph)
+" :gc  in visual mode to comment out the selection
+" :gc  in operator pending mode to target a comment
+" You can also use it as a command, either with a range like :7,17Commentary,
+" or as part of a :global invocation like with :g/TODO/Commentary
+" gcgc uncomments a set of adjacent commented lines
+" You just have to adjust 'commentstring'
+" autocmd FileType apache setlocal commentstring=#\ %s
+"autocmd FileType vim setlocal commentstring="\ %s
+
+"====================================
+" Fugitive
+"====================================
+"Plug 'tpope/vim-fugitive'                  " Git utilities
+"noremap <leader>gd :Gdiff<cr>
+"noremap <leader>gc :Gcommit -v<cr>
+"noremap <leader>gs :Gstatus<cr>
+
+
+"====================================
+" Syntastic = Code linting
+"====================================
+"Plug 'scrooloose/syntastic' "Run linters and display errors etc
+"nmap <leader>err :Errors<CR><C-W>j
+"noremap <leader>y :SyntasticCheck<cr>
+
+
+"====================================
 " NERDTree
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFocus', 'NERDTreeFind'] }
-"Plug 'Xuyuanp/nerdtree-git-plugin'
+"====================================
+"Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFocus', 'NERDTreeFind'] }
+""Plug 'Xuyuanp/nerdtree-git-plugin'
 
 let g:NERDTreeHighlightCursorline=1
 let g:NERDTreeShowHidden=1
@@ -87,7 +180,10 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " R: Refresh the tree, useful if files change outside of Vim
 " ?: Toggle NERD Tree's quick help
 
+
+"====================================
 " Diary, notes, whatever. It's amazing
+"====================================
 "Plug 'vimwiki/vimwiki'
 
 " Several plugins to help work with Tmux
@@ -108,6 +204,10 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "Plug 'suan/vim-instant-markdown', {'do': 'npm install -g instant-markdown-d'}
 
 call plug#end()
+
+"====================================
+" NETRW
+"====================================
 
 " FILE BROWSING:
 " Tweaks for browsing
