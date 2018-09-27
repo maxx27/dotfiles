@@ -17,8 +17,5 @@ remote='origin'
 
 set -e -x
 git fetch
-git checkout --detach $remote/$branch
+git checkout -B $branch --track $remote/$branch
 # git submodule update --init
-git branch -D $1
-git checkout -b $branch
-git branch --set-upstream-to=origin/$branch $branch
