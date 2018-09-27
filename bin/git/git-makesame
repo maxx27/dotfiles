@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Set local branch on the same commit as remote one
+
+branch=$1
+# if branch is not specified as parameter, use current one
+if [ -z $branch ]; then
+    branch=$(git rev-parse --abbrev-ref HEAD)
+    # if no current branch, then error
+    if [ -z $branch ]; then
+        1>&2 echo "There is no current branch"
+        exit 1
+    fi
+fi
+
+remote='origin'
+
+set -e -x
+git fetch
+git checkout --detach $remote/$branch
+# git submodule update --init
+git branch -D $1
+git checkout -b $branch
+git branch --set-upstream-to=origin/$branch $branch
