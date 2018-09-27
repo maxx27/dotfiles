@@ -13,11 +13,10 @@ cd tmux-${VERSION}
 ./configure --prefix=/usr/local
 make -j $(nproc)
 sudo checkinstall -y --pkgname tmux --pkgversion ${VERSION}
-# sudo make install
-# cd -
+
+# # cd -
 # sudo rm -rf /usr/local/src/tmux-*
 # sudo mv tmux-${VERSION} /usr/local/src
 
-## Logout and login to the shell again and run.
-## tmux -V
-
+# Logout and login to the shell again and run.
+# [ "$TMUX" == "" ] && tmux -V
