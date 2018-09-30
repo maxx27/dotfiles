@@ -25,6 +25,7 @@ sudo apt install
     lxappearance       # configure UI
     i3blocks           # for status bar
     rofi               # run menu
-    xbacklight         # to change monitor brightness
+    ~xbacklight~       # to change monitor brightness (doesn't work)
+    light              # build manually by ~/bin/build/light.sh
 
 feh --bg-scale ~/Pictures/wallpaper/default
