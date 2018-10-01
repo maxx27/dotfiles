@@ -1,6 +1,7 @@
 #
 *.bak
 *.log
+*.swp
 
 # Cache
 .cache/
@@ -30,13 +31,40 @@ _viminfo
 .kshdb_hist
 .lesshst
 .mysql_history
-.python-history
+.python_history
 .wget-hsts
 
+# Dropbox
+.dropbox*/
+Dropbox/
+
 # other
+.ICEauthority
+.Xauthority
 .sudo_as_admin_successful
 .oracle_jre_usage/
+.gnupg/
+.dbus/
 .p2/
+.zoom/
+.xsession-errors*
+Desktop/
+Downloads/
+Documents/
+Games/
+Music/
+Pictures/
+
+# Wine and friends
+.wine/
+WindowsPrograms/
+.PlayOnLinux/
+PlayOnLinux*/
+
+# Steam
+.steam/
+.steampath
+.steampid
 
 # Windows
 NTUSER.DAT*
