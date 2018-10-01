@@ -136,9 +136,9 @@ set showmode                        " display the mode you're in
 set laststatus=2                    " always show the statusline
 
 " line numbers
-set nonumber         " show line numbers
+set nonumber                        " show line numbers
 set norelativenumber
-set numberwidth=4    " minimum of 4 columns for line numbers
+set numberwidth=4                   " minimum of 4 columns for line numbers
 
 set nocursorline                    " (!) highlight current line, for quick orientation
 
@@ -148,7 +148,7 @@ set sidescroll=1                    " number of chars to scroll when scrolling s
 
 set nowrap                          " Don't wrap text by default
 
-set list                  " show unprintable symbols $
+set list                            " show unprintable symbols $
 set listchars=eol:¬,tab:→→,extends:>,precedes:<
 " set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 " set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
@@ -156,7 +156,7 @@ set showbreak=↪
 
 " http://vim.wikia.com/wiki/Change_font
 if has('gui_running')
-    set guifont=Lucida_Console:h12
+    set guifont=DejaVu\ Sans\ Mono\ 10
     set antialias
 else
     set term=xterm                  " allow use arrows and other special keys
