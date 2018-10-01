@@ -3,18 +3,26 @@ set -x -e
 
 # Steps to build and install tmux from source on Ubuntu.
 VERSION=8.1.0438-1
-# PACKAGES='vim vim-common vim-runtime vim-tiny vim-tiny vim-gtk3 neovim vim-athena vim-nox vim-gtk'
-# sudo apt-get -y remove $PACKAGES || sudo dpkg -r $PACKAGES || true
-# sudo apt-get -y install git libncurses5-dev \
-#     python-dev python3-dev ruby-dev lua5.1 liblua5.1-dev libperl-dev \
-#     ibxpm-dev libxt-dev gnome-devel libx11-dev \
+PACKAGES='vim vim-common vim-gui-common vim-runtime vim-tiny vim-tiny vim-gtk3 neovim vim-athena vim-nox vim-gtk'
+sudo apt -y remove $PACKAGES || sudo dpkg -r $PACKAGES || true
+sudo apt-get -y install git libncurses5-dev \
+    python-dev python3-dev ruby-dev lua5.1 liblua5.1-dev libperl-dev \
+    libxpm-dev libxt-dev gnome-devel
+# libx11-dev \
 #     # ?? libcairo2-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
 
-# git clone git@github.com:vim/vim.git
+if [ ! -e vim ]; then
+    git clone git@github.com:vim/vim.git
+    cd vim
+else
+    cd vim
+    git pull
+    # becase checkinstall creates files with sudo
+    sudo git clean -dfx
+fi
 
 # You can find a description of features in https://github.com/vim/vim/blob/master/src/Makefile
 #
-sudo git clean -dfx
 ./configure --with-features=huge \
         --enable-fail-if-missing \
         --enable-multibyte \
@@ -31,7 +39,7 @@ sudo git clean -dfx
         --disable-arabic \
         --disable-farsi \
         --prefix=/usr/local
-make VIMRUNTIMEDIR=/usr/local/share/vim/vim81 -j4
+make VIMRUNTIMEDIR=/usr/local/share/vim/vim81 -j $(nproc)
 make test
 # [ -e tmux-${VERSION} ] && sudo rm -rf tmux-${VERSION}
 # tar xf tmux-${VERSION}.tar.gz
