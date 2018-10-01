@@ -31,7 +31,9 @@ _viminfo
 .kshdb_hist
 .lesshst
 .mysql_history
+.gdb_history
 .python_history
+.python-history
 .wget-hsts
 
 # Dropbox
