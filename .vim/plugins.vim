@@ -35,7 +35,7 @@ let g:session_autosave = "no"
 " Visualize undo tree
 "====================================
 if !has('win32unix')
-    Plug 'sjl/gundo'
+    Plug 'sjl/gundo.vim'
 endif
 " NOW WE CAN:
 " :GundoToggle toggle gundo tree

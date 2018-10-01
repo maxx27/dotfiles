@@ -275,12 +275,12 @@ set makeprg=make\ -j\ $(nproc)
 "====================================
 
 " Use Russian layout during command mode
-set keymap=russian-jcukenwin
-set iminsert=0
-set imsearch=0
+"set keymap=russian-jcukenwin
+"set iminsert=0
+"set imsearch=0
 " Use another cursor color when language mapping are being used
-highlight Cursor guifg=NONE guibg=Green
-highlight lCursor guifg=NONE guibg=Cyan
+"highlight Cursor guifg=NONE guibg=Green
+"highlight lCursor guifg=NONE guibg=Cyan
 
 " Set mapleader
 let mapleader = ","
