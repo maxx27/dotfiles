@@ -34,19 +34,29 @@ let g:session_autosave = "no"
 "====================================
 " Visualize undo tree
 "====================================
-if !has('win32unix')
+if has('python')
     Plug 'sjl/gundo.vim'
+    nnoremap <leader>tu :GundoToggle<cr>
 endif
 " NOW WE CAN:
 " :GundoToggle toggle gundo tree
 
-
+"====================================
+" Turn off cap-lock when enter normal mode
+"====================================
+Plug 'suxpert/vimcaps'
 
 "====================================
 " Lean & mean status/tabline for vim that's light as air.
 "====================================
 Plug 'bling/vim-airline'
+let g:airline_powerline_fonts = 1
 
+"====================================
+" Ignore caplock in command mode
+"====================================
+"Plug 'tpope/vim-capslock'
+"let g:airline#extensions#capslock#enabled = 1
 
 "====================================
 " search filesystem with ctrl+p
@@ -77,6 +87,11 @@ Plug 'ctrlpvim/ctrlp.vim'
 if has('ruby')
     Plug 'wincent/Command-T'
 endif
+" command-t.vim could not load the C extension.
+" Please see INSTALLATION and TROUBLE-SHOOTING in the help.
+" Vim Ruby version: 2.5.1-p57
+" Expected version: [unknown]-p[unknown]
+" For more information type:    :help command-t
 
 
 "====================================
@@ -112,7 +127,7 @@ Plug 'plasticboy/vim-markdown'
 "====================================
 " Comment blocks
 "====================================
-"Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'
 " NOW WE CAN:
 " Toggle comments:
 " :gcc to comment out a line (takes a count)
@@ -124,12 +139,12 @@ Plug 'plasticboy/vim-markdown'
 " gcgc uncomments a set of adjacent commented lines
 " You just have to adjust 'commentstring'
 " autocmd FileType apache setlocal commentstring=#\ %s
-"autocmd FileType vim setlocal commentstring="\ %s
+
 
 "====================================
-" Fugitive
+" Git utilities
 "====================================
-"Plug 'tpope/vim-fugitive'                  " Git utilities
+Plug 'tpope/vim-fugitive'
 "noremap <leader>gd :Gdiff<cr>
 "noremap <leader>gc :Gcommit -v<cr>
 "noremap <leader>gs :Gstatus<cr>

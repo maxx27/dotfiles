@@ -52,7 +52,9 @@ set autoread                        " Reload files changed outside vim
 "set splitright                     " split new vertical windows right of current window
 "set splitbelow                     " split new horizontal windows under current window
 
-"set clipboard=unnamed               " Yank to the system clipboard
+"set clipboard=unnamed               " Yank to the PRIMARY "* (system) clipboard
+"set clipboard=unnamedplus           " or yank to the CLIPBOARD "+ (X11) clipboard
+
 
 " Search down into subfolders
 " Provides tab-completion for all file-related tasks
@@ -140,7 +142,7 @@ set nonumber                        " show line numbers
 set norelativenumber
 set numberwidth=4                   " minimum of 4 columns for line numbers
 
-set nocursorline                    " (!) highlight current line, for quick orientation
+set nocursorline                      " highlight current line, for quick orientation
 
 set scrolloff=3                     " show 3 lines of context around the cursor (top and bottom)
 set sidescrolloff=5                 " show 5 lines of context around the cursor (left and right)
