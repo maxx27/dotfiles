@@ -3,6 +3,11 @@ call plug#begin('~/.vim/plugged')
 " :PlugInstall to install plugins
 " :PlugClean to remove disabled plugins
 
+"====================================
+" Colorschemes
+"====================================
+Plug 'shawncplus/skittles_berry'
+
 
 "====================================
 " Session management

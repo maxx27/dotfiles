@@ -10,6 +10,32 @@
 " :set expandtab?
 
 "====================================
+" PLUGINS
+"====================================
+
+" Check for vim-plug; install if missing
+let plugpath = expand('<sfile>:p:h') . '/.vim/autoload/plug.vim'
+if !filereadable(plugpath)
+    if executable('curl')
+        call system('curl -fLo ' . shellescape(plugpath) . ' --create-dirs ' .
+            \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
+        if v:shell_error
+            echo "Error downloading vim-plug. Please install it manually.\n"
+            exit
+        endif
+    else
+        echo "Unable to download vim-plug. Please install it manually or install curl.\n"
+        exit
+    endif
+endif
+
+" Load up all of our plugins
+if filereadable(expand("~/.vim/plugins.vim"))
+    source ~/.vim/plugins.vim
+endif
+
+
+"====================================
 " GENERAL
 "====================================
 
@@ -28,8 +54,8 @@ if has("multi_byte")
     endif
     set encoding=utf-8
     setglobal fileencoding=utf-8
-    "setglobal bomb
-    set fileencodings=ucs-bom,utf-8,latin1
+    "setglobal nobomb                " Don't insert BOM automatically
+    "set fileencodings=ucs-bom,utf-8,latin1
 endif
 
 set shortmess+=I                    " Don't show the Vim welcome screen.
@@ -45,9 +71,9 @@ if has("mouse")
     set ttymouse=xterm2
 endif
 
-set autowrite                       " Automatically :write before running commands
-set autoread                        " Reload files changed outside vim
-"set hidden                          " Switch between buffers without saving
+"set autowrite                       " Automatically :write before running commands
+"set autoread                        " Reload files changed outside vim
+set hidden                          " Switch between buffers without saving
 
 "set splitright                     " split new vertical windows right of current window
 "set splitbelow                     " split new horizontal windows under current window
@@ -75,6 +101,7 @@ set wildignore+=*build/**,*.pyc,*.obj
 
 set incsearch                       " go to search results as typing
 set hlsearch                        " highlight search things
+                                    "
 highlight search ctermbg=5          " highlight background color
 set ignorecase                      " ignore case for pattern matches
 set smartcase                       " override 'ignorecase' if pattern contains uppercase
@@ -109,9 +136,8 @@ endif
 if !has("win32unix")
 "let uname = system('uname -a')
 "if uname !~ 'MINGW'
+    " colorscheme skittles_berry
     colorscheme cobalt2
-    " colorscheme cobalt2_short
-    " colorscheme cobalt2_1
 endif
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -132,25 +158,25 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
 endif
 
 
-set ruler                           " always show current position
+set ruler                           " Always show current position
 set showcmd                         " Show typed commands in the cmd area
-set showmode                        " display the mode you're in
-set laststatus=2                    " always show the statusline
+set showmode                        " Display the mode you're in
+set laststatus=2                    " Always show the statusline
 
 " line numbers
-set nonumber                        " show line numbers
-set norelativenumber
-set numberwidth=4                   " minimum of 4 columns for line numbers
+set number                          " Show line numbers
+set relativenumber                  " Show relative numbers
+set numberwidth=4                   " Minimum of 4 columns for line numbers
 
-set nocursorline                      " highlight current line, for quick orientation
+set cursorline                      " Highlight current line for quick orientation
 
-set scrolloff=3                     " show 3 lines of context around the cursor (top and bottom)
-set sidescrolloff=5                 " show 5 lines of context around the cursor (left and right)
-set sidescroll=1                    " number of chars to scroll when scrolling sideways
+set scrolloff=3                     " Show 3 lines of context around the cursor (top and bottom)
+set sidescrolloff=5                 " Show 5 lines of context around the cursor (left and right)
+set sidescroll=1                    " Number of chars to scroll when scrolling sideways
 
 set nowrap                          " Don't wrap text by default
 
-set list                            " show unprintable symbols $
+set list                            " Show unprintable symbols $
 set listchars=eol:¬,tab:→→,extends:>,precedes:<
 " set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 " set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
@@ -247,7 +273,7 @@ set formatoptions+=ron              " Automatically format comments and numbered
 "====================================
 " SPELL
 "====================================
-set spell
+set nospell                         " No spell by default
 set spelllang=ru,en
 " Underline words with errors
 highlight clear SpellBad
@@ -395,27 +421,4 @@ if filereadable(expand("~/.vim.local"))
     source ~/.vim.local
 endif
 
-"====================================
-" PLUGINS
-"====================================
 
-" Check for vim-plug; install if missing
-let plugpath = expand('<sfile>:p:h') . '/.vim/autoload/plug.vim'
-if !filereadable(plugpath)
-    if executable('curl')
-        call system('curl -fLo ' . shellescape(plugpath) . ' --create-dirs ' .
-            \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
-        if v:shell_error
-            echo "Error downloading vim-plug. Please install it manually.\n"
-            exit
-        endif
-    else
-        echo "Unable to download vim-plug. Please install it manually or install curl.\n"
-        exit
-    endif
-endif
-
-" Load up all of our plugins
-if filereadable(expand("~/.vim/plugins.vim"))
-    source ~/.vim/plugins.vim
-endif
