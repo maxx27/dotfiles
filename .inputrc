@@ -17,3 +17,7 @@
 ## allow to type russian letters
 # set output-meta on
 # set convert-meta off
+
+# show mode at the beginning of prompt
+set show-mode-in-prompt on
+
