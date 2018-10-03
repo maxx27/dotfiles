@@ -3,11 +3,29 @@ call plug#begin('~/.vim/plugged')
 " :PlugInstall to install plugins
 " :PlugClean to remove disabled plugins
 
+
+" Plan to do:
+" F5 NerdTree
+" F6 BugExplorer
+" F7 QuickFix
+" F8 TagBar
+
 "====================================
 " Colorschemes
 "====================================
 Plug 'shawncplus/skittles_berry'
 
+
+"====================================
+" BufExplorer
+"====================================
+Plug 'jlanzarotta/bufexplorer'
+" NOW WE CAN:
+" :BufExplorer                - Opens BufExplorer
+" :ToggleBufExplorer          - Opens/Closes BufExplorer
+" :BufExplorerHorizontalSplit - Opens horizontally window BufExplorer
+" :BufExplorerVerticalSplit   - Opens vertically split window BufExplorer
+" TODO: add toggle mapping, see https://github.com/jlanzarotta/bufexplorer/blob/master/plugin/bufexplorer.vim
 
 "====================================
 " Session management
@@ -97,6 +115,12 @@ endif
 " Vim Ruby version: 2.5.1-p57
 " Expected version: [unknown]-p[unknown]
 " For more information type:    :help command-t
+
+
+"====================================
+" Omnicompletion
+"====================================
+Plug 'richq/vim-cmake-completion'
 
 
 "====================================
@@ -199,6 +223,14 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " m: Show the NERD Tree menu
 " R: Refresh the tree, useful if files change outside of Vim
 " ?: Toggle NERD Tree's quick help
+
+
+"====================================
+" Display tags of the current file ordered by scope
+"====================================
+Plug 'majutsushi/tagbar'
+" NOW WE CAN:
+" :TagbarToggle
 
 
 "====================================
