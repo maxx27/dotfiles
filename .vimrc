@@ -110,33 +110,31 @@ set smartcase                       " override 'ignorecase' if pattern contains 
 " error messages on the command line
 "match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
-filetype on                         " enable file type detection
-filetype plugin on                  " load options and mappings only for current buffer
+filetype plugin indent on           " enable file type detection and load plugins for this type
 
 "====================================
-" Swap and undo files and directories
+" Swap and undo settings
 "====================================
 
 set nobackup                        " do not keep backup files
 set backupcopy=yes                  " Overwrite the original file when saving
-set directory^=~/.vim/.tmp//        " swap directory
+
+set directory^=~/.vim/.tmp          " swap directory
 set updatecount=20                  " update the swap file every 20 characters
 
 set undolevels=1000
-if v:version >= 703                 " options only for Vim >= 7.3
-    set undofile
-    set undodir=~/.vim/.undo        " undo file directory
-endif
+set undofile
+set undodir=~/.vim/.undo
 
 "====================================
 " APPEARANCE
 "====================================
 
-" enable syntax (except on mingw)
-if !has("win32unix")
-"let uname = system('uname -a')
-"if uname !~ 'MINGW'
-    " colorscheme skittles_berry
+" enable syntax
+if has("win32unix")
+    " for MinGW another scheme
+    colorscheme skittles_berry
+else
     colorscheme cobalt2
 endif
 
