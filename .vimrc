@@ -353,17 +353,24 @@ map <leader>gwf :execute 'vimgrep /'.expand('<cword>').'/gj '.expand('%') \| cop
 " grep for word under cursor in files with the same extention
 map <leader>gwe :execute 'vimgrep /'.expand('<cword>').'/gj *'.(expand('%:e')=='' ? '' : '.'.expand("%:e")) \| copen<cr>
 
-
-" Easier moving between tabs
-"nmap <leader>[ :tabprevious<cr>
-"nmap <leader>[ :tabnext<cr>
-"nmap <leader>t :tabnew<cr>
+" Easy navigation
+" nmap <C-TAB> :bprevious<cr>
+" nmap <TAB> :bnext<cr>
+nmap <leader>Nb :bprevious<cr>
+nmap <leader>nb :bnext<cr>
+nmap <leader>Nw <C-w>W
+nmap <leader>nw <C-w>w
+nmap <leader>Nt :tabprevious<cr>
+nmap <leader>nt :tabnext<cr>
+nmap <leader>Nc :cprevious<cr>
+nmap <leader>nc :cnext<cr>
+nmap <leader>Nl :lprevious<cr>
+nmap <leader>nl :lnext<cr>
 
 " Change directory to current buffer
 map <leader>cd :cd %:p:h<cr>
 
 "noremap <leader>d :BW!<cr>         " https://habr.com/post/149817/
-"noremap <leader>. <C-^>            " edit alternative file
 
 "====================================
 " SNIPPETS
