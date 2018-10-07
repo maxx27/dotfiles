@@ -314,9 +314,6 @@ let g:mapleader = ","
 " Map default leader to what , does normally
 nnoremap \ ,
 
-" Fast saving current buffer (only when the buffer has been modified)
-nnoremap <leader>w :update!<cr>
-
 " Insert single character (insert placeholder before then wait for single character
 " https://superuser.com/questions/581572/insert-single-character-in-vim
 nnoremap <C-i> i_<Esc>r
