@@ -1,0 +1,59 @@
+# 
+URxvt.termName: rxvt-unicode
+URxvt.saveLines: 65535
+
+# Appearance
+URxvt.scrollBar: false
+URxvt.background: black
+URxvt.foreground: white
+URxvt.transparent:   true
+URxvt.shading:       20
+URxvt.cursorColor: white
+
+*color0:  #2E3436
+*color1:  #a40000
+*color2:  #4E9A06
+*color3:  #C4A000
+*color4:  #3465A4
+*color5:  #75507B
+*color6:  #ce5c00
+*color7:  #babdb9
+*color8:  #555753
+*color9:  #EF2929
+*color10: #8AE234
+*color11: #FCE94F
+*color12: #729FCF
+*color13: #AD7FA8
+*color14: #fcaf3e
+*color15: #EEEEEC
+
+# Font prefferenes
+URxvt.font: xft:DejaVu Sans Mono:pixelsize=16
+URxvt.boldFont: xft:DejaVu Sans Mono:pixelsize=16:weight=bold
+URxvt.letterSpace: -1
+
+# Perl extensions
+# /usr/lib/x86_64-linux-gnu/urxvt/perl
+# Default is selection, option-popup, selection-popup, readline, searchable-scrollback
+# See the urxvtperl(3) manpage.
+URxvt.perl-ext-common: default,matcher,font-size
+
+# Open urls in browser with Control-Click
+URxvt.urlLauncher: /usr/bin/firefox
+URxvt.matcher.button: C1
+
+# Bindings
+
+# Change font size on Control-Plus/Minus
+URxvt.keysym.Control-0x2b: perl:font-size:increase
+URxvt.keysym.Control-0x2d: perl:font-size:decrease
+URxvt.keysym.Control-KP_Add: perl:font-size:increase
+URxvt.keysym.Control-KP_Subtract: perl:font-size:decrease
+
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.keysym.M-c:   perl:clipboard:copy
+URxvt.keysym.M-v:   perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+
