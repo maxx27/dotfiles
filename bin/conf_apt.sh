@@ -60,24 +60,37 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sou
 sudo apt-get install sublime-text
 
 
+# install powerline fonts
 
+    # clone
+    git clone https://github.com/powerline/fonts.git --depth=1
+    # install
+    cd fonts
+    ./install.sh
+    # clean-up a bit
+    cd ..
+    rm -rf fonts
+
+# remove unused fonts
 sudo apt remove/purge
-    fonts-guru
-    fonts-guru-extra
-    fonts-kacst
-    fonts-kacst-one
+    fonts-guru*
+    fonts-kacst*
     fonts-khmeros-core
     fonts-lao
     fonts-lklug-sinhala
-    fonts-lohit-guru
+    fonts-lohit-*
     fonts-nanum
-    fonts-noto-cjk
-    fonts-sil-abyssinica
-    fonts-sil-padauk
+    fonts-noto-*
+    fonts-sil-*
     fonts-takao-pgothic
-    fonts-thai-tlwg
     fonts-tibetan-machine
     fonts-tlwg-*
+    fonts-navilu
+    fonts-samyak-*
+
+# update font cache
+sudo fc-cache -fv
+
 
 sudo apt install gnome-session
 sudo apt install unity-tweak-tool

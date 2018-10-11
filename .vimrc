@@ -55,7 +55,6 @@ if has("multi_byte")
     set encoding=utf-8
     setglobal fileencoding=utf-8
     "setglobal nobomb                " Don't insert BOM automatically
-    "set fileencodings=ucs-bom,utf-8,latin1
 endif
 
 set shortmess+=I                    " Don't show the Vim welcome screen.
@@ -138,24 +137,6 @@ else
     colorscheme cobalt2
 endif
 
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-syntax off
-if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-    syntax on
-
-    " Highlight trailing whitespaces
-    highlight ExtraWhitespace ctermbg=red guibg=red
-    match ExtraWhitespace /\s\+$/
-    autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-    autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-    autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-    autocmd BufWinLeave * call clearmatches()
-    " Show trailing whitepace and spaces before a tab:
-    autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/
-endif
-
-
 set ruler                           " Always show current position
 set showcmd                         " Show typed commands in the cmd area
 set showmode                        " Display the mode you're in
@@ -198,6 +179,23 @@ endif
 " enable 24 bit color support if supported
 if empty($TMUX) && has("termguicolors")
     set termguicolors
+endif
+
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+syntax off
+if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
+    syntax on
+
+    " Highlight trailing whitespaces
+    highlight ExtraWhitespace ctermbg=red guibg=red
+    match ExtraWhitespace /\s\+$/
+    autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+    autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+    autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+    autocmd BufWinLeave * call clearmatches()
+    " Show trailing whitepace and spaces before a tab:
+    autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/
 endif
 
 "" error bells
