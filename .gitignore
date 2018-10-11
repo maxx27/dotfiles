@@ -28,6 +28,11 @@ _viminfo
 .tmux/plugins
 !.tmux/plugins/tpm
 
+# Ranger
+.config/ranger/bookmarks
+.config/ranger/history
+.config/ranger/tagged
+
 # local history
 .bash_history
 .kshdb_hist
