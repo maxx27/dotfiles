@@ -5,7 +5,6 @@ https://github.com/powerline/fonts
 
 Current:
     redshift  - f.lux for linux
-    ranger    - file browser in text mode
     nautilus-dropbox  - 
     dos2unix  -
     net-tools -
@@ -14,6 +13,14 @@ Current:
     gconf-service
 
     xserver-xorg-input-synaptics
+
+    ranger    - file browser in text mode
+        python
+        trash-cli - delete into trash
+        file
+        pip3 install chardet
+        atool
+        mediainfo
 
     i3
     feh
