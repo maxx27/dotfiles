@@ -1,7 +1,7 @@
 "====================================
 " Complementary pairs of mappings
 "====================================
-Plug 'tpope/vim-unimpaired.git'
+Plug 'tpope/vim-unimpaired'
 
 
 " Pairs of mappings mostly fall into four categories:
