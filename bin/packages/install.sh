@@ -15,7 +15,7 @@ Current:
     xserver-xorg-input-synaptics
 
     ranger    - file browser in text mode
-        python
+        python3 python3-pip
         trash-cli - delete into trash
         file
         pip3 install chardet
@@ -25,9 +25,9 @@ Current:
     i3
     feh
     arandr
-    rofi
-    compton
-    i3blocks
+    rofi         - menu
+    compton      - composite manager
+    i3blocks     - status bar
     rxvt-unicode - terminal
 
     Fonts:
