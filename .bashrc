@@ -104,12 +104,24 @@ fi
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
+    if [ -f /usr/share/bash-completion/bash_completion ]; then
+        . /usr/share/bash-completion/bash_completion
+    elif [ -f /etc/bash_completion ]; then
+        . /etc/bash_completion
+    fi
 fi
+
+# bash git prompt
+# mkdir -p ~/src/_github
+# cd !!
+# git clone git@github.com:magicmonty/bash-git-prompt.git --depth=1
+if [ -e ~/src/_github/bash-git-prompt/gitprompt.sh ]; then
+    GIT_PROMPT_ONLY_IN_REPO=1
+    source ~/src/_github/bash-git-prompt/gitprompt.sh
+fi
+
+
+# host specific settings
 
 case $HOSTNAME in
     msuslov-lnx)
