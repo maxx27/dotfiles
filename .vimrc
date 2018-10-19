@@ -70,12 +70,12 @@ if has("mouse")
     set ttymouse=xterm2
 endif
 
-"set autowrite                       " Automatically :write before running commands
-"set autoread                        " Reload files changed outside vim
-set hidden                          " Switch between buffers without saving
+"set autowrite                       " automatically :write before running commands
+"set autoread                        " reload files changed outside vim
+set hidden                           " switch between buffers without saving
 
-"set splitright                     " split new vertical windows right of current window
-"set splitbelow                     " split new horizontal windows under current window
+set splitright                       " split new vertical windows right of current window
+set splitbelow                       " split new horizontal windows under current window
 
 "set clipboard=unnamed               " Yank to the PRIMARY "* (system) clipboard
 "set clipboard=unnamedplus           " or yank to the CLIPBOARD "+ (X11) clipboard
@@ -351,19 +351,28 @@ map <leader>gwe :execute 'vimgrep /'.expand('<cword>').'/gj *'.(expand('%:e')=='
 " Easy navigation
 " nmap <C-TAB> :bprevious<cr>
 " nmap <TAB> :bnext<cr>
-nmap <leader>Nb :bprevious<cr>
-nmap <leader>nb :bnext<cr>
-nmap <leader>Nw <C-w>W
-nmap <leader>nw <C-w>w
-nmap <leader>Nt :tabprevious<cr>
-nmap <leader>nt :tabnext<cr>
-nmap <leader>Nc :cprevious<cr>
-nmap <leader>nc :cnext<cr>
-nmap <leader>Nl :lprevious<cr>
-nmap <leader>nl :lnext<cr>
+
+" (like in vim-unimpaired plugin)
+nmap [w <C-w>W
+nmap ]w <C-w>w
+" nmap [T :tabprevious<cr>
+" nmap [t :tabnext<cr>
 
 " Change directory to current buffer
 map <leader>cd :cd %:p:h<cr>
+
+" ,cs copies just the filename
+" ,cl copies the filename including its full path
+if has('clipboard')
+    if has('win32')
+        " convert slashes to backslashes for Windows as well
+        nmap <leader>cs :let @*=substitute(expand("%"), "/", "\\", "g")<cr>
+        nmap <leader>cl :let @*=substitute(expand("%:p"), "/", "\\", "g")<cr>
+    else
+        nmap <leader>cs :let @*=expand("%")<cr>
+        nmap <leader>cl :let @*=expand("%:p")<cr>
+    endif
+endif
 
 "noremap <leader>d :BW!<cr>         " https://habr.com/post/149817/
 
