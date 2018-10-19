@@ -4,6 +4,7 @@ fonts-powerline
 https://github.com/powerline/fonts
 
 Current:
+    xsel - copy to buffer from CLI
     redshift  - f.lux for linux
     nautilus-dropbox  - 
     dos2unix  -
@@ -11,6 +12,7 @@ Current:
     p7zip-rar p7zip-full
     silversearcher-ag - search files
     gconf-service
+
 
     xserver-xorg-input-synaptics
 
@@ -71,26 +73,10 @@ sudo apt-get install sublime-text
     cd ..
     rm -rf fonts
 
-# remove unused fonts
-sudo apt remove/purge
-    fonts-guru*
-    fonts-kacst*
-    fonts-khmeros-core
-    fonts-lao
-    fonts-lklug-sinhala
-    fonts-lohit-*
-    fonts-nanum
-    fonts-noto-*
-    fonts-sil-*
-    fonts-takao-pgothic
-    fonts-tibetan-machine
-    fonts-tlwg-*
-    fonts-navilu
-    fonts-samyak-*
 
-# update font cache
-sudo fc-cache -fv
-
+mkdir -p ~/src/_github
+cd ~/src/_github
+git clone git@github.com:magicmonty/bash-git-prompt.git --depth=1
 
 sudo apt install gnome-session
 sudo apt install unity-tweak-tool

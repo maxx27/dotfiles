@@ -112,9 +112,8 @@ if ! shopt -oq posix; then
 fi
 
 # bash git prompt
-# mkdir -p ~/src/_github
-# cd !!
-# git clone git@github.com:magicmonty/bash-git-prompt.git --depth=1
+#   mkdir -p ~/src/_github
+#   git clone git@github.com:magicmonty/bash-git-prompt.git --depth=1 ~/src/_github/bash-git-prompt
 if [ -e ~/src/_github/bash-git-prompt/gitprompt.sh ]; then
     GIT_PROMPT_ONLY_IN_REPO=1
     source ~/src/_github/bash-git-prompt/gitprompt.sh
