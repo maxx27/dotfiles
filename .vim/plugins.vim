@@ -33,6 +33,7 @@ source ~/.vim/plugins/nerdtree.vim
 source ~/.vim/plugins/tagbar.vim
 " source ~/.vim/plugins/vimwiki.vim
 source ~/.vim/plugins/tmux.vim
+source ~/.vim/plugins/ack.vim
 " source ~/.vim/plugins/instant-markdown.vim
 
 call plug#end()
