@@ -1,6 +1,10 @@
-## arrow up
+# See https://www.gnu.org/software/bash/manual/bashref.html#Readline-Arguments
+# for available parameters
+
+set keymap emacs
+# arrow up
 "\e[A":history-search-backward
-## arrow down
+# arrow down
 "\e[B":history-search-forward
 
 ## home and end keys
@@ -18,6 +22,12 @@
 # set output-meta on
 # set convert-meta off
 
+# bindings in insert mode
+set keymap vi-insert
+"\e.":yank-last-arg
+"\e_":yank-last-arg
+
 # show mode at the beginning of prompt
 set show-mode-in-prompt on
-
+# use vi mode by default
+set editing-mode emacs
