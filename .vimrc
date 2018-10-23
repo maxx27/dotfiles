@@ -132,7 +132,7 @@ set undodir=~/.vim/.undo
 " enable syntax
 if has("win32unix")
     " for MinGW another scheme
-    colorscheme skittles_berry
+    colorscheme PaperColor
 else
     colorscheme cobalt2
 endif
