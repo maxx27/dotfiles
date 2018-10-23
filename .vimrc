@@ -315,6 +315,19 @@ let g:mapleader = ","
 " Map default leader to what , does normally
 nnoremap \ ,
 
+
+" Quicker way to press ESC
+" imap ;; <Esc>
+" vmap ;; <Esc>
+
+" Quicker access to Ex commands
+" nnoremap ; :
+" nnoremap : ;
+" vnoremap ; :
+" vnoremap : ;
+nmap ; :
+xmap ; :
+
 " Insert single character (insert placeholder before then wait for single character
 " https://superuser.com/questions/581572/insert-single-character-in-vim
 nnoremap <C-i> i_<Esc>r
