@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2018-10-03 03:10:42" build="180626">
+		<key name=".Vanilla" modified="2018-10-23 03:54:53" build="180626">
 			<value name="ColorTable00" type="dword" data="00000000"/>
-			<value name="ColorTable01" type="dword" data="00ff5555"/>
-			<value name="ColorTable02" type="dword" data="003bd01d"/>
-			<value name="ColorTable03" type="dword" data="00fae36a"/>
-			<value name="ColorTable04" type="dword" data="000000ff"/>
-			<value name="ColorTable05" type="dword" data="00ff55ff"/>
-			<value name="ColorTable06" type="dword" data="0009c8ed"/>
-			<value name="ColorTable07" type="dword" data="00ffffff"/>
-			<value name="ColorTable08" type="dword" data="00555555"/>
-			<value name="ColorTable09" type="dword" data="00d26014"/>
-			<value name="ColorTable10" type="dword" data="0021de38"/>
-			<value name="ColorTable11" type="dword" data="00bbbb00"/>
-			<value name="ColorTable12" type="dword" data="00170ef4"/>
-			<value name="ColorTable13" type="dword" data="005d00ff"/>
-			<value name="ColorTable14" type="dword" data="000ae5ff"/>
-			<value name="ColorTable15" type="dword" data="00bbbbbb"/>
+			<value name="ColorTable01" type="dword" data="004c6acf"/>
+			<value name="ColorTable02" type="dword" data="00619083"/>
+			<value name="ColorTable03" type="dword" data="0069a8ce"/>
+			<value name="ColorTable04" type="dword" data="00a68775"/>
+			<value name="ColorTable05" type="dword" data="009d859b"/>
+			<value name="ColorTable06" type="dword" data="00b3a605"/>
+			<value name="ColorTable07" type="dword" data="00d7d7d7"/>
+			<value name="ColorTable08" type="dword" data="00666666"/>
+			<value name="ColorTable09" type="dword" data="00a68775"/>
+			<value name="ColorTable10" type="dword" data="004da459"/>
+			<value name="ColorTable11" type="dword" data="00e6e60a"/>
+			<value name="ColorTable12" type="dword" data="00520ad8"/>
+			<value name="ColorTable13" type="dword" data="008b00e6"/>
+			<value name="ColorTable14" type="dword" data="003eeee1"/>
+			<value name="ColorTable15" type="dword" data="00e6e6e6"/>
 			<value name="ColorTable16" type="dword" data="00423607"/>
 			<value name="ColorTable17" type="dword" data="002f32dc"/>
 			<value name="ColorTable18" type="dword" data="00009985"/>
@@ -56,7 +56,7 @@
 			<value name="ClipboardClickPromptPosition" type="hex" data="02"/>
 			<value name="ClipboardDeleteLeftWord" type="hex" data="02"/>
 			<value name="TrueColorerSupport" type="hex" data="01"/>
-			<value name="FadeInactive" type="hex" data="01"/>
+			<value name="FadeInactive" type="hex" data="00"/>
 			<value name="FadeInactiveLow" type="hex" data="00"/>
 			<value name="FadeInactiveHigh" type="hex" data="D0"/>
 			<value name="ConVisible" type="hex" data="00"/>
@@ -80,8 +80,11 @@
 			<value name="StoreTaskbarCommands" type="hex" data="00"/>
 			<value name="SaveCmdHistory" type="hex" data="01"/>
 			<value name="CmdLineHistory" type="multi">
-				<line data="{Cmd::cmd 64}"/>
 				<line data="{Bash::Git bash}"/>
+				<line data="{Tools::Chocolatey (Admin)}"/>
+				<line data='set HOME=%USERPROFILE% &amp; set "PATH=%ProgramFiles%\Git\usr\bin;%PATH%" &amp; %ConEmuBaseDirShort%\conemu-msys2-64.exe -t xterm-256color "%ProgramFiles%\Git\bin\bash.exe" --login -i -cur_console:t:Git -cur_console:C:%ProgramFiles%\Git\mingw64\share\git\git-for-windows.ico'/>
+				<line data="{Cmd::cmd (Admin)}"/>
+				<line data="{Cmd::cmd 64}"/>
 			</value>
 			<value name="SingleInstance" type="hex" data="00"/>
 			<value name="ShowHelpTooltips" type="hex" data="01"/>
@@ -103,14 +106,14 @@
 			<value name="Multi.SplitWidth" type="hex" data="04"/>
 			<value name="Multi.SplitHeight" type="hex" data="04"/>
 			<value name="KeyboardHooks" type="hex" data="01"/>
-			<value name="FontName" type="string" data="Consolas"/>
+			<value name="FontName" type="string" data="BPmono"/>
 			<value name="FontName2" type="string" data="Consolas"/>
 			<value name="FontAutoSize" type="hex" data="00"/>
 			<value name="FontSize" type="ulong" data="16"/>
 			<value name="FontSizeX" type="ulong" data="0"/>
 			<value name="FontSizeX2" type="ulong" data="0"/>
 			<value name="FontSizeX3" type="ulong" data="0"/>
-			<value name="FontCharSet" type="hex" data="CC"/>
+			<value name="FontCharSet" type="hex" data="01"/>
 			<value name="Anti-aliasing" type="ulong" data="6"/>
 			<value name="FontBold" type="hex" data="00"/>
 			<value name="FontItalic" type="hex" data="00"/>
@@ -128,12 +131,12 @@
 			<value name="ColorKeyTransparent" type="hex" data="00"/>
 			<value name="ColorKeyValue" type="dword" data="00010101"/>
 			<value name="UseCurrentSizePos" type="hex" data="01"/>
-			<value name="WindowMode" type="dword" data="0000051f"/>
+			<value name="WindowMode" type="dword" data="00000520"/>
 			<value name="ConWnd Width" type="dword" data="00000061"/>
 			<value name="ConWnd Height" type="dword" data="0000001c"/>
 			<value name="Cascaded" type="hex" data="01"/>
-			<value name="ConWnd X" type="long" data="8"/>
-			<value name="ConWnd Y" type="long" data="82"/>
+			<value name="ConWnd X" type="long" data="981"/>
+			<value name="ConWnd Y" type="long" data="347"/>
 			<value name="16bit Height" type="ulong" data="0"/>
 			<value name="AutoSaveSizePos" type="hex" data="00"/>
 			<value name="IntegralSize" type="hex" data="00"/>
@@ -261,7 +264,7 @@
 			<value name="TabIcons" type="hex" data="01"/>
 			<value name="OneTabPerGroup" type="hex" data="00"/>
 			<value name="ActivateSplitMouseOver" type="hex" data="01"/>
-			<value name="TabSelf" type="hex" data="01"/>
+			<value name="TabSelf" type="hex" data="00"/>
 			<value name="TabLazy" type="hex" data="01"/>
 			<value name="TabRecent" type="hex" data="01"/>
 			<value name="TabDblClick" type="ulong" data="1"/>
@@ -282,7 +285,7 @@
 			<value name="TabViewer" type="string" data="&lt;%c.%i&gt;[%s]"/>
 			<value name="TabLenMax" type="ulong" data="20"/>
 			<value name="AdminTitleSuffix" type="string" data=" (Admin)"/>
-			<value name="AdminShowShield" type="hex" data="03"/>
+			<value name="AdminShowShield" type="hex" data="01"/>
 			<value name="HideInactiveConsoleTabs" type="hex" data="00"/>
 			<value name="ShowFarWindows" type="hex" data="00"/>
 			<value name="TryToCenter" type="hex" data="00"/>
@@ -643,12 +646,12 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='cmd.exe /k "%ConEmuBaseDir%\Addons\utf-8-test.cmd" -cur_console:n'/>
 				</key>
-				<key name="&lt;Startup&gt;" modified="2018-10-03 03:12:56" build="180626">
+				<key name="&lt;Startup&gt;" modified="2018-10-22 10:57:47" build="180626">
 					<value name="GuiArgs" type="string" data=""/>
-					<value name="Active" type="long" data="2"/>
+					<value name="Active" type="long" data="1"/>
 					<value name="Count" type="long" data="2"/>
-					<value name="Cmd1" type="string" data='-cur_console:d:C:\Users\msuslov -cur_console:t:Git -cur_console:C:%ProgramFiles%\Git\mingw64\share\git\git-for-windows.ico set HOME=%USERPROFILE% &amp; set "PATH=%ProgramFiles%\Git\usr\bin;%PATH%" &amp; %ConEmuBaseDirShort%\conemu-msys2-64.exe -t xterm-256color "%ProgramFiles%\Git\bin\bash.exe" --login -i'/>
-					<value name="Cmd2" type="string" data='&gt; -cur_console:f -cur_console:d:C:\Users\msuslov "%windir%\system32\cmd.exe" /k ""%ConEmuBaseDir%\CmdInit.cmd" &amp; echo This is Native cmd.exe"'/>
+					<value name="Cmd1" type="string" data='&gt; -cur_console:f -cur_console:d:C:\Users\msuslov -cur_console:t:Git -cur_console:C:%ProgramFiles%\Git\mingw64\share\git\git-for-windows.ico set HOME=%USERPROFILE% &amp; set "PATH=%ProgramFiles%\Git\usr\bin;%PATH%" &amp; %ConEmuBaseDirShort%\conemu-msys2-64.exe -t xterm-256color "%ProgramFiles%\Git\bin\bash.exe" --login -i'/>
+					<value name="Cmd2" type="string" data='-cur_console:f -cur_console:d:d:\Work\Populus\Repo\Populus "%windir%\system32\cmd.exe" /k ""%ConEmuBaseDir%\CmdInit.cmd" &amp; echo This is Native cmd.exe"'/>
 				</key>
 			</key>
 			<key name="Apps" modified="2018-07-23 10:42:54" build="180626">
@@ -701,6 +704,8 @@
 				<line data=" "/>
 				<line data="# set LANG=ru_RU.utf8"/>
 				<line data="# set LANG=ru_RU.CP1251"/>
+				<line data="set LANG=en_US.UTF-8"/>
+				<line data="set LC_ALL=en_US.UTF-8"/>
 				<line data=" "/>
 				<line data='# alias cdc=cd /d "%ConEmuDir%"'/>
 				<line data='# alias cd~=cd /d "%UserProfile%"'/>
@@ -735,7 +740,7 @@
 			<value name="RetardInactivePanes" type="hex" data="01"/>
 			<value name="Update.InetTool" type="hex" data="00"/>
 			<value name="Update.InetToolCmd" type="string" data=""/>
-			<key name="HotKeys" modified="2018-10-03 03:12:56" build="180626">
+			<key name="HotKeys" modified="2018-10-04 12:30:41" build="180626">
 				<value name="KeyMacroVersion" type="hex" data="02"/>
 				<value name="Multi.Modifier" type="dword" data="0000005b"/>
 				<value name="Multi.ArrowsModifier" type="dword" data="0000005b"/>
@@ -776,7 +781,7 @@
 				<value name="Multi.SplitSwapR" type="dword" data="00000000"/>
 				<value name="Multi.Next" type="dword" data="00000000"/>
 				<value name="Multi.NextShift" type="dword" data="00000000"/>
-				<value name="Multi.Recreate" type="dword" data="00000000"/>
+				<value name="Multi.Recreate" type="dword" data="00105b52"/>
 				<value name="Multi.AltCon" type="dword" data="00105b41"/>
 				<value name="Multi.Pause" type="dword" data="80808013"/>
 				<value name="Multi.Scroll" type="dword" data="00105b4d"/>
@@ -797,8 +802,8 @@
 				<value name="KillAllButShellKey" type="dword" data="00000000"/>
 				<value name="DuplicateRootKey" type="dword" data="00000000"/>
 				<value name="CloseConEmuKey" type="dword" data="00105b51"/>
-				<value name="Multi.Rename" type="dword" data="00105b52"/>
-				<value name="AffinityPriorityKey" type="dword" data="00105b50"/>
+				<value name="Multi.Rename" type="dword" data="00000000"/>
+				<value name="AffinityPriorityKey" type="dword" data="00000000"/>
 				<value name="Multi.MoveLeft" type="dword" data="00000000"/>
 				<value name="Multi.MoveRight" type="dword" data="00000000"/>
 				<value name="CTS.VkBlockStart" type="dword" data="00000000"/>
