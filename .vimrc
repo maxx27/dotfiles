@@ -129,7 +129,8 @@ set undodir=~/.vim/.undo
 " APPEARANCE
 "====================================
 
-" enable syntax
+" see plugins/colorschemes.vim for colorscheme settings
+set background=dark
 if has("win32unix")
     " for MinGW another scheme
     colorscheme PaperColor
@@ -163,7 +164,7 @@ set showbreak=↪
 
 " http://vim.wikia.com/wiki/Change_font
 if has('gui_running')
-    set guifont=DejaVu\ Sans\ Mono\ 10
+    set guifont=Cousine\ for\ Powerline\ 10
     set antialias
 else
     set term=xterm                  " allow use arrows and other special keys
@@ -183,6 +184,8 @@ endif
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
+
+" enable syntax
 syntax off
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
     syntax on
