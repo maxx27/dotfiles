@@ -328,6 +328,9 @@ nnoremap \ ,
 nmap ; :
 xmap ; :
 
+imap <C-Enter> I just pressed Control+Enter<CR>
+imap <C-S-Enter> I just pressed Control+Shift+Enter<CR>
+
 " Insert single character (insert placeholder before then wait for single character
 " https://superuser.com/questions/581572/insert-single-character-in-vim
 nnoremap <C-i> i_<Esc>r
