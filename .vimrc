@@ -9,6 +9,16 @@
 " Show option value:
 " :set expandtab?
 
+let s:is_win = has('win32') || has('win64')
+let s:is_nvim = has('nvim')
+
+"====================================
+" Fix home folder
+"====================================
+if s:is_win && $HOME == 'U:\'
+    let $HOME = $USERPROFILE
+endif
+
 "====================================
 " PLUGINS
 "====================================
@@ -41,10 +51,23 @@ endif
 
 set nocompatible                    " Forget compatibility with Vi
 
-if has("menu") && has("multi_lang")
+let $LANG='en_US'
+if s:is_nvim
+    " Neovim
+elseif s:is_win
+    " gVim
+    language English_United States
+    if has("menu") && has("multi_lang")
+        set langmenu=en_US.UTF-8
+        source $VIMRUNTIME/delmenu.vim
+        source $VIMRUNTIME/menu.vim
+    endif
+else
+    " Linux and others
     language en_US.utf8
-    set langmenu=en_US
-    let $LANG='en_US'
+    if has("menu") && has("multi_lang")
+        set langmenu=en_US
+    endif
 endif
 
 " http://vim.wikia.com/wiki/Working_with_Unicode
@@ -58,7 +81,6 @@ if has("multi_byte")
 endif
 
 set shortmess+=I                    " Don't show the Vim welcome screen.
-
 set magic                           " Set magic on, for regex
 
 " noremap / /\v                       " Use perl-ish regexp style, otherwise use :s/\vfoo/bar/g for substitutions
@@ -67,7 +89,9 @@ set magic                           " Set magic on, for regex
 if has("mouse")
     set mousehide                   " hide the mouse cursor when typing
     set mouse=a                     " full mouse support / `set mouse=` to disable mouse
-    set ttymouse=xterm2
+    if !s:is_nvim
+        set ttymouse=xterm2
+    endif
 endif
 
 "set autowrite                       " automatically :write before running commands
@@ -131,7 +155,10 @@ set undodir=~/.vim/.undo
 
 " see plugins/colorschemes.vim for colorscheme settings
 set background=dark
-if has("win32unix")
+if s:is_nvim
+    " colorscheme PaperColor
+    colorscheme afterglow
+elseif has("win32unix")
     " for MinGW another scheme
     colorscheme PaperColor
 else
@@ -163,11 +190,22 @@ set listchars=eol:¬,tab:→→,extends:>,precedes:<
 set showbreak=↪
 
 " http://vim.wikia.com/wiki/Change_font
+if s:is_nvim
+    " gui_running is false for Neovim
+    set guifont=Ubuntu\ Mono\ derivative\ Powerline:h12:cDEFAULT
+endif
+
 if has('gui_running')
-    set guifont=Cousine\ for\ Powerline\ 10
+    if s:is_win
+        " set guifont=Ubuntu_Mono_derivative_Powerlin:h12:cDEFAULT
+    else
+        set guifont=Cousine\ for\ Powerline\ 10
+    endif
     set antialias
 else
-    set term=xterm                  " allow use arrows and other special keys
+    if !s:is_nvim
+        set term=xterm              " allow use arrows and other special keys
+    endif
     set t_Co=256                    " set 256 colors
     let &t_AB="\e[48;5;%dm"
     let &t_AF="\e[38;5;%dm"
@@ -383,7 +421,7 @@ map <leader>cd :cd %:p:h<cr>
 " ,cs copies just the filename
 " ,cl copies the filename including its full path
 if has('clipboard')
-    if has('win32')
+    if s:is_win
         " convert slashes to backslashes for Windows as well
         nmap <leader>cs :let @*=substitute(expand("%"), "/", "\\", "g")<cr>
         nmap <leader>cl :let @*=substitute(expand("%:p"), "/", "\\", "g")<cr>
