@@ -154,3 +154,5 @@ esac
 if [ -d /c/ProgramData/chocolatey/bin ]; then
     export PATH="$PATH:/c/ProgramData/chocolatey/bin"
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

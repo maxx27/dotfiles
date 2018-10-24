@@ -21,9 +21,10 @@ source ~/.vim/plugins/airline.vim
 source ~/.vim/plugins/bufexplorer.vim
 source ~/.vim/plugins/cmake-completion.vim
 source ~/.vim/plugins/colorschemes.vim
-source ~/.vim/plugins/command-t.vim
+" source ~/.vim/plugins/command-t.vim
+source ~/.vim/plugins/fzf.vim
 source ~/.vim/plugins/commentary.vim
-source ~/.vim/plugins/ctrlp.vim
+" source ~/.vim/plugins/ctrlp.vim
 source ~/.vim/plugins/easymotion.vim
 source ~/.vim/plugins/fugitive.vim
 source ~/.vim/plugins/gundo.vim
