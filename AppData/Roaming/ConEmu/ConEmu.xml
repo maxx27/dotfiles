@@ -119,7 +119,7 @@
 			<value name="FontItalic" type="hex" data="00"/>
 			<value name="Monospace" type="hex" data="01"/>
 			<value name="BackGround Image show" type="hex" data="00"/>
-			<value name="BackGround Image" type="string" data="c:\back.bmp"/>
+			<value name="BackGround Image" type="string" data="D:\Cloud\Dropbox\Wallpapers\Blue-Night-Snow-Mountains.jpg"/>
 			<value name="bgImageDarker" type="hex" data="FF"/>
 			<value name="bgImageColors" type="dword" data="ffffffff"/>
 			<value name="bgOperation" type="hex" data="00"/>
@@ -719,7 +719,7 @@
 			<value name="CTS.ForceLocale" type="dword" data="00000000"/>
 			<value name="HighlightMouseRow" type="hex" data="00"/>
 			<value name="HighlightMouseCol" type="hex" data="00"/>
-			<value name="Anti-aliasing2" type="hex" data="00"/>
+			<value name="Anti-aliasing2" type="hex" data="01"/>
 			<value name="UseAltGrayPlus" type="hex" data="01"/>
 			<value name="MouseDragWindow" type="hex" data="01"/>
 			<value name="DebugLog" type="hex" data="00"/>
@@ -784,7 +784,7 @@
 				<value name="Multi.Recreate" type="dword" data="00105b52"/>
 				<value name="Multi.AltCon" type="dword" data="00105b41"/>
 				<value name="Multi.Pause" type="dword" data="80808013"/>
-				<value name="Multi.Scroll" type="dword" data="00105b4d"/>
+				<value name="Multi.Scroll" type="dword" data="00000000"/>
 				<value name="Multi.GroupInput" type="dword" data="00000000"/>
 				<value name="Multi.GroupInputAll" type="dword" data="00000000"/>
 				<value name="Multi.GroupInputKey" type="dword" data="00000000"/>
@@ -801,7 +801,7 @@
 				<value name="KillProcessKey" type="dword" data="00000000"/>
 				<value name="KillAllButShellKey" type="dword" data="00000000"/>
 				<value name="DuplicateRootKey" type="dword" data="00000000"/>
-				<value name="CloseConEmuKey" type="dword" data="00105b51"/>
+				<value name="CloseConEmuKey" type="dword" data="00000000"/>
 				<value name="Multi.Rename" type="dword" data="00000000"/>
 				<value name="AffinityPriorityKey" type="dword" data="00000000"/>
 				<value name="Multi.MoveLeft" type="dword" data="00000000"/>
