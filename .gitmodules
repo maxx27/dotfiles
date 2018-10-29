@@ -2,3 +2,11 @@
     path = .tmux/plugins/tpm
     url = git@github.com:tmux-plugins/tpm.git
     branch = master
+[submodule ".github/fzf"]
+    path = .github/fzf
+    url = git@github.com:junegunn/fzf.git
+    branch = master
+[submodule ".github/bash-git-prompt"]
+    path = .github/bash-git-prompt
+    url = git@github.com:magicmonty/bash-git-prompt.git
+    branch = master

@@ -114,7 +114,7 @@ fi
 # bash git prompt
 #   mkdir -p ~/src/_github
 #   git clone git@github.com:magicmonty/bash-git-prompt.git --depth=1 ~/src/_github/bash-git-prompt
-if [[ -e ~/src/_github/bash-git-prompt/gitprompt.sh && ! -f /.dockerenv ]]; then
+if [[ -e ~/.github/bash-git-prompt/gitprompt.sh && ! -f /.dockerenv ]]; then
     GIT_PROMPT_ONLY_IN_REPO=1
     # GIT_PROMPT_FETCH_REMOTE_STATUS=0   # uncomment to avoid fetching remote status
     # GIT_PROMPT_IGNORE_SUBMODULES=1     # uncomment to avoid searching for changed files in submodules
@@ -128,7 +128,7 @@ if [[ -e ~/src/_github/bash-git-prompt/gitprompt.sh && ! -f /.dockerenv ]]; then
     # GIT_PROMPT_THEME_FILE=~/.git-prompt-colors.sh
     # GIT_PROMPT_THEME=Solarized         # use theme optimized for solarized color scheme
 
-    source ~/src/_github/bash-git-prompt/gitprompt.sh
+    source ~/.github/bash-git-prompt/gitprompt.sh
     # Use `git_prompt_toggle` to toggle prompt
 fi
 
