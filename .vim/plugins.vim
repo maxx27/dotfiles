@@ -31,6 +31,7 @@ source ~/.vim/plugins/gundo.vim
 source ~/.vim/plugins/markdown.vim
 source ~/.vim/plugins/nerdtree.vim
 source ~/.vim/plugins/repeat.vim
+source ~/.vim/plugins/scalpel.vim
 source ~/.vim/plugins/session.vim
 source ~/.vim/plugins/surround.vim
 source ~/.vim/plugins/tagbar.vim
