@@ -12,6 +12,7 @@ Current:
     p7zip-rar p7zip-full
     silversearcher-ag - search files
     gconf-service
+    xrdp - RDP access to linux
 
 
     xserver-xorg-input-synaptics

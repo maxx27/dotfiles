@@ -35,12 +35,13 @@ _viminfo
 
 # local history
 .bash_history
+.gdb_history
 .kshdb_hist
 .lesshst
 .mysql_history
-.gdb_history
-.python_history
+.picocom_history
 .python-history
+.python_history
 .wget-hsts
 
 # Dropbox
@@ -50,19 +51,28 @@ Dropbox/
 # other
 .ICEauthority
 .Xauthority
-.sudo_as_admin_successful
-.oracle_jre_usage/
-.gnupg/
+.apport-ignore.xml
 .dbus/
+.esets/
+.gnupg/
+.gtkrc-2.0
+.links2/
+.mozilla/
+.oracle_jre_usage/
 .p2/
-.zoom/
+.repoconfig/
+.sudo_as_admin_successful
+.thumbnails/
 .xsession-errors*
+.zoom/
 Desktop/
-Downloads/
 Documents/
+Downloads/
 Games/
 Music/
 Pictures/
+Snap/
+tmp/
 
 # Wine and friends
 .wine/

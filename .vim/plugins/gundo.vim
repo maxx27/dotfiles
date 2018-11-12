@@ -1,7 +1,7 @@
 "====================================
 " Visualize undo tree
 "====================================
-if has('python')
+if has('python') " python3 is unsupported
     Plug 'sjl/gundo.vim'
     nnoremap <leader>tu :GundoToggle<cr>
 endif

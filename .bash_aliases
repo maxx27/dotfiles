@@ -3,6 +3,10 @@ case $HOSTNAME in
     populus-*)
         alias sj='sudo -H -u jenkins'
     ;;
+    msuslov-lnx)
+        # NOTE: 'ln -s' doesn't work
+        alias rg='ripgrep.rg'
+    ;;
     MSuslov)
         alias subl='/d/Programs/_Office/Sublime/sublime_text.exe'
         alias cdp='cd /d/Work/Populus/Repo/Populus'
@@ -47,3 +51,5 @@ alias l='ls -CF'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+alias apt-all='sudo apt update && apt list --upgradable | less && sudo apt -y upgrade; sudo apt autoremove'

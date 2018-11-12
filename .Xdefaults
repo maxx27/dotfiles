@@ -30,7 +30,8 @@ URxvt.cursorColor: white
 # Font prefferenes
 # URxvt.font: xft:DejaVu Sans Mono:pixelsize=16
 # URxvt.font: xft:Literation Mono Powerline:size=12
-URxvt.font: xft:Ubuntu Mono derivative Powerline:size=14
+# URxvt.font: xft:Ubuntu Mono derivative Powerline:size=14
+URxvt.font: xft:Cousine for Powerline:size=12
 URxvt.letterSpace: -1
 
 # Perl extensions
