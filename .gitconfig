@@ -69,3 +69,5 @@
     # cr = !git reset --hard HEAD && git clean -qfdx
 [url "git@github.com:"]
     insteadOf = https://github.com/
+[push]
+	default = simple
