@@ -13,6 +13,8 @@ Current:
     silversearcher-ag - search files
     gconf-service
     xrdp - RDP access to linux
+    snapd - snap
+    tree - show files tree in text mode
 
 
     xserver-xorg-input-synaptics
