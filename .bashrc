@@ -156,3 +156,8 @@ if [ -d /c/ProgramData/chocolatey/bin ]; then
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+if [ -d ~/.local/share/zcode ]; then
+    export ZCODE_PATH=~/.local/share/zcode:~/.local/share/zcode/russian
+fi
+
