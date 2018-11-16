@@ -6,7 +6,7 @@ https://github.com/powerline/fonts
 Current:
     xsel - copy to buffer from CLI
     redshift  - f.lux for linux
-    nautilus-dropbox  - 
+    nautilus-dropbox  - ???
     dos2unix  -
     net-tools -
     p7zip-rar p7zip-full
@@ -45,9 +45,17 @@ Current:
     wine-development
     playonlinux
 
+    Perl modules:
+    libdevel-repl-perl - Devel::REPL (REPL)
+    libreply-perl - Reply (REPL)
+
+    Python:
+    curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
+    sudo bash -c "/home/msuslov/.poetry/bin/poetry completions bash > /etc/bash_completion.d/poetry.bash-completion"
+
 In past:
     htop       - performance monitor
-    mc         - 
+    mc         - file manager
     terminator - pane terminal
     python-gpg - ???
     gparted    - disk partition manager

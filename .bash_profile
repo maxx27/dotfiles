@@ -49,3 +49,5 @@ fi
 #        tmux attach || tmux new
 #    fi
 #fi
+
+export PATH="$HOME/.poetry/bin:$PATH"

@@ -161,3 +161,7 @@ if [ -d ~/.local/share/zcode ]; then
     export ZCODE_PATH=~/.local/share/zcode:~/.local/share/zcode/russian
 fi
 
+
+if [ -d ~/.poetry/bin ]; then
+    export PATH=~/.poetry/bin:~/$PATH
+fi
