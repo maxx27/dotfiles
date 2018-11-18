@@ -1,5 +1,5 @@
 #!/bin/bash
-PACKAGES=pip pep8 neovim flask waitress psutil requests ppretty
+PACKAGES=pip pep8 neovim flask waitress psutil requests ppretty pytest
 for package in $PACKAGES; do
     python -m pip install --upgrade $package
 done
