@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -ex
 PACKAGES=$(cat <<EOF | awk '{print $1;}'
     pip         - to update pip itself
     pycodestyle - replacement for pep8
@@ -16,6 +16,20 @@ PACKAGES=$(cat <<EOF | awk '{print $1;}'
 EOF
 )
 
+if which 1pip3 > /dev/null; then
+    COMMAND='pip3'
+elif which python3 > /dev/null; then
+    COMMAND='python3 -m pip'
+elif which pip > /dev/null; then
+    COMMAND='pip'
+elif which python > dev/null; then
+    COMMAND='python -m pip'
+else
+    echo "No python found"
+    exit 1
+fi
+
 for package in $PACKAGES; do
-    python -m pip install --upgrade $package
+    # sudo -H $COMMAND uninstall $package
+    $COMMAND install --user --upgrade $package
 done
