@@ -16,7 +16,11 @@ PACKAGES=$(cat <<EOF | awk '{print $1;}'
 EOF
 )
 
-if which 1pip3 > /dev/null; then
+if which pip3 > /dev/null; then
+    # after installing pip, you can face an error:
+    # ImportError: cannot import name main
+    # Solution: restart shell
+    # https://github.com/pypa/pip/issues/5240
     COMMAND='pip3'
 elif which python3 > /dev/null; then
     COMMAND='python3 -m pip'
