@@ -3,8 +3,10 @@ PACKAGES=$(cat <<EOF | awk '{print $1;}'
     pip         - to update pip itself
     pycodestyle - replacement for pep8
     pyreadline  - to use readline library
-    ipython     - replacement for idle
+    ptpython    - enhancement for python CLI
+    ipython     - enhancement for python CLI
     ppretty     - to print pretty structures
+    pylint
     pytest
     requests    - web crawling tools
     flask
