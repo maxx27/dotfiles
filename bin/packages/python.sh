@@ -1,7 +1,8 @@
 #!/bin/bash -ex
 PACKAGES=$(cat <<EOF | awk '{print $1;}'
     pip         - to update pip itself
-    pycodestyle - replacement for pep8
+    pycodestyle - replacement for PEP8
+    autopep8    - autoformat according to PEP8
     pyreadline  - to use readline library
     ptpython    - enhancement for python CLI
     ipython     - enhancement for python CLI
