@@ -43,6 +43,7 @@ _viminfo
 .python-history
 .python_history
 .wget-hsts
+.ptpython/history
 
 # Dropbox
 .dropbox*/
