@@ -33,6 +33,13 @@ _viminfo
 .config/ranger/history
 .config/ranger/tagged
 
+# Python
+.python-history
+.python_history
+.ptpython/history
+.idlerc/breakpoints.lst
+.idlerc/recent-files.lst
+
 # local history
 .bash_history
 .gdb_history
@@ -40,10 +47,7 @@ _viminfo
 .lesshst
 .mysql_history
 .picocom_history
-.python-history
-.python_history
 .wget-hsts
-.ptpython/history
 
 # Dropbox
 .dropbox*/
