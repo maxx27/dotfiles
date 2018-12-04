@@ -28,6 +28,6 @@ set keymap vi-insert
 "\e_":yank-last-arg
 
 # show mode at the beginning of prompt
-set show-mode-in-prompt on
+set show-mode-in-prompt off
 # use vi mode by default
 set editing-mode emacs

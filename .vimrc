@@ -480,6 +480,12 @@ if filereadable(expand("~/.vim/functions.vim"))
 endif
 
 "====================================
+" ADDITIONAL COMMANDS
+"====================================
+
+source ~/.vim/help.vim
+
+"====================================
 " LOCAL CONFIG
 "====================================
 
