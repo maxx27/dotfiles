@@ -135,6 +135,9 @@ set smartcase                       " override 'ignorecase' if pattern contains 
 
 filetype plugin indent on           " enable file type detection and load plugins for this type
 
+" Match angle brackets...
+set matchpairs+=<:>,«:»,｢:｣
+
 "====================================
 " Swap and undo settings
 "====================================
@@ -286,7 +289,10 @@ set eadirection=both                " for both vertical and horizontal splits
 " Editing
 "====================================
 
-" make the backspace work like in most other programs
+" make the backspace work like in most other programs:
+" start  - can delete back past start of edit
+" indent - can delete back past autoindening
+" eol    - can delete back to the previous line
 set backspace=indent,eol,start
 nnoremap <BS> X
 
@@ -478,12 +484,6 @@ command! MakeTags !ctags -R .
 if filereadable(expand("~/.vim/functions.vim"))
     source ~/.vim/functions.vim
 endif
-
-"====================================
-" ADDITIONAL COMMANDS
-"====================================
-
-source ~/.vim/help.vim
 
 "====================================
 " LOCAL CONFIG
