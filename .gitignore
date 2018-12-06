@@ -3,9 +3,6 @@
 *.log
 *.swp
 
-# Cache
-.cache/
-
 # Sublime
 .config/sublime-text-3/
 !.config/sublime-text-3/Packages/User/
@@ -55,29 +52,38 @@ Dropbox/
 
 # other
 .ICEauthority
+.Idea*/
+.PyCharm*/
+.QtWebEngineProcess/
+.VirtualBox/
 .Xauthority
+.android/
 .apport-ignore.xml
+.cache/
+.codeintel/
 .dbus/
+.docker/
+.ebookreader/
+.eclipse/
 .esets/
+.fop/
 .gnupg/
+.gradle/
 .gtkrc-2.0
 .links2/
+.m2/
 .mozilla/
 .oracle_jre_usage/
 .p2/
 .repoconfig/
 .sudo_as_admin_successful
 .thumbnails/
+.wf_workspace/
 .xsession-errors*
+.zenmap/
 .zoom/
-Desktop/
-Documents/
-Downloads/
-Games/
-Music/
-Pictures/
-Snap/
-tmp/
+.screenleap
+.qt-license
 
 # Wine and friends
 .wine/
@@ -91,4 +97,39 @@ PlayOnLinux*/
 .steampid
 
 # Windows
+3D Objects/
+AppData/
+Contacts/
+Cookies/
+Desktop/
+Documents/
+Downloads/
+Favorites/
+Games/
+IntelGraphicsProfiles/
+Links/
+Local Settings/
+Luxoft/
+MicrosoftEdgeBackups/
+Music/
+My Documents/
+NetHood/
+OneDrive/
+Pictures/
+PrintHood/
+Recent/
+Saved Games/
+Searches/
+SendTo/
+Snap/
+Start Menu/
+Templates/
+Tracing/
+Videos/
+runtime-keygen.product/
+skype-export/
+tmp/
+workspace/
 NTUSER.DAT*
+ntuser*
+*.appx
