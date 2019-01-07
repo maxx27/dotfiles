@@ -1,4 +1,4 @@
-#
+# Backup
 *.bak
 *.log
 *.swp
@@ -51,15 +51,10 @@ _viminfo
 Dropbox/
 
 # other
-.ICEauthority
-.Idea*/
-.PyCharm*/
-.QtWebEngineProcess/
-.VirtualBox/
-.Xauthority
 .android/
 .apport-ignore.xml
 .cache/
+.cisco/
 .codeintel/
 .dbus/
 .docker/
@@ -70,20 +65,27 @@ Dropbox/
 .gnupg/
 .gradle/
 .gtkrc-2.0
+.ICEauthority
+.Idea*/
 .links2/
 .m2/
 .mozilla/
 .oracle_jre_usage/
 .p2/
+.PyCharm*/
+.qt-license
+.QtWebEngineProcess/
 .repoconfig/
+.screenleap
+.ssh/
 .sudo_as_admin_successful
 .thumbnails/
+.VirtualBox/
 .wf_workspace/
+.Xauthority
 .xsession-errors*
 .zenmap/
 .zoom/
-.screenleap
-.qt-license
 
 # Wine and friends
 .wine/
