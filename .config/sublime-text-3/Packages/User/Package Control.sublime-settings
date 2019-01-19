@@ -39,6 +39,8 @@
 		"perl-Test-Class",
 		"perl-Test-More",
 		"PerlTidy",
+		"Prolog",
+		"StringEncode",
 		"sublime-expand-selection-to-quotes",
 		"SublimeAStyleFormatter",
 		"SublimeCodeIntel",
@@ -47,7 +49,8 @@
 		"SublimeLinter-contrib-perlcritic",
 		"Theme - Cobalt2",
 		"Theme - Soda",
-		"TrailingSpaces"
+		"TrailingSpaces",
+		"UnicodeCompletion"
 	],
 	"repositories":
 	[

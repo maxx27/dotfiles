@@ -7,7 +7,8 @@
 		"Alexey",
 		"Serov",
 		"Vladislav",
-		"Sindhu"
+		"Sindhu",
+		"Kanban"
 	],
 	"caret_extra_bottom": 2,
 	"caret_extra_top": 2,
@@ -23,8 +24,8 @@
 		".tags_sorted_by_file",
 		".gemtags"
 	],
-	"font_face": "Consolas",
-	"font_size": 12,
+	"font_face": "DejaVuSansMono NF",
+	"font_size": 14,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
