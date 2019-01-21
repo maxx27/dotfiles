@@ -2,7 +2,7 @@
 set -x -e
 
 # Steps to build and install tmux from source on Ubuntu.
-VERSION=2.7
+VERSION=2.8
 sudo apt-get -y remove tmux || sudo dpkg -r tmux || true
 sudo apt-get -y install wget tar libevent-dev libncurses-dev checkinstall
 wget https://github.com/tmux/tmux/releases/download/${VERSION}/tmux-${VERSION}.tar.gz
