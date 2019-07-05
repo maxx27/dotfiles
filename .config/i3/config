@@ -227,6 +227,7 @@ assign [class="Sublime_text"] $workspace2
 assign [class="Google-chrome"] $workspace7
 assign [class="Skype"] $workspace8
 assign [class="zoom"] $workspace9
+for_window [title="Populus Engine"] floating enable
 
 # https://faq.i3wm.org/question/3747/enabling-multimedia-keys.1.html
 

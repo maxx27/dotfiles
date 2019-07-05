@@ -37,6 +37,7 @@ _viminfo
 .idlerc/breakpoints.lst
 .idlerc/recent-files.lst
 __pycache__/
+*.pyo
 
 # local history
 .bash_history
