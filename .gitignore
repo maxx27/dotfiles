@@ -31,13 +31,21 @@ _viminfo
 .config/ranger/tagged
 
 # Python
-.python-history
-.python_history
-.ptpython/history
+*.pyo
+.PyCharm*/
 .idlerc/breakpoints.lst
 .idlerc/recent-files.lst
+.ptpython/history
+.python-history
+.python_history
 __pycache__/
-*.pyo
+
+# Java
+.Idea*/
+.gradle/
+.m2/
+.p2/
+IdeaProjects/
 
 # local history
 .bash_history
@@ -52,43 +60,6 @@ __pycache__/
 .dropbox*/
 Dropbox/
 
-# other
-.android/
-.apport-ignore.xml
-.cache/
-.cisco/
-.codeintel/
-.dbus/
-.docker/
-.ebookreader/
-.eclipse/
-.esets/
-.fop/
-.gnupg/
-.gradle/
-.gtkrc-2.0
-.ICEauthority
-.Idea*/
-.links2/
-.m2/
-.mozilla/
-.oracle_jre_usage/
-.p2/
-.PyCharm*/
-.qt-license
-.QtWebEngineProcess/
-.repoconfig/
-.screenleap
-.ssh/
-.sudo_as_admin_successful
-.thumbnails/
-.VirtualBox/
-.wf_workspace/
-.Xauthority
-.xsession-errors*
-.zenmap/
-.zoom/
-
 # Wine and friends
 .wine/
 WindowsPrograms/
@@ -101,6 +72,7 @@ PlayOnLinux*/
 .steampid
 
 # Windows
+*.appx
 3D Objects/
 AppData/
 Contacts/
@@ -117,6 +89,7 @@ Luxoft/
 MicrosoftEdgeBackups/
 Music/
 My Documents/
+NTUSER.DAT*
 NetHood/
 OneDrive/
 Pictures/
@@ -130,10 +103,49 @@ Start Menu/
 Templates/
 Tracing/
 Videos/
+ntuser*
 runtime-keygen.product/
 skype-export/
 tmp/
 workspace/
-NTUSER.DAT*
-ntuser*
-*.appx
+
+# Linux
+.ICEauthority
+.QtWebEngineProcess/
+.VirtualBox/
+.Xauthority
+.android/
+.apport-ignore.xml
+.cache/
+.cisco/
+.codeintel/
+.cups/
+.dbus/
+.docker/
+.ebookreader/
+.eclipse/
+.esets/
+.fop/
+.gnupg/
+.gtkrc-2.0
+.links2/
+.mozilla/
+.oracle_jre_usage/
+.qt-license
+.repoconfig/
+.screenleap
+.ssh/
+.sudo_as_admin_successful
+.thumbnails/
+.wf_workspace/
+.xsession-errors*
+.zenmap/
+.zoom/
+
+# Mac OS X
+.CFUserTextEncoding
+.DS_Store
+.Trash/
+Library/
+Movies/
+Public/
