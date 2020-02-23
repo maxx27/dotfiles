@@ -1,0 +1,36 @@
+{
+	"color_scheme": "Packages/Theme - Cobalt2/cobalt2.tmTheme",
+	"font_size": 18,
+	"ignored_packages":
+	[
+		"Alignment",
+		"Awk",
+		"BracketHighlighter",
+		"ChannelRepositoryTools",
+		"Clipboard Manager",
+		"CTags",
+		"DiffTabs",
+		"DocBlockr",
+		"Dockerfile Syntax Highlighting",
+		"Emmet",
+		"External Command",
+		"Groovy Snippets",
+		"Indent XML",
+		"INI",
+		"Keymaps",
+		"Markdown Table Formatter",
+		"MarkdownEditing",
+		"MarkdownPreview",
+		"MarkdownTOC",
+		"Markmon real-time markdown preview",
+		"ModernPerl",
+		"NSIS Completions & Snippets",
+		"Origami",
+		"StringEncode",
+		"sublime-expand-selection-to-quotes",
+		"SublimeLinter-annotations",
+		"Vintage"
+	],
+	"theme": "Cobalt2.sublime-theme",
+	"trim_trailing_white_space_on_save": true
+}

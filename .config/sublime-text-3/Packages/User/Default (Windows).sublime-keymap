@@ -11,6 +11,7 @@
     // special
     { "keys": ["\\","e","u"], "command": "insert", "args": {"characters": "€"}},
 
+    { "keys": ["alt+backspace"], "command": "delete_trailing_spaces" },
 	{ "keys": ["f5"], "command": "insert_datetime"},
 	{ "keys": ["ctrl+alt+p"], "command": "prompt_select_workspace" }
 ]

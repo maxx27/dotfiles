@@ -1,151 +1,172 @@
+
+# Windows
+/*.appx
+/3D Objects/
+/AppData/*
+!/AppData/Roaming/
+/AppData/Roaming/*
+/Contacts/
+/Cookies/
+/Desktop/
+/Documents/
+/Downloads/
+/Favorites/
+/Games/
+/IntelGraphicsProfiles/
+/Links/
+/Local Settings/
+/Luxoft/
+/MicrosoftEdgeBackups/
+/Music/
+/My Documents/
+/NTUSER.DAT*
+/NetHood/
+/OneDrive/
+/Pictures/
+/PrintHood/
+/Recent/
+/Saved Games/
+/Searches/
+/SendTo/
+/Snap/
+/Start Menu/
+/Templates/
+/Tracing/
+/Videos/
+/ntuser*
+/runtime-keygen.product/
+/skype-export/
+/tmp/
+/workspace/
+
+# Linux
+/.ICEauthority
+/.QtWebEngineProcess/
+/.VirtualBox/
+/.Xauthority
+/.android/
+/.apport-ignore.xml
+/.cache/
+/.cisco/
+/.codeintel/
+/.cups/
+/.dbus/
+/.docker/
+/.ebookreader/
+/.eclipse/
+/.esets/
+/.fop/
+/.gnupg/
+/.gtkrc-2.0
+/.links2/
+/.mozilla/
+/.oracle_jre_usage/
+/.qt-license
+/.repoconfig/
+/.screenleap
+/.ssh/
+/.sudo_as_admin_successful
+/.thumbnails/
+/.wf_workspace/
+/.xsession-errors*
+/.zenmap/
+/.zoom/
+
+# Mac OS X
+/.CFUserTextEncoding
+/.DS_Store
+/.Trash/
+/Library/
+/Movies/
+/Public/
+
 # Backup
 *.bak
 *.log
 *.swp
+*.backup
 
 # Sublime
-.config/sublime-text-3/
-!.config/sublime-text-3/Packages/User/
-.config/sublime-text-3/Packages/User/Package Control.cache
-.config/sublime-text-3/Packages/User/Package Control.last-run
-.codeintel
+/.config/sublime-text-3/
+!/.config/sublime-text-3/Packages/User/
+/.config/sublime-text-3/Packages/User/Package Control.cache
+/.config/sublime-text-3/Packages/User/Package Control.last-run
+/.codeintel/
+
+!/AppData/Roaming/Sublime Text 3/
+/AppData/Roaming/Sublime Text 3/*
+!/AppData/Roaming/Sublime Text 3/Packages/
+/AppData/Roaming/Sublime Text 3/Packages/*
+!/AppData/Roaming/Sublime Text 3/Packages/User/
+/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.cache
+/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.last-run
 
 # Vim
-.vim/.netrwhist
-.vim/.tmp/*
-.vim/.undo/*
-.vim/autoload/*
-.vim/plugged/*
-.vim/sessions/*
-.vim/spell/*.spl
-.viminfo
-_viminfo
+/.vim/.netrwhist
+/.vim/.tmp/
+/.vim/.undo/
+/.vim/autoload/
+/.vim/plugged/
+/.vim/sessions/
+/.vim/spell/*.spl
+/.viminfo
+/_viminfo
 
 # Tmux
-.tmux/plugins
-!.tmux/plugins/tpm
+/.tmux/plugins
+!/.tmux/plugins/tpm
 
 # Ranger
-.config/ranger/bookmarks
-.config/ranger/history
-.config/ranger/tagged
+/.config/ranger/bookmarks
+/.config/ranger/history
+/.config/ranger/tagged
 
 # Python
 *.pyo
-.PyCharm*/
-.idlerc/breakpoints.lst
-.idlerc/recent-files.lst
-.ptpython/history
-.python-history
-.python_history
+/.idlerc/breakpoints.lst
+/.idlerc/recent-files.lst
+/.ptpython/history
+/.PyCharm*/
+/.python-history
+/.python_history
 __pycache__/
 
 # Java
-.Idea*/
-.gradle/
-.m2/
-.p2/
-IdeaProjects/
+/.Idea*/
+/.gradle/
+/.m2/
+/.p2/
+/IdeaProjects/
+/.IntelliJIdea*/
 
 # local history
-.bash_history
-.gdb_history
-.kshdb_hist
-.lesshst
-.mysql_history
-.picocom_history
-.wget-hsts
+/.bash_history
+/.gdb_history
+/.kshdb_hist
+/.lesshst
+/.mysql_history
+/.picocom_history
+/.wget-hsts
+/.node_repl_history
 
 # Dropbox
-.dropbox*/
-Dropbox/
+/.dropbox*/
+/Dropbox/
 
 # Wine and friends
-.wine/
-WindowsPrograms/
-.PlayOnLinux/
-PlayOnLinux*/
+/.wine/
+/WindowsPrograms/
+/.PlayOnLinux/
+/PlayOnLinux*/
 
 # Steam
-.steam/
-.steampath
-.steampid
+/.steam/
+/.steampath
+/.steampid
 
-# Windows
-*.appx
-3D Objects/
-AppData/
-Contacts/
-Cookies/
-Desktop/
-Documents/
-Downloads/
-Favorites/
-Games/
-IntelGraphicsProfiles/
-Links/
-Local Settings/
-Luxoft/
-MicrosoftEdgeBackups/
-Music/
-My Documents/
-NTUSER.DAT*
-NetHood/
-OneDrive/
-Pictures/
-PrintHood/
-Recent/
-Saved Games/
-Searches/
-SendTo/
-Snap/
-Start Menu/
-Templates/
-Tracing/
-Videos/
-ntuser*
-runtime-keygen.product/
-skype-export/
-tmp/
-workspace/
+# Calibre
+/Calibre Library/
 
-# Linux
-.ICEauthority
-.QtWebEngineProcess/
-.VirtualBox/
-.Xauthority
-.android/
-.apport-ignore.xml
-.cache/
-.cisco/
-.codeintel/
-.cups/
-.dbus/
-.docker/
-.ebookreader/
-.eclipse/
-.esets/
-.fop/
-.gnupg/
-.gtkrc-2.0
-.links2/
-.mozilla/
-.oracle_jre_usage/
-.qt-license
-.repoconfig/
-.screenleap
-.ssh/
-.sudo_as_admin_successful
-.thumbnails/
-.wf_workspace/
-.xsession-errors*
-.zenmap/
-.zoom/
-
-# Mac OS X
-.CFUserTextEncoding
-.DS_Store
-.Trash/
-Library/
-Movies/
-Public/
+# Other
+/.yarnrc
+/.config/configstore/

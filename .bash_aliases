@@ -8,10 +8,10 @@ case $HOSTNAME in
         alias rg='ripgrep.rg'
     ;;
     MSuslov)
-        alias subl='/d/Programs/_Office/Sublime/sublime_text.exe'
+        alias subl='"/c/Program Files/Sublime Text 3/sublime_text.exe"'
         alias cdp='cd /d/Work/Populus/Repo/Populus'
-        alias cdp2='cd /d/Work/Populus/Repo/Populus2'
-        alias cdpd='cd /d/Work/Populus/Repo/PopulusDoc'
+        alias cdl='cd /d/Work/Populus/Repo/LSR'
+        alias cdg='cd /d/Work/Populus/Repo/9831_GWM_Aptiv_LSR'
     ;;
     beta)
         alias subl='/d/Programs/_Office/Sublime/sublime_text.exe'

@@ -198,3 +198,6 @@ voenchasty.ru hard
 williamfaulkner.lexhirst.com hard
 yakaboo.ua hard
 zookal.com hard
+
+qaru.site hard
+
