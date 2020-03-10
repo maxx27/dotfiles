@@ -12,6 +12,7 @@
 /Downloads/
 /Favorites/
 /Games/
+/iCloudDrive/
 /IntelGraphicsProfiles/
 /Links/
 /Local Settings/
@@ -19,36 +20,33 @@
 /MicrosoftEdgeBackups/
 /Music/
 /My Documents/
-/NTUSER.DAT*
 /NetHood/
+/ntuser*
+/NTUSER*
 /OneDrive/
 /Pictures/
 /PrintHood/
 /Recent/
+/runtime-keygen.product/
 /Saved Games/
 /Searches/
 /SendTo/
+/skype-export/
 /Snap/
 /Start Menu/
 /Templates/
 /Tracing/
 /Videos/
-/ntuser*
-/runtime-keygen.product/
-/skype-export/
-/tmp/
+/WordfastPro/
 /workspace/
 
 # Linux
-/.ICEauthority
-/.QtWebEngineProcess/
-/.VirtualBox/
-/.Xauthority
 /.android/
 /.apport-ignore.xml
 /.cache/
 /.cisco/
 /.codeintel/
+/.config/configstore/
 /.cups/
 /.dbus/
 /.docker/
@@ -57,18 +55,24 @@
 /.esets/
 /.fop/
 /.gnupg/
-/.gtkrc-2.0
+/.gtkrc*
+/.ICEauthority
 /.links2/
 /.mozilla/
 /.oracle_jre_usage/
 /.qt-license
+/.QtWebEngineProcess/
 /.repoconfig/
 /.screenleap
 /.ssh/
 /.sudo_as_admin_successful
 /.thumbnails/
+/.vagrant.d/
+/.VirtualBox/
 /.wf_workspace/
+/.Xauthority
 /.xsession-errors*
+/.yarnrc
 /.zenmap/
 /.zoom/
 
@@ -130,6 +134,8 @@
 /.python-history
 /.python_history
 __pycache__/
+/.ipython/
+!/.ipython/profile_default/startup
 
 # Java
 /.Idea*/
@@ -164,9 +170,7 @@ __pycache__/
 /.steampath
 /.steampid
 
-# Calibre
-/Calibre Library/
-
 # Other
-/.yarnrc
-/.config/configstore/
+/Calibre Library/
+/perl5/
+/tmp/

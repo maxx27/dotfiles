@@ -1,0 +1,85 @@
+# vim:ft=perl
+
+use feature 'say';
+use Data::Printer;
+
+do {
+    no warnings 'qw'; # shut it up about comments in qw(...)
+
+    my @plugins = qw(
+        Colors
+        Completion
+        CompletionDriver::Globals
+        CompletionDriver::INC
+        CompletionDriver::Keywords
+        CompletionDriver::LexEnv
+        CompletionDriver::Methods
+        DataPrinter
+        Editor
+        FancyPrompt
+        Interrupt
+        LazyLoad
+        LexEnv
+        MultiLine::PPI
+        OutputCache
+        ReadLineHistory
+        ShowClass
+        Turtles
+    );
+
+    foreach my $plugin (grep { !/^#/ } @plugins) {
+        my $ok = eval {
+            $_REPL->load_plugin($plugin);
+            1;
+        };
+
+        unless($ok) {
+            say $@;
+        }
+    }
+
+    $_REPL->normal_color('white');
+
+    my @shell_words = qw(fg bg jobs);
+    my $shell_re    = join('|', @shell_words);
+       $shell_re    = qr/^($shell_re)$/;
+
+    $_REPL->add_turtles_matcher($shell_re);
+
+    foreach my $word (@shell_words) {
+        $_REPL->meta->add_method('command_' . $word, sub {
+            die "What do you think this is, a shell?\n";
+        });
+    }
+
+    if($_REPL->can('lazy_load')) {
+        $_REPL->lazy_load('DateTime');
+        $_REPL->lazy_load('File::Slurp' => qw{read_file write_file});
+    }
+
+    if($_REPL->can('dataprinter_config')) {
+        $_REPL->dataprinter_config({
+            caller_info => 0,
+        });
+    }
+
+    $_REPL->term->Attribs->{history_quotes_inhibit_expansion} = 1;
+    $_REPL->term->Attribs->{do_expand} = 0;
+
+    sub new_obj {
+        my $class = shift;
+        require $class;
+        return $class->new(@_);
+    }
+
+    # Usually the REPL's own output is fine, but sometimes I want to dump an object
+    # that supports stringification without it being stringified:
+    sub dd {
+        if (eval "require Data::Dump") {
+            print Data::Dump::dump(shift);
+        } else {
+            require "Data::Dumper";
+            print Data::Dumper::Dumper(shift);
+        }
+    }
+};
