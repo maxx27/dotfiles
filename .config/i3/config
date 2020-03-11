@@ -86,9 +86,9 @@ bar {
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
 
-#############################
-### settings for i3-gaps: ###
-#############################
+########################################
+# i3-gaps
+########################################
 
 # Set inner/outer gaps
 gaps inner 14
@@ -395,32 +395,36 @@ bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # Keyboard layout
-# `man setxkbmap` for parameters
-# `man xkeyboard-config` for grp:*
-#set $keyrus "setxkbmap -model pc104 -layout us,ru -variant , -option grp:win_space_toggle"
-#bindsym $mod+Shift+u exec $keyrus
+#   http://xgu.ru/wiki/xkb
+#   `man setxkbmap` for parameters
+#   `man xkeyboard-config` for grp:*
+# grp:win_space_toggle - super + space
+set $keyrus "setxkbmap -model pc104 -layout us,ru -variant , -option grp:caps_toggle"
+bindsym $mod+Shift+u exec $keyrus
 
 ########################################
 # Autostart
 ########################################
 
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-exec --no-startup-id manjaro-hello
-exec --no-startup-id nm-applet
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id pamac-tray
-exec --no-startup-id clipit
-# exec --no-startup-id blueman-applet
 exec_always --no-startup-id sbxkb
+exec_always --no-startup-id $keyrus
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec_always feh --bg-scale ~/Pictures/wallpaper/default
+
+exec --no-startup-id xautolock -time 10 -locker blurlock
+exec --no-startup-id volumeicon
+exec --no-startup-id nm-applet
+exec --no-startup-id pamac-tray
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id clipit
 exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 10 -locker blurlock
+# exec --no-startup-id blueman-applet
 exec_always --no-startup-id fix_xcursor
-#exec_always $keyrus
+exec --no-startup-id manjaro-hello
+
+#exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 #exec subl
-#exec_always feh --bg-scale ~/Pictures/wallpaper/default
-exec --no-startup-id volumeicon
 
 ########################################
 # Multimedia keys > Sound

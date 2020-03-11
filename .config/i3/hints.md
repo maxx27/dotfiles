@@ -25,13 +25,14 @@ $mod+space             Change focus between tiling / floating windows
 
 $mod+Shift+c reload    Reload config
 $mod+Shift+r restart   Restart i3 inplace (preserves layout/session)
-$mod+Shift+e           Exit i3
-$mod+Shift+x           Lock screen
+$mod+0                 Exit i3
+$mod+9                 Lock screen
 
 # Packages
 
     sudo apt install
-        i3                 # i3 itself
+        i3-gaps            # Manjaro, replaces `i3-wm`, includes `i3-nagbar`
+        i3                 # Ubuntu
 
         # screen locker
         i3exit             # `blurlock`
@@ -60,29 +61,30 @@ $mod+Shift+x           Lock screen
         moc                # mocp - console player
         dunst              # notification deamon
         i3-scrot           # screenshot
-        #i3-gaps            # `i3-nagbar`
         network-manager-applet # `nm-applet`
         xfce4-power-manager
         pamac-gtk          # pamac-tray
         clipit             # clipboard manager
         conky-i3           # start_conky_maia
         feh                # `feh` to change wallpaper
-        nirogen            # background browser and setter
-        light              # build manually by ~/bin/build/light.sh (TODO: manjaro)
+        nitrogen           # background browser and setter
+        light              # to change monitor brightness
+                           # Manjaro: light
+                           # Ubuntu: build manually by ~/bin/build/light.sh
+                           # xbacklight package doesn't work
 
         # terminal
         rxvt-unicode       # `urxvt`
         i3-scripts         # `terminal`, `fix_xcursor`
 
         # fonts
-        fonts-font-awesome #  (only Ubuntu)
+        fonts-font-awesome # (only Ubuntu)
+        nerd-fonts-complete # (manjaro) yay -S nerd-fonts-complete
         gsfonts            # URWGothic-Book (manjaro)
-        ttf-dejavu         # DejaVu (manjaro)
 
         arandr             # multiple monitor configuration
-        lxappearance       # configure UI
+        lxappearance       # configure UI (gnome application theme)
 
-        ~xbacklight~       # to change monitor brightness (doesn't work)
 
 # Wallpapers
 

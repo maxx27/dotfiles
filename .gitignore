@@ -75,6 +75,8 @@
 /.yarnrc
 /.zenmap/
 /.zoom/
+/.poetry/
+/.pki/
 
 # Mac OS X
 /.CFUserTextEncoding
@@ -154,6 +156,7 @@ __pycache__/
 /.picocom_history
 /.wget-hsts
 /.node_repl_history
+/.swipl-dir-history
 
 # Dropbox
 /.dropbox*/
