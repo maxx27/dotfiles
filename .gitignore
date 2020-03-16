@@ -138,6 +138,7 @@
 __pycache__/
 /.ipython/
 !/.ipython/profile_default/startup
+/.pylint.d/
 
 # Java
 /.Idea*/
@@ -177,3 +178,4 @@ __pycache__/
 /Calibre Library/
 /perl5/
 /tmp/
+/.vscode/

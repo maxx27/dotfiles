@@ -9,6 +9,7 @@ case $HOSTNAME in
     ;;
     MSuslov)
         alias subl='"/c/Program Files/Sublime Text 3/sublime_text.exe"'
+        alias code='"/c/Program Files/Microsoft VS Code/Code.exe"'
         alias cdp='cd /d/Work/Populus/Repo/Populus'
         alias cdl='cd /d/Work/Populus/Repo/LSR'
         alias cdg='cd /d/Work/Populus/Repo/9831_GWM_Aptiv_LSR'
