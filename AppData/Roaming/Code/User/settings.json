@@ -1,0 +1,23 @@
+{
+    "python.pythonPath": "C:\\tools\\Anaconda3\\python.exe",
+    "python.jediEnabled": false,
+    "sync.autoUpload": true,
+    "sync.autoDownload": true,
+    "sync.gist": "cc5c580082ce74b46acd1028d6f08d0a",
+    "window.zoomLevel": 0,
+    "files.trimTrailingWhitespace": true,
+    "editor.formatOnPaste": true,
+    "files.associations": {
+        "*.Jenkinsfile": "groovy"
+    },
+    "workbench.colorTheme": "Dracula Soft",
+    "todo-tree.tree.showScanModeButton": false,
+    "C_Cpp.updateChannel": "Insiders",
+    "editor.mouseWheelZoom": true,
+    "files.autoSave": "off",
+    "cmake.configureOnOpen": false,
+    "remote.SSH.remotePlatform": {
+        "msuslov-lnx.spb.luxoft.com": "linux",
+        "populus-docker": "linux"
+    }
+}

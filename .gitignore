@@ -92,6 +92,15 @@
 *.swp
 *.backup
 
+# VS Code
+/.vscode/
+!/AppData/Roaming/Code/
+/AppData/Roaming/Code/*
+!/AppData/Roaming/Code/User/
+/AppData/Roaming/Code/User/*
+!/AppData/Roaming/Code/User/keybindings.json
+!/AppData/Roaming/Code/User/settings.json
+
 # Sublime
 /.config/sublime-text-3/
 !/.config/sublime-text-3/Packages/User/
@@ -139,6 +148,7 @@ __pycache__/
 /.ipython/
 !/.ipython/profile_default/startup
 /.pylint.d/
+/.anaconda/
 
 # Java
 /.Idea*/
@@ -178,4 +188,3 @@ __pycache__/
 /Calibre Library/
 /perl5/
 /tmp/
-/.vscode/
