@@ -24,17 +24,6 @@ if [ -f "~/.ssh/id_rsa" ]; then
 EOF
 fi
 
-# set some specific folder as default folder instead of home (starting) one
-# if [ "$(pwd)" == "$HOME" ]; then
-#     declare -a dirs=("/d/Populus/Populus" "/c/src/SWIFT_int")
-#     for i in "${dirs[@]}"
-#     do
-#         if [ -d "$i" ]; then
-#             cd "$i"
-#         fi
-#     done
-# fi
-
 if [[ ! $TERM =~ screen ]] && [ -z $TMUX ]; then
     if command -v tmux > /dev/null; then
         tmux attach || tmux new
@@ -50,4 +39,8 @@ fi
 #    fi
 #fi
 
-export PATH="$HOME/.poetry/bin:$PATH"
+if [ -d $HOME/.poetry/bin ]; then
+    export PATH="$HOME/.poetry/bin:$PATH"
+fi
+
+export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
