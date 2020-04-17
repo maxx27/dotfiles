@@ -1,0 +1,18 @@
+
+Remove:
+palemoon-bin
+
+Install:
+yay # another package manager
+code # visual studio code
+openconnect # vpn for Luxoft
+ripgrep
+nerd-fonts-complete # `sudo -i` before installing, it takes long time
+# pycharm-community-edition
+fish
+i3-gaps # i3 with gaps, see ~/.config/i3/hints.md for packages
+skypeforlinux-stable-bin
+bcompare-nautius
+google-chrome
+zensu # sudo for graphical apps
+rxvt-unicode
