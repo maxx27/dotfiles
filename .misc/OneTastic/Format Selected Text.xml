@@ -1,0 +1,62 @@
+<Expression>$Page = GetCurrentPage()</Expression>
+<Comment text="----------------------------------------------------------------------------------" />
+<Comment text="Remove All Indents From Selected Paragraphs" />
+<Comment text="----------------------------------------------------------------------------------" />
+<ForEach var="Paragraph">
+  <Array>QueryObjects("Paragraph", $Page)</Array>
+  <Expression>$IsSelected = ($Paragraph.selection != "none")</Expression>
+  <If>
+    <Condition>$IsSelected</Condition>
+    <Expression>$Paragraph.indent = 0</Expression>
+    <Expression>$Paragraph.spaceAfter = 0</Expression>
+    <Expression>$Paragraph.spaceBefore = 0</Expression>
+    <Expression>$Paragraph.spaceBetween = 0</Expression>
+  </If>
+</ForEach>
+<Comment text="----------------------------------------------------------------------------------" />
+<Comment text="Join Paragraphs" />
+<Comment text="----------------------------------------------------------------------------------" />
+<ForEach var="Outline">
+  <Array>$Page.outlines</Array>
+  <If>
+    <Condition>$Outline.selection == "none"</Condition>
+    <Continue>1</Continue>
+  </If>
+  <Expression>$PrevPara = ""</Expression>
+  <ForEach var="Paragraph">
+    <Array>$Outline.paragraphs</Array>
+    <Expression>$SavePrev = false</Expression>
+    <If>
+      <Condition>$Paragraph.selection != "none"</Condition>
+      <If>
+        <Condition>($PrevPara != "") &amp;&amp; ($PrevPara.selection != "none")</Condition>
+        <Comment text="do we need to join them?" />
+        <Expression>$IsPrevEnded = ((String_EndsWith($PrevPara.text, ".", false) || String_EndsWith($PrevPara.text, "!", false)) || String_EndsWith($PrevPara.text, "?", false))</Expression>
+        <Expression>$IsCurrentList = String_StartsWith($Paragraph.text, "*", false)</Expression>
+        <If>
+          <Condition>!$IsPrevEnded &amp;&amp; !$IsCurrentList</Condition>
+          <Expression>$SavePrev = true</Expression>
+          <If>
+            <Condition>String_EndsWith($PrevPara.text, " ", false)</Condition>
+            <Expression>$Delim = ""</Expression>
+          </If>
+          <Else>
+            <Expression>$Delim = " "</Expression>
+          </Else>
+          <Expression>$PrevPara.text = ((String_Replace($PrevPara.text, Chr(10), " ", true, $Count) + $Delim) + $Paragraph.text)</Expression>
+          <Comment text="NOTE: it is not possible to delete paragraphs (empty line is still here)" />
+          <Expression>$Paragraph.text = ""</Expression>
+        </If>
+        <Else>
+          <Comment text="insert blank line between to paragraphs" />
+          <Expression>$NewPara = InsertObject($Outline, "Paragraph", $Paragraph.index)</Expression>
+          <Expression>$NewPara.text = ""</Expression>
+        </Else>
+      </If>
+    </If>
+    <If>
+      <Condition>!$SavePrev</Condition>
+      <Expression>$PrevPara = $Paragraph</Expression>
+    </If>
+  </ForEach>
+</ForEach>
