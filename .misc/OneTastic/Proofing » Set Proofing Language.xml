@@ -1,0 +1,52 @@
+<Comment text="Modify variable(desiredLanguage) --> set prompt(Select a proofing language for the selected text)" />
+<Expression>$dialog_box = DialogBox_Create("")</Expression>
+<Expression>DialogBox_AddDropDown($dialog_box, "Select a proofing language for the selected text", "control_1", "ru-ru", Array("ru-ru", "en-us", "yo", "auto", "fr-be", "de-de"))</Expression>
+<Expression>DialogBox_Show($dialog_box)</Expression>
+<Expression>$DesiredLanguage = $dialog_box.controls["control_1"]</Expression>
+<Comment text="Letters per alphabets" />
+<Expression>$RussianLetters = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"</Expression>
+<Expression>$EnglishLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"</Expression>
+<Comment text="For each Text in CurrentPage" />
+<ForEach var="TextObject">
+  <Array>QueryObjects("Text", GetCurrentPage())</Array>
+  <If>
+    <Condition>!$TextObject.selected</Condition>
+    <Continue>1</Continue>
+  </If>
+  <If>
+    <Condition>$desiredLanguage != "auto"</Condition>
+    <Expression>$TextObject.lang = $DesiredLanguage</Expression>
+    <Continue>1</Continue>
+  </If>
+  <Comment text="Check for Russian letters" />
+  <Expression>$IsRussian = false</Expression>
+  <ForEach var="Letter">
+    <Array>String_Split($RussianLetters.value, "")</Array>
+    <If>
+      <Condition>String_Contains($TextObject.value, $Letter, false)</Condition>
+      <Expression>$IsRussian = true</Expression>
+      <Break>1</Break>
+    </If>
+  </ForEach>
+  <Comment text="Check for English letters" />
+  <Expression>$IsEnglish = false</Expression>
+  <ForEach var="Letter">
+    <Array>String_Split($EnglishLetters.value, "")</Array>
+    <If>
+      <Condition>String_Contains($TextObject.value, $Letter, false)</Condition>
+      <Expression>$IsEnglish = true</Expression>
+      <Break>1</Break>
+    </If>
+  </ForEach>
+  <Comment text="Change language" />
+  <If>
+    <Condition>$IsRussian &amp; !$IsEnglish</Condition>
+    <Expression>$Text.lang = "ru-ru"</Expression>
+  </If>
+  <Else>
+    <If>
+      <Condition>$IsEnglish &amp;&amp; !$IsRussian</Condition>
+      <Expression>$Text.lang = "en-us"</Expression>
+    </If>
+  </Else>
+</ForEach>

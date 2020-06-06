@@ -1,0 +1,24 @@
+<Comment text="----------------------------------------------------------------------------------" />
+<Comment text="Remove extra empty lines" />
+<Comment text="----------------------------------------------------------------------------------" />
+<ForEach var="Outline">
+  <Array>GetCurrentPage().outlines</Array>
+  <If>
+    <Condition>$Outline.selection == "none"</Condition>
+    <Continue>1</Continue>
+  </If>
+  <Expression>$PrevParaEmpty = true</Expression>
+  <ForEach var="Paragraph">
+    <Array>$Outline.paragraphs</Array>
+    <If>
+      <Condition>$Paragraph.selection == "none"</Condition>
+      <Expression>$PrevParaEmpty = true</Expression>
+      <Continue>1</Continue>
+    </If>
+    <Expression>$CurrParaEmpty = (String_Trim($Paragraph.text, "", "both") == "")</Expression>
+    <Expression>Array_PushBack($ParaArray, $Paragraph)</Expression>
+    <Expression>Array_PushBack($EmptyArray, ($CurrParaEmpty &amp;&amp; $PrevParaEmpty))</Expression>
+    <Expression>$PrevParaEmpty = $CurrParaEmpty</Expression>
+  </ForEach>
+  <Expression>SortObjects($ParaArray, $EmptyArray, true)</Expression>
+</ForEach>
