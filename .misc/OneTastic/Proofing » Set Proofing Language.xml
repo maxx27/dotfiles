@@ -1,8 +1,18 @@
+<Comment text="----------------------------------------------------------------------------------" />
+<Comment text="Dialog box and settings" />
+<Comment text="----------------------------------------------------------------------------------" />
+<If>
+  <Condition>!LocalStore_Read("defaultValues", $defaultValues)</Condition>
+  <Expression>$defaultValues["lang"] = "ru-ru"</Expression>
+</If>
+<Expression>$dialogBox = DialogBox_Create("")</Expression>
+<Expression>DialogBox_AddDropDown($dialogBox, "Select a proofing language for the selected text", "lang", $defaultValues["lang"], Array("ru-ru", "en-us", "yo", "auto", "fr-be", "de-de"))</Expression>
+<Expression>DialogBox_Show($dialogBox)</Expression>
+<Expression>LocalStore_Write("defaultValues", $dialogBox.controls)</Expression>
+<Expression>$DesiredLanguage = $dialogBox.controls["lang"]</Expression>
+<Comment text="----------------------------------------------------------------------------------" />
 <Comment text="Modify variable(desiredLanguage) --> set prompt(Select a proofing language for the selected text)" />
-<Expression>$dialog_box = DialogBox_Create("")</Expression>
-<Expression>DialogBox_AddDropDown($dialog_box, "Select a proofing language for the selected text", "control_1", "ru-ru", Array("ru-ru", "en-us", "yo", "auto", "fr-be", "de-de"))</Expression>
-<Expression>DialogBox_Show($dialog_box)</Expression>
-<Expression>$DesiredLanguage = $dialog_box.controls["control_1"]</Expression>
+<Comment text="----------------------------------------------------------------------------------" />
 <Comment text="Letters per alphabets" />
 <Expression>$RussianLetters = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"</Expression>
 <Expression>$EnglishLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"</Expression>
