@@ -1,0 +1,84 @@
+<Comment text="----------------------------------------------------------------------------------" />
+<Comment text="Dialog box and settings" />
+<Comment text="----------------------------------------------------------------------------------" />
+<If>
+  <Condition>!LocalStore_Read("defaultValues", $defaultValues)</Condition>
+  <Expression>$defaultValues["RemoveStartingBullets"] = false</Expression>
+  <Expression>$defaultValues["RemoveTrailingSymbols"] = false</Expression>
+</If>
+<Expression>$dialogBox = DialogBox_Create("")</Expression>
+<Expression>DialogBox_AddCheckBox($dialogBox, "Remove starting bullets if any", "RemoveStartingBullets", $defaultValues["RemoveStartingBullets"])</Expression>
+<Expression>DialogBox_AddCheckBox($dialogBox, "Remove trailing punctuation if any", "RemoveTrailingSymbols", $defaultValues["RemoveTrailingSymbols"])</Expression>
+<Expression>DialogBox_Show($dialogBox)</Expression>
+<Expression>$RemoveStartingBullets = $dialogBox.controls["RemoveStartingBullets"]</Expression>
+<Expression>$RemoveTrailingSymbols = $dialogBox.controls["RemoveTrailingSymbols"]</Expression>
+<Expression>LocalStore_Write("defaultValues", $dialogBox.controls)</Expression>
+<Comment text="----------------------------------------------------------------------------------" />
+<Comment text="Remove empty lines between paragraphs" />
+<Comment text="----------------------------------------------------------------------------------" />
+<ForEach var="Outline">
+  <Array>GetCurrentPage().outlines</Array>
+  <If>
+    <Condition>$Outline.selection == "none"</Condition>
+    <Continue>1</Continue>
+  </If>
+  <Expression>$PrevParaEmpty = true</Expression>
+  <ForEach var="Paragraph">
+    <Array>$Outline.paragraphs</Array>
+    <If>
+      <Condition>$Paragraph.selection == "none"</Condition>
+      <Continue>1</Continue>
+    </If>
+    <Expression>$CurrParaEmpty = (String_Trim($Paragraph.text, "", "both") == "")</Expression>
+    <Expression>Array_PushBack($ParaArray, $Paragraph)</Expression>
+    <Expression>Array_PushBack($EmptyArray, $CurrParaEmpty)</Expression>
+  </ForEach>
+  <Expression>SortObjects($ParaArray, $EmptyArray, true)</Expression>
+</ForEach>
+<Comment text="----------------------------------------------------------------------------------" />
+<Comment text="Prepare content to be a list" />
+<Comment text="----------------------------------------------------------------------------------" />
+<Expression>$StartSeps = Array("-", "*", "•")</Expression>
+<Expression>$TrailSeps = Array(".", ",", ";")</Expression>
+<ForEach var="Outline">
+  <Array>GetCurrentPage().outlines</Array>
+  <If>
+    <Condition>$Outline.selection == "none"</Condition>
+    <Continue>1</Continue>
+  </If>
+  <ForEach var="Paragraph">
+    <Array>$Outline.paragraphs</Array>
+    <If>
+      <Condition>$Paragraph.selection == "none"</Condition>
+      <Continue>1</Continue>
+    </If>
+    <Expression>$text = $Paragraph.text</Expression>
+    <Expression>$text = String_Trim($text, "", "both")</Expression>
+    <If>
+      <Condition>$RemoveStartingBullets</Condition>
+      <ForEach var="Sep">
+        <Array>$StartSeps</Array>
+        <If>
+          <Condition>String_StartsWith($Paragraph.text, $Sep, false)</Condition>
+          <Expression>$Len = String_Length($text)</Expression>
+          <Expression>$text = String_Substring($text, 1, $Len)</Expression>
+          <Break>1</Break>
+        </If>
+      </ForEach>
+    </If>
+    <If>
+      <Condition>$RemoveTrailingSymbols</Condition>
+      <ForEach var="Sep">
+        <Array>$TrailSeps</Array>
+        <If>
+          <Condition>String_EndsWith($Paragraph.text, $Sep, false)</Condition>
+          <Expression>$Len = String_Length($text)</Expression>
+          <Expression>$text = String_Substring($text, 0, ($Len - 1))</Expression>
+          <Break>1</Break>
+        </If>
+      </ForEach>
+    </If>
+    <Expression>$text = String_Trim($text, "", "both")</Expression>
+    <Expression>$Paragraph.text = $text</Expression>
+  </ForEach>
+</ForEach>
