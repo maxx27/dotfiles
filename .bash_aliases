@@ -5,7 +5,6 @@ case $HOSTNAME in
     ;;
     msuslov-lnx)
         # NOTE: 'ln -s' doesn't work
-        alias rg='ripgrep.rg'
     ;;
     MSuslov)
         alias subl='"/c/Program Files/Sublime Text 3/sublime_text.exe"'
