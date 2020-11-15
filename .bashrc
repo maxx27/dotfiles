@@ -111,6 +111,10 @@ if ! shopt -oq posix; then
     fi
 fi
 
+# Kubectl shell completion
+# kubectl completion bash > ~/.kube/completion.bash
+[ -f ~/.kube/completion.bash ] && source ~/.kube/completion.bash
+
 # bash git prompt
 #   mkdir -p ~/src/_github
 #   git clone git@github.com:magicmonty/bash-git-prompt.git --depth=1 ~/src/_github/bash-git-prompt
