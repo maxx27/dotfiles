@@ -4,15 +4,14 @@ if [ -f "$HOME/.bashrc" ]; then
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
+for d in .local/bin .poetry/bin bin; do
+    if [ -d "$HOME/$d" ] ; then
+        PATH="$HOME/$d:$PATH"
+    fi
+done
+export PATH
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-
+# DK
 if [ -d "/opt/DK" ] ; then
     export DK_ROOT=/opt/DK
 fi
@@ -38,9 +37,5 @@ fi
 #        tmux attach || tmux new
 #    fi
 #fi
-
-if [ -d $HOME/.poetry/bin ]; then
-    export PATH="$HOME/.poetry/bin:$PATH"
-fi
 
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
