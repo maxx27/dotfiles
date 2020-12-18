@@ -117,8 +117,16 @@ if command -v kubectl >/dev/null; then
     fi
 fi
 
+if command -v kustomize >/dev/null; then
+    source <(kustomize completion bash)
+fi
+
 if command -v minikube >/dev/null; then
     source <(minikube completion bash)
+fi
+
+if command -v helm >/dev/null; then
+    source <(helm completion bash)
 fi
 
 # bash git prompt
