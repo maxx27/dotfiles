@@ -90,7 +90,6 @@ esac
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -111,9 +110,16 @@ if ! shopt -oq posix; then
     fi
 fi
 
-# Kubectl shell completion
-# kubectl completion bash > ~/.kube/completion.bash
-[ -f ~/.kube/completion.bash ] && source ~/.kube/completion.bash
+if command -v kubectl >/dev/null; then
+    source <(kubectl completion bash)
+    if [[ $(type -t k) == alias ]]; then
+        complete -F __start_kubectl k
+    fi
+fi
+
+if command -v minikube >/dev/null; then
+    source <(minikube completion bash)
+fi
 
 # bash git prompt
 #   mkdir -p ~/src/_github
@@ -160,11 +166,6 @@ if [ -d /c/ProgramData/chocolatey/bin ]; then
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-if [ -d ~/.local/share/zcode ]; then
-    export ZCODE_PATH=~/.local/share/zcode:~/.local/share/zcode/russian
-fi
-
 
 if [ -d ~/.poetry/bin ]; then
     export PATH=~/.poetry/bin:~/$PATH

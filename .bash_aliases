@@ -20,13 +20,16 @@ case $HOSTNAME in
     ;;
 esac
 
-# tmux aliases
-if which tmux 1> /dev/null 2> /dev/null; then
+if command -v tmux >/dev/null; then
     alias ta='tmux attach'
     alias tls='tmux ls'
     alias tat='tmux attach -t'
     alias tns='tmux new-session -s'
     alias tso='tmux show-options'
+fi
+
+if command -v kubectl >/dev/null; then
+    alias k=kubectl
 fi
 
 # FROM DEFAULT CONFIG

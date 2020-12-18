@@ -41,6 +41,10 @@
 /workspace/
 
 # Linux
+/.ICEauthority
+/.QtWebEngineProcess/
+/.VirtualBox/
+/.Xauthority
 /.android/
 /.apport-ignore.xml
 /.cache/
@@ -56,27 +60,28 @@
 /.fop/
 /.gnupg/
 /.gtkrc*
-/.ICEauthority
 /.links2/
+/.minikube/
 /.mozilla/
+/.npm/
 /.oracle_jre_usage/
+/.pki/
+/.poetry/
 /.qt-license
-/.QtWebEngineProcess/
 /.repoconfig/
 /.screenleap
 /.ssh/
 /.sudo_as_admin_successful
 /.thumbnails/
 /.vagrant.d/
-/.VirtualBox/
+/.vs-*/
+/.vscode-*/
 /.wf_workspace/
-/.Xauthority
 /.xsession-errors*
 /.yarnrc
 /.zenmap/
 /.zoom/
-/.poetry/
-/.pki/
+/VirtualBox VMs/
 
 # Mac OS X
 /.CFUserTextEncoding
