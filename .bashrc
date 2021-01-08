@@ -112,9 +112,7 @@ fi
 
 if command -v kubectl >/dev/null; then
     source <(kubectl completion bash)
-    if [[ $(type -t k) == alias ]]; then
-        complete -F __start_kubectl k
-    fi
+    complete -F __start_kubectl k
 fi
 
 if command -v kustomize >/dev/null; then

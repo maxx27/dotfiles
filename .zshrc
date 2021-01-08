@@ -74,6 +74,22 @@ if [[ "$OSTYPE" =~ ^(msys|cygwin)$ ]]; then
     compdef wkill=kill
     zstyle ':completion:*:*:wkill:*:processes' command "ps --user "$USER" --windows"
 fi
+if command -v kubectl >/dev/null; then
+    source <(kubectl completion zsh)
+    complete -F __start_kubectl k
+fi
+
+if command -v kustomize >/dev/null; then
+    source <(kustomize completion zsh)
+fi
+
+if command -v minikube >/dev/null; then
+    source <(minikube completion zsh)
+fi
+
+if command -v helm >/dev/null; then
+    source <(helm completion zsh)
+fi
 
 # oh-my-zsh settings
 [ -e $HOME/.zshmyrc ] && source $HOME/.zshmyrc
