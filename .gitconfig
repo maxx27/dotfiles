@@ -5,7 +5,7 @@
     ui = true
 [core]
     ignorecase = false
-    editor = /usr/bin/vi
+    editor = /usr/bin/vim
     # editor = \"C:/Program Files (x86)/GitExtensions/GitExtensions.exe\" fileeditor
     # editor = /usr/bin/subl -n -w
     quotepath = off
@@ -71,3 +71,10 @@
     insteadOf = https://github.com/
 [push]
 	default = simple
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[pull]
+	ff = only
