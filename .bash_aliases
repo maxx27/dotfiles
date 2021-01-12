@@ -9,9 +9,9 @@ case $HOSTNAME in
     MSuslov)
         alias subl='"/c/Program Files/Sublime Text 3/sublime_text.exe"'
         alias code='"/c/Program Files/Microsoft VS Code/Code.exe"'
-        alias cdp='cd /d/Work/Populus/Repo/Populus'
-        alias cdl='cd /d/Work/Populus/Repo/LSR'
-        alias cdg='cd /d/Work/Populus/Repo/9831_GWM_Aptiv_LSR'
+        alias cdp='cd /d/Work/Populus/Repo/_Populus/Populus'
+        alias cdl='cd /d/Work/Populus/Repo/_LSR/LSR'
+        alias cdg='cd /d/Work/Populus/Repo/_LSR/9831_GWM_Aptiv_LSR'
     ;;
     beta)
         alias subl='/d/Programs/_Office/Sublime/sublime_text.exe'
@@ -26,10 +26,6 @@ if command -v tmux >/dev/null; then
     alias tat='tmux attach -t'
     alias tns='tmux new-session -s'
     alias tso='tmux show-options'
-fi
-
-if command -v kubectl >/dev/null; then
-    alias k=kubectl
 fi
 
 # FROM DEFAULT CONFIG
