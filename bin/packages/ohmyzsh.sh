@@ -1,16 +1,16 @@
 #!/bin/bash -ex
 
-if ! command -v zsh >dev/null; then
-    echo 'Please install zsh before'
-    exit 1
-fi
-
-if [ $OSTYPE =~ msys ]; then
+if [[ $OSTYPE =~ msys ]]; then
     # see https://packages.msys2.org/package/zsh?repo=msys&variant=x86_64
     curl -LO https://repo.msys2.org/msys/x86_64/zsh-5.8-3-x86_64.pkg.tar.xz
     sudo tar xf zsh-5.8-3-x86_64.pkg.tar.xz -C /
     sudo rm /.BUILDINFO /.INSTALL /.MTREE /.PKGINFO
     rm zsh-5.8-3-x86_64.pkg.tar.xz
+fi
+
+if ! command -v zsh >/dev/null; then
+    echo 'Please install zsh before'
+    exit 1
 fi
 
 ZSH=~/.oh-my-zsh

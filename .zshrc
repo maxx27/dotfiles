@@ -28,8 +28,15 @@ HISTFILE=~/.cache/zsh/history
 HISTSIZE=1000
 SAVEHIST=1000
 
-# User configuration
-setopt extendedglob nomatch
+# Options
+# See https://linux.die.net/man/1/zshoptions
+setopt correct
+setopt extendedglob
+setopt nomatch
+unsetopt autocd
+unsetopt autopushd
+
+# set emacs style
 bindkey -e
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -61,7 +68,7 @@ bindkey -e
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # autocompletion
-#zstyle :compinstall filename '/c/Users/suslo/.zshrc'
+#zstyle :compinstall filename ~/.zshrc
 autoload -Uz compinit
 compinit -d ~/.cache/zsh/compdump
 
@@ -76,6 +83,7 @@ if [[ "$OSTYPE" =~ ^(msys|cygwin)$ ]]; then
 fi
 if command -v kubectl >/dev/null; then
     source <(kubectl completion zsh)
+    alias k=kubectl
     complete -F __start_kubectl k
 fi
 
@@ -91,5 +99,10 @@ if command -v helm >/dev/null; then
     source <(helm completion zsh)
 fi
 
-# oh-my-zsh settings
-[ -e $HOME/.zshmyrc ] && source $HOME/.zshmyrc
+if [[ -e ~/.zshmyrc && -e ~/.oh-my-zsh ]]; then
+    # oh-my-zsh settings
+    source ~/.zshmyrc
+else
+    source ~/.oh-my-zsh/plugins/zsh-autosuggestions
+    source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
+fi
