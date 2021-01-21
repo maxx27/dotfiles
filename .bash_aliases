@@ -28,6 +28,9 @@ if command -v tmux >/dev/null; then
     alias tso='tmux show-options'
 fi
 
+# show listing of target folder
+cd () { builtin cd "$@"; ls -lh; }
+
 # FROM DEFAULT CONFIG
 
 # enable color support of ls and also add handy aliases

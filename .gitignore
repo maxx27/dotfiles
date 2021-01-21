@@ -79,6 +79,7 @@
 /.wf_workspace/
 /.xsession-errors*
 /.yarnrc
+/.zcompdump*
 /.zenmap/
 /.zoom/
 /VirtualBox VMs/
