@@ -166,6 +166,9 @@ case $HOSTNAME in
         PERL_MB_OPT="--install_base \"/d/Users/suslo/perl5\""; export PERL_MB_OPT;
         PERL_MM_OPT="INSTALL_BASE=/d/Users/suslo/perl5"; export PERL_MM_OPT;
     ;;
+    Maxx-Air)
+        export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+        export PATH="/usr/local/Cellar/openjdk/15.0.1/bin:$PATH"
 esac
 
 if [ -d /c/ProgramData/chocolatey/bin ]; then

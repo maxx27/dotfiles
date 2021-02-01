@@ -39,6 +39,8 @@ echo "source $ZSH/themes/spaceship-prompt/spaceship.zsh" > $ZSH/themes/spaceship
 echo 'Execute the following command to change default shell'
 echo 'chsh -s $(which zsh)'
 
+mkdir -p ~/.cache/zsh
+
 # Useful
 # https://gist.github.com/tomma5o/302be3dc6e2092743e6049570e102a09
 # https://gist.github.com/fworks/af4c896c9de47d827d4caa6fd7154b6b

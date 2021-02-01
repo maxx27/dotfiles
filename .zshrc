@@ -81,6 +81,16 @@ if [[ "$OSTYPE" =~ ^(msys|cygwin)$ ]]; then
     compdef wkill=kill
     zstyle ':completion:*:*:wkill:*:processes' command "ps --user "$USER" --windows"
 fi
+
+
+# host specific settings
+
+case $(hostname) in
+    Maxx-Air)
+        export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+        export PATH="/usr/local/Cellar/openjdk/15.0.1/bin:$PATH"
+esac
+
 if command -v kubectl >/dev/null; then
     source <(kubectl completion zsh)
     alias k=kubectl

@@ -46,6 +46,7 @@
 /.VirtualBox/
 /.Xauthority
 /.android/
+/.anyconnect
 /.apport-ignore.xml
 /.cache/
 /.cisco/
@@ -91,6 +92,7 @@
 /Library/
 /Movies/
 /Public/
+/iCloud Drive (Archive)/
 
 # Backup
 *.bak
@@ -165,6 +167,7 @@ __pycache__/
 /.IntelliJIdea*/
 
 # local history
+/.bash_sessions/
 /.bash_history
 /.gdb_history
 /.kshdb_hist
@@ -174,6 +177,9 @@ __pycache__/
 /.wget-hsts
 /.node_repl_history
 /.swipl-dir-history
+/.oh-my-zsh/
+/.zsh_history
+/.zsh_sessions/
 
 # Dropbox
 /.dropbox*/
