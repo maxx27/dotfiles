@@ -128,6 +128,10 @@ if command -v helm >/dev/null; then
     source <(helm completion bash)
 fi
 
+if command -v aws_completer >/dev/null; then
+    complete -C aws_completer aws
+fi
+
 # bash git prompt
 #   mkdir -p ~/src/_github
 #   git clone git@github.com:magicmonty/bash-git-prompt.git --depth=1 ~/src/_github/bash-git-prompt
@@ -176,7 +180,3 @@ if [ -d /c/ProgramData/chocolatey/bin ]; then
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-if [ -d ~/.poetry/bin ]; then
-    export PATH=~/.poetry/bin:~/$PATH
-fi

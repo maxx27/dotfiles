@@ -11,6 +11,8 @@ for d in .local/bin .poetry/bin bin; do
 done
 export PATH
 
+export LESS=iR
+
 # DK
 if [ -d "/opt/DK" ] ; then
     export DK_ROOT=/opt/DK

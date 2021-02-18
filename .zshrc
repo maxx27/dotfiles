@@ -110,6 +110,10 @@ if command -v helm >/dev/null; then
     source <(helm completion zsh)
 fi
 
+if command -v aws_completer >/dev/null; then
+    complete -C aws_completer aws
+fi
+
 if [[ -e ~/.zshmyrc && -e ~/.oh-my-zsh ]]; then
     # oh-my-zsh settings
     source ~/.zshmyrc

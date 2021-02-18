@@ -4,18 +4,21 @@ fonts-powerline
 https://github.com/powerline/fonts
 
 Current:
-    xsel - copy to buffer from CLI
     redshift  - f.lux for linux
-    nautilus-dropbox  - ???
     dos2unix  -
     net-tools -
     p7zip-rar p7zip-full
-    silversearcher-ag - search files
+    ripgrep - search files
+    docker
+    zsh
+    vim
+
+    xsel - copy to buffer from CLI
+    nautilus-dropbox  - dropbox
     gconf-service
     xrdp - RDP access to linux
     snapd - snap
     tree - show files tree in text mode
-
 
     xserver-xorg-input-synaptics
 
