@@ -64,7 +64,7 @@ elseif s:is_win
     endif
 else
     " Linux and others
-    language en_US.utf8
+    language en_US.UTF-8
     if has("menu") && has("multi_lang")
         set langmenu=en_US
     endif
@@ -248,7 +248,11 @@ endif
 "set t_vb=
 "set tm=500
 
-set diffopt+=vertical               " Always use vertical diffs
+" Always use vertical diffs
+if &diff
+    set diffopt-=internal
+    set diffopt+=vertical
+endif
 
 set equalalways                     " Split with the same size
 set eadirection=both                " for both vertical and horizontal splits
