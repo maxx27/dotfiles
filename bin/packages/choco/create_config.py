@@ -61,7 +61,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     parser.add_argument('-o', '--output', default='packages.config', help='output filename')
-    parser.add_argument('-s', '--skip', nargs='+', default=['KB.*'], help='list of regexp to skip packages')
+    parser.add_argument('-s', '--skip', nargs='+', default=['KB.*', 'chocolatey-*', 'DotNet*'], help='list of regexp to skip packages')
     parser.add_argument('-v', '--verbose', action='store_true', help='verbose output')
     args = parser.parse_args()
 
