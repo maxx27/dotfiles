@@ -9,10 +9,15 @@
 	autocrlf = input
 	quotepath = off
 	longpaths = true
+[rebase]
+	autoStash = false
+[fetch]
+	prune = false
 [push]
 	default = simple
 [pull]
 	ff = only
+	rebase = false
 [diff]
 	tool = bc
 	tool = kdiff3

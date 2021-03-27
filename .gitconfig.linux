@@ -9,6 +9,10 @@
     quotepath = off
     longpaths = true
     autocrlf = input
+[rebase]
+	autoStash = false
+[fetch]
+	prune = false
 [push]
 	default = simple
 [pull]
