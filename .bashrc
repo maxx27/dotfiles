@@ -111,25 +111,45 @@ if ! shopt -oq posix; then
 fi
 
 if command -v kubectl >/dev/null; then
-    source <(kubectl completion bash)
-    alias k=kubectl
-    complete -F __start_kubectl k
+    kubectl() {
+        unset -f "${FUNCNAME[0]}"
+        source <(kubectl completion bash)
+        alias k=kubectl
+        complete -F __start_kubectl k
+        ${FUNCNAME[0]} "$@"
+    }
 fi
 
 if command -v kustomize >/dev/null; then
-    source <(kustomize completion bash)
+    kustomize() {
+        unset -f "${FUNCNAME[0]}"
+        source <(kustomize completion bash)
+        ${FUNCNAME[0]} "$@"
+    }
 fi
 
 if command -v minikube >/dev/null; then
-    source <(minikube completion bash)
+    minikube() {
+        unset -f "${FUNCNAME[0]}"
+        source <(minikube completion bash)
+        ${FUNCNAME[0]} "$@"
+    }
 fi
 
 if command -v helm >/dev/null; then
-    source <(helm completion bash)
+    helm() {
+        unset -f "${FUNCNAME[0]}"
+        source <(helm completion bash)
+        ${FUNCNAME[0]} "$@"
+    }
 fi
 
 if command -v aws_completer >/dev/null; then
-    complete -C aws_completer aws
+    фцы() {
+        unset -f "${FUNCNAME[0]}"
+        complete -C aws_completer aws
+        ${FUNCNAME[0]} "$@"
+    }
 fi
 
 # bash git prompt
