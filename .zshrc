@@ -136,10 +136,13 @@ if command -v aws >/dev/null; then
     }
 fi
 
+
 # if [[ -e ~/.github/fzf-tab-completion ]]; then
 #     source ~/.github/fzf-tab-completion/zsh/fzf-zsh-completion.sh
 #     bindkey '^I' fzf_completion
 # fi
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 
 if [[ -e ~/.zshmyrc && -e ~/.oh-my-zsh ]]; then
     # oh-my-zsh settings
