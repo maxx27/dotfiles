@@ -1,23 +1,96 @@
 {
-    "python.pythonPath": "C:\\tools\\Anaconda3\\python.exe",
-    "python.jediEnabled": false,
-    "sync.autoUpload": true,
-    "sync.autoDownload": true,
-    "sync.gist": "cc5c580082ce74b46acd1028d6f08d0a",
-    "window.zoomLevel": 0,
+    "python.pythonPath": "C:\\Python39\\python.exe",
     "files.trimTrailingWhitespace": true,
     "editor.formatOnPaste": true,
     "files.associations": {
         "*.Jenkinsfile": "groovy"
     },
-    "workbench.colorTheme": "Dracula Soft",
-    "todo-tree.tree.showScanModeButton": false,
+    "workbench.colorTheme": "Monokai",
     "C_Cpp.updateChannel": "Insiders",
     "editor.mouseWheelZoom": true,
     "files.autoSave": "off",
     "cmake.configureOnOpen": false,
     "remote.SSH.remotePlatform": {
         "msuslov-lnx.spb.luxoft.com": "linux",
-        "populus-docker": "linux"
-    }
+        "populus-docker": "linux",
+        "msuslov-lnx": "linux",
+        "populus-ws1.luxoft.com": "linux",
+        "populus-docker_j": "linux",
+        "kuber": "linux",
+        "populus-ws2": "linux"
+    },
+    "workbench.sideBar.location": "right",
+    "editor.suggestSelection": "first",
+    "python.languageServer": "Pylance",
+    "vs-kubernetes": {
+        "vs-kubernetes.minikube-path.linux": "/home/msuslov/.vs-kubernetes/tools/minikube/linux-amd64/minikube",
+        "vs-kubernetes.helm-path.linux": "/home/msuslov/.vs-kubernetes/tools/helm/linux-amd64/helm",
+        "vs-kubernetes.draft-path.linux": "/home/msuslov/.vs-kubernetes/tools/draft/linux-amd64/draft",
+        "vs-kubernetes.helm-path.windows": "C:\\Users\\msuslov\\.vs-kubernetes\\tools\\helm\\windows-amd64\\helm.exe",
+        "vs-kubernetes.kubectl-path.windows": "C:\\Users\\msuslov\\.vs-kubernetes\\tools\\kubectl\\kubectl.exe",
+        "vs-kubernetes.draft-path.windows": "C:\\Users\\suslo\\.vs-kubernetes\\tools\\draft\\windows-amd64\\draft.exe",
+        "vs-kubernetes.minikube-path.windows": "C:\\Users\\msuslov\\.vs-kubernetes\\tools\\minikube\\windows-amd64\\minikube.exe",
+        "vscode-kubernetes.helm-path.linux": "/home/msuslov/.vs-kubernetes/tools/helm/linux-amd64/helm",
+        "vscode-kubernetes.minikube-path.linux": "/home/msuslov/.vs-kubernetes/tools/minikube/linux-amd64/minikube",
+        "vscode-kubernetes.helm-path.windows": "C:\\Users\\suslo\\.vs-kubernetes\\tools\\helm\\windows-amd64\\helm.exe",
+        "vscode-kubernetes.kubectl-path.windows": "C:\\Users\\suslo\\.vs-kubernetes\\tools\\kubectl\\kubectl.exe",
+        "vscode-kubernetes.minikube-path.windows": "C:\\Users\\suslo\\.vs-kubernetes\\tools\\minikube\\windows-amd64\\minikube.exe"
+    },
+    "scm.diffDecorationsGutterVisibility": "hover",
+    "[typescript]": {
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2
+    },
+    "[javascript]": {
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "cSpell.userWords": [
+        "chmod",
+        "clis",
+        "errorprone",
+        "microservice",
+        "roadmap",
+        "swappable"
+    ],
+    "[css]": {
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2
+    },
+    "[markdown]": {
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": false
+    },
+    "cSpell.enabled": false,
+    "editor.formatOnSave": true,
+    "prettier.singleQuote": true,
+    "editor.linkedEditing": true,
+    "[html]": {
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.suggest.insertMode": "replace"
+    },
+    "explorer.confirmDragAndDrop": false,
+    "tabnine.experimentalAutoImports": true,
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "workbench.startupEditor": "welcomePage",
+    "aws.profile": "profile:terraform",
+    "window.zoomLevel": 0
 }
