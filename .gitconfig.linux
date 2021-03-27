@@ -6,18 +6,15 @@
 [core]
     ignorecase = false
     editor = /usr/bin/vim
-    # editor = \"C:/Program Files (x86)/GitExtensions/GitExtensions.exe\" fileeditor
-    # editor = /usr/bin/subl -n -w
     quotepath = off
     longpaths = true
-    # Linux
     autocrlf = input
-    # Windows
-    # autocrlf = true
+[push]
+	default = simple
+[pull]
+	ff = only
 [diff]
     # tool = bc
-    # tool = kdiff3
-    # tool = wm
     tool = vimdiff
     guitool = bc
     renameLimit = 10000
@@ -25,12 +22,6 @@
     prompt = false
 [difftool "bc"]
     cmd = /usr/bin/bcompare \"$LOCAL\" \"$REMOTE\"
-    # path = C:/Program Files/Beyond Compare 4/bcomp.exe
-    # cmd = \"C:/Program Files/Beyond Compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\"
-[difftool "wm"]
-    # cmd = \"C:/Program Files (x86)/WinMerge/WinMergeU.exe\" -u -e \"$LOCAL\" \"$REMOTE\"
-[difftool "kdiff3"]
-    # path = C:/Program Files/KDiff3/kdiff3.exe
 [merge]
     tool = bc
     tool = kdiff3
@@ -43,12 +34,11 @@
 [mergetool "bc"]
     cmd = /usr/bin/bcompare \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
     trustExitCode = true
-    # cmd = \"C:/Program Files/Beyond Compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
-    # path = \"C:/Program Files/Beyond Compare 4/bcomp.exe\"
-[mergetool "wm"]
-    # cmd = \"C:/Program Files (x86)/WinMerge/WinMergeU.exe\" -u -e -dl \"Local (to)\" -dr \"Remote (from)\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
-[mergetool "kdiff3"]
-    # path = C:/Program Files/KDiff3/kdiff3.exe
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 [alias]
     lg = log --pretty=oneline --decorate=auto --graph --abbrev-commit
     l  = log --graph --pretty=format:'%C(yellow)%h%C(bold white red)%d%Creset %s %C(bold green)%cr %Creset%C(white)%an' --abbrev-commit --date=relative
@@ -69,12 +59,3 @@
     # cr = !git reset --hard HEAD && git clean -qfdx
 [url "git@github.com:"]
     insteadOf = https://github.com/
-[push]
-	default = simple
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-[pull]
-	ff = only

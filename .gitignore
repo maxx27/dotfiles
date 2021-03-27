@@ -1,3 +1,5 @@
+# each repo has link to .gitconfig.<os>
+/.gitconfig
 
 # Windows
 /*.appx
