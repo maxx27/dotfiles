@@ -24,6 +24,7 @@ bindkey -s "^[Oj" "*"
 bindkey -s "^[Oo" "/"
 
 # History
+mkdir -p ~/.cache/zsh
 HISTFILE=~/.cache/zsh/history
 HISTSIZE=1000
 SAVEHIST=1000
@@ -68,6 +69,7 @@ bindkey -e
 export -U PATH=~/bin${PATH:+:$PATH}
 export -U PATH=/usr/local/bin${PATH:+:$PATH}
 
+
 # autocompletion
 #zstyle :compinstall filename ~/.zshrc
 autoload -Uz compinit
@@ -85,39 +87,64 @@ fi
 
 
 # host specific settings
-
 case $(hostname) in
     Maxx-Air)
         export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
         export PATH="/usr/local/Cellar/openjdk/15.0.1/bin:$PATH"
 esac
 
+
 if command -v kubectl >/dev/null; then
-    source <(kubectl completion zsh)
-    alias k=kubectl
-    complete -F __start_kubectl k
+    kubectl() {
+        unfunction "$0"
+        source <(kubectl completion zsh)
+        alias k=kubectl
+        complete -F __start_kubectl k
+        $0 "$@"
+    }
 fi
 
 if command -v kustomize >/dev/null; then
-    source <(kustomize completion zsh)
+    kustomize() {
+        unfunction "$0"
+        source <(kustomize completion zsh)
+        $0 "$@"
+    }
 fi
 
 if command -v minikube >/dev/null; then
-    source <(minikube completion zsh)
+    minikube() {
+        unfunction "$0"
+        source <(minikube completion zsh)
+        $0 "$@"
+    }
 fi
 
 if command -v helm >/dev/null; then
-    source <(helm completion zsh)
+    helm() {
+        unfunction "$0"
+        source <(helm completion zsh)
+        $0 "$@"
+    }
 fi
 
-if command -v aws_completer >/dev/null; then
-    complete -C aws_completer aws
+if command -v aws >/dev/null; then
+    aws() {
+        unfunction "$0"
+        complete -C aws_completer aws
+        $0 "$@"
+    }
 fi
+
+# if [[ -e ~/.github/fzf-tab-completion ]]; then
+#     source ~/.github/fzf-tab-completion/zsh/fzf-zsh-completion.sh
+#     bindkey '^I' fzf_completion
+# fi
 
 if [[ -e ~/.zshmyrc && -e ~/.oh-my-zsh ]]; then
     # oh-my-zsh settings
     source ~/.zshmyrc
 else
-    source ~/.oh-my-zsh/plugins/zsh-autosuggestions
-    source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
+    # source ~/.oh-my-zsh/plugins/zsh-autosuggestions
+    # source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
 fi
