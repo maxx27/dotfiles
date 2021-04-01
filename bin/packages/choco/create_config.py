@@ -28,7 +28,7 @@ logger = logging.getLogger(__name__)
 def main(args):
     global logger
 
-    cmd = 'choco list -lo -r'
+    cmd = 'choco list --localonly --limit-output'
     logger.debug('Execute %s', cmd)
     stream = os.popen(cmd)
     output = stream.readlines()
@@ -61,7 +61,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     parser.add_argument('-o', '--output', default='packages.config', help='output filename')
-    parser.add_argument('-s', '--skip', nargs='+', default=['KB.*', 'chocolatey-*', 'DotNet*'], help='list of regexp to skip packages')
+    parser.add_argument('-s', '--skip', nargs='+', default=['KB.*', 'chocolatey-.*', 'DotNet.*', '\.install$', '\.portable$'], help='list of regexp to skip packages')
     parser.add_argument('-v', '--verbose', action='store_true', help='verbose output')
     args = parser.parse_args()
 
