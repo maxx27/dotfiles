@@ -50,7 +50,6 @@
 /.android/
 /.anyconnect
 /.apport-ignore.xml
-/.cache/
 /.cisco/
 /.codeintel/
 /.config/configstore/
@@ -182,6 +181,10 @@ __pycache__/
 /.oh-my-zsh/
 /.zsh_history
 /.zsh_sessions/
+
+# Local cache
+/.cache/
+/.kube/cache/
 
 # Dropbox
 /.dropbox*/
