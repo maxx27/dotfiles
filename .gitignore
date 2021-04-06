@@ -78,6 +78,7 @@
 /.vagrant.d/
 /.vs-*/
 /.vscode-*/
+/.vscode/
 /.wf_workspace/
 /.xsession-errors*
 /.yarnrc
@@ -100,15 +101,6 @@
 *.log
 *.swp
 *.backup
-
-# VS Code
-/.vscode/
-!/AppData/Roaming/Code/
-/AppData/Roaming/Code/*
-!/AppData/Roaming/Code/User/
-/AppData/Roaming/Code/User/*
-!/AppData/Roaming/Code/User/keybindings.json
-!/AppData/Roaming/Code/User/settings.json
 
 # Sublime
 /.config/sublime-text-3/
