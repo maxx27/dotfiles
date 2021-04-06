@@ -1,0 +1,6 @@
+
+helm() {
+    unset -f "${FUNCNAME[0]}"
+    source <(helm completion bash)
+    ${FUNCNAME[0]} "$@"
+}

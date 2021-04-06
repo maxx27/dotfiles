@@ -11,15 +11,7 @@ esac
 if [[ ! $TERM =~ screen ]] && [ -z $TMUX ]; then
     export TERM=xterm-256color
 fi
-case $HOSTNAME in
-    beta|MSuslov)
-        # set terminal type, if you have installed Dwimperl
-        # http://stackoverflow.com/questions/11219266/how-to-fix-warning-terminal-is-not-fully-functional-error-in-command-console
-        # export TERM=msys
-        # export TERM=xterm
-        export TERM='cygwin'
-    ;;
-esac
+
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -87,17 +79,6 @@ xterm*|rxvt*)
 *)
     ;;
 esac
-# colored GCC warnings and errors
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -110,93 +91,17 @@ if ! shopt -oq posix; then
     fi
 fi
 
-if command -v kubectl >/dev/null; then
-    kubectl() {
-        unset -f "${FUNCNAME[0]}"
-        source <(kubectl completion bash)
-        alias k=kubectl
-        complete -F __start_kubectl k
-        ${FUNCNAME[0]} "$@"
-    }
-fi
 
-if command -v kustomize >/dev/null; then
-    kustomize() {
-        unset -f "${FUNCNAME[0]}"
-        source <(kustomize completion bash)
-        ${FUNCNAME[0]} "$@"
-    }
-fi
-
-if command -v minikube >/dev/null; then
-    minikube() {
-        unset -f "${FUNCNAME[0]}"
-        source <(minikube completion bash)
-        ${FUNCNAME[0]} "$@"
-    }
-fi
-
-if command -v helm >/dev/null; then
-    helm() {
-        unset -f "${FUNCNAME[0]}"
-        source <(helm completion bash)
-        ${FUNCNAME[0]} "$@"
-    }
-fi
-
-if command -v aws_completer >/dev/null; then
-    фцы() {
-        unset -f "${FUNCNAME[0]}"
-        complete -C aws_completer aws
-        ${FUNCNAME[0]} "$@"
-    }
-fi
-
-# bash git prompt
-#   mkdir -p ~/src/_github
-#   git clone git@github.com:magicmonty/bash-git-prompt.git --depth=1 ~/src/_github/bash-git-prompt
-if [[ -e ~/.github/bash-git-prompt/gitprompt.sh && ! -f /.dockerenv ]]; then
-    GIT_PROMPT_ONLY_IN_REPO=1
-    # GIT_PROMPT_FETCH_REMOTE_STATUS=0   # uncomment to avoid fetching remote status
-    # GIT_PROMPT_IGNORE_SUBMODULES=1     # uncomment to avoid searching for changed files in submodules
-    # GIT_PROMPT_SHOW_UPSTREAM=1         # uncomment to show upstream tracking branch
-    # GIT_PROMPT_SHOW_UNTRACKED_FILES=normal # can be no, normal or all; determines counting of untracked files
-    # GIT_PROMPT_SHOW_CHANGED_FILES_COUNT=0  # uncomment to avoid printing the number of changed files
-    # GIT_PROMPT_START=...               # uncomment for custom prompt start sequence
-    # GIT_PROMPT_END=...                 # uncomment for custom prompt end sequence
-    # as last entry source the gitprompt script
-    # GIT_PROMPT_THEME=Custom            # use custom theme specified in file GIT_PROMPT_THEME_FILE (default ~/.git-prompt-colors.sh)
-    # GIT_PROMPT_THEME_FILE=~/.git-prompt-colors.sh
-    # GIT_PROMPT_THEME=Solarized         # use theme optimized for solarized color scheme
-
-    source ~/.github/bash-git-prompt/gitprompt.sh
-    # Use `git_prompt_toggle` to toggle prompt
-fi
-
-# host specific settings
-
-case $HOSTNAME in
-    msuslov-lnx)
-        # at Luxoft ESET issue
-        export MAN_DISABLE_SECCOMP=1
-        # at Luxoft https://stackoverflow.com/questions/27835619/urllib-and-ssl-certificate-verify-failed-error
-        export PYTHONHTTPSVERIFY=0
-    ;;
-    beta)
-        USER=msuslov
-        PATH="/d/Users/suslo/perl5/bin${PATH:+:${PATH}}"; export PATH;
-        PERL5LIB="/d/Users/suslo/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-        PERL_LOCAL_LIB_ROOT="/d/Users/suslo/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-        PERL_MB_OPT="--install_base \"/d/Users/suslo/perl5\""; export PERL_MB_OPT;
-        PERL_MM_OPT="INSTALL_BASE=/d/Users/suslo/perl5"; export PERL_MM_OPT;
-    ;;
-    Maxx-Air)
-        export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
-        export PATH="/usr/local/Cellar/openjdk/15.0.1/bin:$PATH"
-esac
-
-if [ -d /c/ProgramData/chocolatey/bin ]; then
-    export PATH="$PATH:/c/ProgramData/chocolatey/bin"
-fi
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+. ~/.bash/aliases
+. ~/.bash/hosts
+. ~/.bash/paths
+for file in $(ls ~/.bash/always); do
+    [[ $file =~ _disable ]] && continue
+    . ~/.bash/always/$file
+done
+for file in $(ls ~/.bash/installed); do
+    [[ $file =~ _disable ]] && continue
+    if command -v $file >/dev/null; then
+        . ~/.bash/installed/$file
+    fi
+done

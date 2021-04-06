@@ -1,0 +1,6 @@
+
+aws() {
+    unset -f "${FUNCNAME[0]}"
+    complete -C aws_completer aws
+    ${FUNCNAME[0]} "$@"
+}

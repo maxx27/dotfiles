@@ -1,0 +1,6 @@
+
+# show listing of target folder
+cd () {
+    builtin cd "$@"
+    ls -lh
+}

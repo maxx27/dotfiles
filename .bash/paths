@@ -1,0 +1,8 @@
+
+# set PATH so it includes user's private bin if it exists
+for d in .local/bin .poetry/bin bin; do
+    if [ -d "$HOME/$d" ] ; then
+        PATH="$HOME/$d:$PATH"
+    fi
+done
+export PATH

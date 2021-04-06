@@ -1,0 +1,6 @@
+
+minikube() {
+    unset -f "${FUNCNAME[0]}"
+    source <(minikube completion bash)
+    ${FUNCNAME[0]} "$@"
+}

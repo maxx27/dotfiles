@@ -1,0 +1,43 @@
+
+# host specific settings
+
+case $HOSTNAME in
+    beta|MSuslov)
+        # set terminal type, if you have installed Dwimperl
+        # http://stackoverflow.com/questions/11219266/how-to-fix-warning-terminal-is-not-fully-functional-error-in-command-console
+        # export TERM=msys
+        # export TERM=xterm
+        export TERM='cygwin'
+    ;;
+esac
+
+case $HOSTNAME in
+    populus-*)
+        alias sj='sudo -H -u jenkins'
+    ;;
+    msuslov-lnx)
+        # NOTE: 'ln -s' doesn't work
+    ;;
+    MSuslov)
+        alias subl='"/c/Program Files/Sublime Text 3/sublime_text.exe"'
+        alias code='"/c/Program Files/Microsoft VS Code/Code.exe"'
+        alias cdp='cd /d/Work/Populus/Repo/_Populus/Populus'
+        alias cdl='cd /d/Work/Populus/Repo/_LSR/LSR'
+        alias cdg='cd /d/Work/Populus/Repo/_LSR/9831_GWM_Aptiv_LSR'
+    ;;
+    beta)
+        alias subl='/d/Programs/_Office/Sublime/sublime_text.exe'
+        alias cdp='cd /d/Populus/Populus'
+        alias cdpd='cd /d/Populus/PopulusDoc'
+        USER=msuslov
+        PATH="/d/Users/suslo/perl5/bin${PATH:+:${PATH}}"; export PATH;
+        PERL5LIB="/d/Users/suslo/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+        PERL_LOCAL_LIB_ROOT="/d/Users/suslo/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+        PERL_MB_OPT="--install_base \"/d/Users/suslo/perl5\""; export PERL_MB_OPT;
+        PERL_MM_OPT="INSTALL_BASE=/d/Users/suslo/perl5"; export PERL_MM_OPT;
+    ;;
+    Maxx-Air)
+        export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+        export PATH="/usr/local/Cellar/openjdk/15.0.1/bin:$PATH"
+    ;;
+esac

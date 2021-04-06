@@ -1,0 +1,6 @@
+
+kustomize() {
+    unset -f "${FUNCNAME[0]}"
+    source <(kustomize completion bash)
+    ${FUNCNAME[0]} "$@"
+}
