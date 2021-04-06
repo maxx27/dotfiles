@@ -6,6 +6,7 @@
 [core]
 	ignorecase = false
 	editor = \"C:/Program Files (x86)/GitExtensions/GitExtensions.exe\" fileeditor
+	#editor = code --wait
 	autocrlf = input
 	quotepath = off
 	longpaths = true
@@ -71,3 +72,6 @@
 	rh = reset --hard
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[gui]
+	encoding = utf-8
+	fontui = -family \"Segoe UI Light\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
