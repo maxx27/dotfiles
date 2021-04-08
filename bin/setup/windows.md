@@ -11,3 +11,9 @@ OneTastic
 gsudo mklink %appdata%\Onetastic\macros2.xml %~dp0macros2.xml
 ```
 More at c:\Users\Maxx\.misc\OneTastic\setup.cmd
+
+
+Colortool:
+```console
+colortool -b solarized_dark.itermcolors
+```
