@@ -197,3 +197,5 @@ __pycache__/
 /Calibre Library/
 /perl5/
 /tmp/
+/.dbus-keyrings/
+/.tabnine/
