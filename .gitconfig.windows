@@ -6,7 +6,6 @@
 [core]
 	ignorecase = false
 	editor = \"C:/Program Files (x86)/GitExtensions/GitExtensions.exe\" fileeditor
-	#editor = code --wait
 	autocrlf = input
 	quotepath = off
 	longpaths = true
@@ -20,20 +19,15 @@
 	ff = only
 	rebase = false
 [diff]
-	tool = bc
 	tool = kdiff3
-	tool = wm
+	tool = bc
 	guitool = bc
 	renamelimit = 10000
 [difftool]
 	prompt = false
 [difftool "bc"]
-	path = C:/Program Files/Beyond Compare 4/bcomp.exe
 	cmd = \"C:/Program Files/Beyond Compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\"
-[difftool "wm"]
-	cmd = \"C:/Program Files (x86)/WinMerge/WinMergeU.exe\" -u -e \"$LOCAL\" \"$REMOTE\"
-[difftool "kdiff3"]
-	path = C:/Program Files/KDiff3/kdiff3.exe
+	path = C:/Program Files/Beyond Compare 4/bcomp.exe
 [merge]
 	tool = bc
 	renamelimit = 10000
@@ -45,11 +39,7 @@
 [mergetool "bc"]
 	cmd = \"C:/Program Files/Beyond Compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
 	trustExitCode = true
-	path = \"C:/Program Files/Beyond Compare 4/bcomp.exe\"
-[mergetool "wm"]
-	cmd = \"C:/Program Files (x86)/WinMerge/WinMergeU.exe\" -u -e -dl \"Local (to)\" -dr \"Remote (from)\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
-[mergetool "kdiff3"]
-	path = C:/Program Files/KDiff3/kdiff3.exe
+	path = C:/Program Files/Beyond Compare 4/bcomp.exe
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
