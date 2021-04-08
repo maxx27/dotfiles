@@ -1,0 +1,6 @@
+
+docker() {
+    unset -f "${FUNCNAME[0]}"
+    source <(curl -s https://raw.githubusercontent.com/docker/cli/master/contrib/completion/bash/docker)
+    ${FUNCNAME[0]} "$@"
+}
