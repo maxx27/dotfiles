@@ -40,6 +40,7 @@ __prompt_command() {
         local Red='\[\e[0;31m\]'
         local Green='\[\e[0;32m\]'
         local Yellow='\[\e[0;33m\]'
+        local Blue='\[\e[0;34m\]'
         # local BBlu='\[\e[1;34m\]'
         local Magenta='\[\e[0;35m\]'
         local LightGray='\[\e[0;37m\]'
@@ -48,6 +49,7 @@ __prompt_command() {
         local Red=''
         local Green=''
         local Yellow=''
+        local Blue=''
         # local BBlu=''
         local Magenta=''
         local LightGray=''
@@ -60,14 +62,20 @@ __prompt_command() {
     esac
 
     if [ $EXIT -eq 0 ]; then
-        PS1+="${Green}✔"
+        PS1+="${Green}✔ "
     else
-        PS1+="${Red}✘"
+        PS1+="${Red}✘ "
     fi
 
-    PS1+=" ${LightGray}\A" # time
-    PS1+=" ${Yellow}\W" # workdir
-    PS1+=" ${Reset}\$ " # $/#
+    PS1+="${LightGray}\A " # time
+
+    if [ -n "$AWS_DEFAULT_PROFILE" ]; then
+        PS1+="${Blue}☁$AWS_DEFAULT_PROFILE "
+    fi
+
+    PS1+="${Yellow}\W " # workdir
+    PS1+="${Reset}\$ " # $/#
 }
 
+# leaving as unset allows to toggle colors later
 # unset color_prompt force_color_prompt
