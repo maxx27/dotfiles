@@ -1,0 +1,73 @@
+
+
+# set variable identifying the chroot you work in (used in the prompt below)
+# if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+#     debian_chroot=$(cat /etc/debian_chroot)
+# fi
+
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+# screen is set by tmux
+case "$TERM" in
+    xterm-color|cygwin|screen|*-256color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
+    else
+        color_prompt=
+    fi
+fi
+
+PROMPT_COMMAND=__prompt_command # Func to gen PS1 after CMDs
+
+__prompt_command() {
+    local EXIT="$?"             # This needs to be first
+    PS1=""
+
+    if [ "$color_prompt" = yes ]; then
+        # See https://misc.flogisoft.com/bash/tip_colors_and_formatting
+        local Reset='\[\e[0m\]'
+        local Red='\[\e[0;31m\]'
+        local Green='\[\e[0;32m\]'
+        local Yellow='\[\e[0;33m\]'
+        # local BBlu='\[\e[1;34m\]'
+        local Magenta='\[\e[0;35m\]'
+        local LightGray='\[\e[0;37m\]'
+    else
+        local Reset=''
+        local Red=''
+        local Green=''
+        local Yellow=''
+        # local BBlu=''
+        local Magenta=''
+        local LightGray=''
+    fi
+
+    # If this is an xterm set the title to user@host:dir
+    # PS1='\[\e]2;новое название\a\]prompt > '
+    case "$TERM" in
+        xterm*|rxvt*) PS1+="\[\e]0;\u@\h: \w\a\]";;
+    esac
+
+    if [ $EXIT -eq 0 ]; then
+        PS1+="${Green}✔"
+    else
+        PS1+="${Red}✘"
+    fi
+
+    PS1+=" ${LightGray}\A" # time
+    PS1+=" ${Yellow}\W" # workdir
+    PS1+=" ${Reset}\$ " # $/#
+}
+
+# unset color_prompt force_color_prompt
