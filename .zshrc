@@ -136,6 +136,15 @@ if command -v aws >/dev/null; then
     }
 fi
 
+autoload -U +X bashcompinit && bashcompinit
+if command -v terraform >/dev/null; then
+    terraform() {
+        unfunction "$0"
+        complete -o nospace -C terraform terraform
+        $0 "$@"
+    }
+fi
+
 
 # if [[ -e ~/.github/fzf-tab-completion ]]; then
 #     source ~/.github/fzf-tab-completion/zsh/fzf-zsh-completion.sh

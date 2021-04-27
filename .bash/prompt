@@ -32,7 +32,7 @@ PROMPT_COMMAND=__prompt_command # Func to gen PS1 after CMDs
 
 __prompt_command() {
     local EXIT="$?"             # This needs to be first
-    PS1=""
+    PS1="\n"
 
     if [ "$color_prompt" = yes ]; then
         # See https://misc.flogisoft.com/bash/tip_colors_and_formatting
@@ -55,6 +55,12 @@ __prompt_command() {
         local LightGray=''
     fi
 
+    if [ -n "$AWS_DEFAULT_PROFILE" ]; then
+        PS1+="${Blue}☁ AWS:$AWS_DEFAULT_PROFILE\n"
+    fi
+
+    # TODO: git status (in merge, has conflicts)
+
     # If this is an xterm set the title to user@host:dir
     # PS1='\[\e]2;новое название\a\]prompt > '
     case "$TERM" in
@@ -68,10 +74,6 @@ __prompt_command() {
     fi
 
     PS1+="${LightGray}\A " # time
-
-    if [ -n "$AWS_DEFAULT_PROFILE" ]; then
-        PS1+="${Blue}☁$AWS_DEFAULT_PROFILE "
-    fi
 
     PS1+="${Yellow}\W " # workdir
     PS1+="${Reset}\$ " # $/#
