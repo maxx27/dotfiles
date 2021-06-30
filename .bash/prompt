@@ -61,6 +61,8 @@ __prompt_command() {
 
     # TODO: git status (in merge, has conflicts)
 
+    # TODO: calculate duration of the last command and show if it took more than 10 seconds
+
     # If this is an xterm set the title to user@host:dir
     # PS1='\[\e]2;новое название\a\]prompt > '
     case "$TERM" in
