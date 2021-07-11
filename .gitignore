@@ -177,6 +177,7 @@ __pycache__/
 # Local cache
 /.cache/
 /.kube/cache/
+/.kube/http-cache/
 
 # Dropbox
 /.dropbox*/

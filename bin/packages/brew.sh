@@ -1,7 +1,7 @@
 #!/bin/bash
 
 LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
-#    ranger                     - text file browser
+    ranger                     - text file browser
     git                        - VCS
     python                     - python programming language
     tmux                       - terminal multiplexor
@@ -44,3 +44,7 @@ EOF
 for PACKAGE in $LIST; do
     brew install $PACKAGE
 done
+
+# TODO: make separate list or flag?
+# brew install --cask google-chrome
+# brew install --cask docker
