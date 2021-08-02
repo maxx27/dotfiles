@@ -1,0 +1,6 @@
+
+kubectx() {
+    unset -f "${FUNCNAME[0]}"
+    source <(curl -s https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/kubectx.bash)
+    ${FUNCNAME[0]} "$@"
+}
