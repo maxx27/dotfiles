@@ -200,3 +200,7 @@ __pycache__/
 /tmp/
 /.dbus-keyrings/
 /.tabnine/
+/.crc/bin
+/.crc/
+/.iamlive/
+/.jfrog/
