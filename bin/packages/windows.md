@@ -28,6 +28,7 @@ colortool -b solarized_dark.itermcolors
 # Windows Store
 
 Terminal Preview
+Yandex.Music
 
 # VS Code
 
