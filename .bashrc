@@ -51,13 +51,4 @@ fi
 . ~/.bash/aliases
 . ~/.bash/hosts
 . ~/.bash/paths
-for file in $(ls ~/.bash/always); do
-    [[ $file =~ _disable ]] && continue
-    . ~/.bash/always/$file
-done
-for file in $(ls ~/.bash/installed); do
-    [[ $file =~ _disable ]] && continue
-    if command -v $file >/dev/null; then
-        . ~/.bash/installed/$file
-    fi
-done
+. ~/.bash/commands

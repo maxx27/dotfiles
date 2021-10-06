@@ -1,0 +1,13 @@
+
+ansible() {
+    unset -f "${FUNCNAME[0]}"
+
+    alias ansible="docker container run --rm \
+        -v "${PWD}":/work:ro \
+        -v ~/.ansible/roles:/root/.ansible/roles \
+        -v ~/.ssh:/root/.ssh:ro \
+        dxctraining/ansible ansible"
+
+    # source <(curl -s https://raw.githubusercontent.com/dysosmus/ansible-completion/master/ansible-completion.bash)
+    ${FUNCNAME[0]} "$@"
+}
