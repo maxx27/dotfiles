@@ -1,24 +1,16 @@
-checkinstall
-
 fonts-powerline
 https://github.com/powerline/fonts
 
 Current:
     redshift  - f.lux for linux
-    dos2unix  -
     net-tools -
-    p7zip-rar p7zip-full
-    ripgrep - search files
     docker
-    zsh
-    vim
 
     xsel - copy to buffer from CLI
     nautilus-dropbox  - dropbox
     gconf-service
     xrdp - RDP access to linux
     snapd - snap
-    tree - show files tree in text mode
 
     xserver-xorg-input-synaptics
 
@@ -41,40 +33,11 @@ Current:
     Fonts:
     fonts-font-awesome
 
-    groovy
-    gradle
-
-    wine-stable
-    wine-development
-    playonlinux
-
-    Perl modules:
-    libdevel-repl-perl - Devel::REPL (REPL)
-    libreply-perl - Reply (REPL)
-
-    Python:
-    curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
-    sudo bash -c "/home/msuslov/.poetry/bin/poetry completions bash > /etc/bash_completion.d/poetry.bash-completion"
-
 In past:
-    htop       - performance monitor
-    mc         - file manager
-    terminator - pane terminal
-    python-gpg - ???
-    gparted    - disk partition manager
-
-sudo add-apt-repository multiverse
-sudo apt --fix-broken install
 
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 sudo apt-get install google-chrome-stable
-
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-sudo apt-get install apt-transport-https
-echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-sudo apt-get install sublime-text
-
 
 # install powerline fonts
 
@@ -99,12 +62,6 @@ sudo apt remove ubuntu-desktop
 sudo apt remove gnome-desktop3-data
 sudo apt-get install x11-apps
 sudo apt purge nvidia*
-vlc
 lxappearance
 ntfs-3g
 rxvt-unicode
-gdebi-core
-minicom
-setserial
-picocom
-fzy
