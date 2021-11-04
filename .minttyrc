@@ -1,6 +1,6 @@
 BoldAsFont=no
 Locale=C
 Charset=UTF-8
-Font=BitstreamVeraSansMono NF
-FontHeight=10
+Font=Consolas
+FontHeight=12
 ThemeFile=xterm
