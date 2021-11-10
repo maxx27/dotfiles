@@ -26,6 +26,7 @@
 	prompt = false
 [difftool "bc"]
 	cmd = \"C:/Program Files/Beyond Compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\"
+	path = C:/Program Files/Beyond Compare 4/bcomp.exe
 [merge]
 	tool = bc
 	renamelimit = 10000
@@ -37,6 +38,10 @@
 [mergetool "bc"]
 	cmd = \"C:/Program Files/Beyond Compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
 	trustExitCode = true
+	path = C:/Program Files/Beyond Compare 4/bcomp.exe
+[mergetool "winmerge"]
+	path = C:/Program Files/WinMerge/winmergeu.exe
+	cmd = 'C:/Program Files/WinMerge/winmergeu.exe' -e -u -wl -wr -fm -dl   \"Mine: $LOCAL\" -dm \"Merged: $MERGED\" -dr \"Theirs: $REMOTE\"   \"$LOCAL\" \"$MERGED\" \"$REMOTE\" -o \"$MERGED\"
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -51,11 +56,9 @@
 	dh = "!f() { git diff --color=always \"$@\" | diff-highlight | less -R; }; f"
 	b = branch -vv
 	s = status -sb
-	co = checkout
 	df = diff --name-only
 	ri = "!sh -c 't=\"${1:-master}\"; s=\"${2:-HEAD}\"; mb=\"$(git merge-base \"$t\" \"$s\")\"; if test \"x$mb\" = x ; then o=\"$t\"; else lm=\"$(git log -n1 --merges \"$t..$s\" --pretty=%H)\"; if test \"x$lm\" = x ; then o=\"$mb\"; else o=\"$lm\"; fi; fi; test $# -gt 0 && shift; test $# -gt 0 && shift; git rebase --interactive \"$o\" \"$@\"'"
 	su = submodule update --init
-	cl = clean -dfx
 	root = rev-parse --show-toplevel
 [url "git@github.com:"]
 	insteadOf = https://github.com/
