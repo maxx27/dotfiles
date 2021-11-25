@@ -1,0 +1,35 @@
+#!/bin/bash -e
+if [ "$0" == "$BASH_SOURCE" ]; then
+    1>&2 echo "script $0 is not sourced"
+    false
+fi
+
+[[ $(type -t echo_ok) == 'function' ]] && return
+
+source ~/bin/bash/color_prompt
+
+if [ "$color_prompt" = yes ]; then
+
+    readonly C_RST="tput sgr0"
+    readonly C_RED="tput setaf 1"
+    readonly C_GREEN="tput setaf 2"
+    readonly C_YELLOW="tput setaf 3"
+    readonly C_BLUE="tput setaf 4"
+    readonly C_CYAN="tput setaf 6"
+    readonly C_WHITE="tput setaf 7"
+
+    echo_err  () { $C_WHITE;  echo "ERROR: $*"   1>&2; $C_RST; exit 1; }
+    echo_fatal() { $C_RED;    echo "FATAL: $*"   1>&2; $C_RST; exit 2; }
+    echo_warn () { $C_YELLOW; echo "WARNING: $*" 1>&2; $C_RST; }
+    echo_info () { $C_CYAN;   echo "INFO: $*"    1>&2; $C_RST; }
+    echo_ok   () { $C_GREEN;  echo "$*"          1>&2; $C_RST; }
+
+else
+
+    echo_err  () { echo "ERROR: $*"   1>&2; exit 1; }
+    echo_fatal() { echo "FATAL: $*"   1>&2; exit 2; }
+    echo_warn () { echo "WARNING: $*" 1>&2; }
+    echo_info () { echo "INFO: $*"    1>&2; }
+    echo_ok   () { echo "$*"          1>&2; }
+
+fi
