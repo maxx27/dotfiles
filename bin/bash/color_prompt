@@ -12,7 +12,7 @@ fi
 # - it may set before to empty but terminal is supported
 # - terminal settings may changed
 # [[ -v color_prompt ]] && return
-# [ -n ${var+color_prompt} ] && return
+# [ -n ${color_prompt+x} ] && return
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 # screen is set by tmux
@@ -33,5 +33,30 @@ if [ -n "$force_color_prompt" ]; then
         color_prompt=yes
     else
         color_prompt=
+    fi
+fi
+
+if [ -z ${C_RST+x} ]; then
+    if [ "$color_prompt" = yes ]; then
+        # See https://misc.flogisoft.com/bash/tip_colors_and_formatting
+        readonly C_RST='\e[0m'
+        readonly C_RED='\e[0;31m'
+        readonly C_GREEN='\e[0;32m'
+        readonly C_YELLOW='\e[0;33m'
+        readonly C_BLUE='\e[0;34m'
+        # readonly BBlu='\e[1;34m'
+        readonly C_MAGENTA='\e[0;35m'
+        readonly C_CYAN='\e[0;36m'
+        readonly C_WHITE='\e[0;37m'
+    else
+        readonly C_RST=''
+        readonly C_RED=''
+        readonly C_GREEN=''
+        readonly C_YELLOW=''
+        readonly C_BLUE=''
+        # readonly BBlu=''
+        readonly C_MAGENTA=''
+        readonly C_CYAN=''
+        readonly C_WHITE=''
     fi
 fi

@@ -13,29 +13,8 @@ __prompt_command() {
     local EXIT="$?"             # This needs to be first
     PS1="\n"
 
-    if [ "$color_prompt" = yes ]; then
-        # See https://misc.flogisoft.com/bash/tip_colors_and_formatting
-        local Reset='\[\e[0m\]'
-        local Red='\[\e[0;31m\]'
-        local Green='\[\e[0;32m\]'
-        local Yellow='\[\e[0;33m\]'
-        local Blue='\[\e[0;34m\]'
-        # local BBlu='\[\e[1;34m\]'
-        local Magenta='\[\e[0;35m\]'
-        local LightGray='\[\e[0;37m\]'
-    else
-        local Reset=''
-        local Red=''
-        local Green=''
-        local Yellow=''
-        local Blue=''
-        # local BBlu=''
-        local Magenta=''
-        local LightGray=''
-    fi
-
     if [ -n "$AWS_DEFAULT_PROFILE" ]; then
-        PS1+="${Blue}☁ AWS:$AWS_DEFAULT_PROFILE\n"
+        PS1+="${C_BLUE}☁ AWS:$AWS_DEFAULT_PROFILE\n"
     fi
 
     # TODO: git status (in merge, has conflicts)
@@ -49,15 +28,15 @@ __prompt_command() {
     esac
 
     if [ $EXIT -eq 0 ]; then
-        PS1+="${Green}✔ "
+        PS1+="${C_GREEN}✔ "
     else
-        PS1+="${Red}✘ "
+        PS1+="${C_RED}✘ "
     fi
 
-    PS1+="${LightGray}\A " # time
+    PS1+="${C_WHITE}\A " # time
 
-    PS1+="${Yellow}\W " # workdir
-    PS1+="${Reset}\$ " # $/#
+    PS1+="${C_YELLOW}\W " # workdir
+    PS1+="${C_RST}\$ " # $/#
 }
 
 # leaving as unset allows to toggle colors later
