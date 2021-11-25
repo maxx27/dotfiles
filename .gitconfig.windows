@@ -48,17 +48,16 @@
 	process = git-lfs filter-process
 	required = true
 [alias]
+	su = submodule update --init
+	s = status -sb
+	b = branch -vv
 	l = log --oneline --graph
 	ll = log --graph --abbrev-commit --decorate --date=format:'%Y-%m-%d %H:%M %z' --format=format:\"%C(bold blue)%h%C(reset) %C(bold red)%d%C(reset) %C(white)%s %C(bold cyan)%ad%C(reset) %C(bold green)(%ar)%C(reset) %C(dim white)%an%C(reset)\"
 	lg = log --graph --abbrev-commit --decorate --date=format:'%a, %Y-%m-%d %H:%M:%S %z' --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%ad%C(reset) %C(bold green)(%ar)%C(dim white) - %an%C(reset)%C(bold yellow)%d%C(reset)%n%C(white)%s%C(reset)\"
-	d  = diff
 	# diff-highlight: perl script from git 'contrib'
-	dh = "!f() { git diff --color=always \"$@\" | diff-highlight | less -R; }; f"
-	b = branch -vv
-	s = status -sb
+	d = "!f() { git diff --color=always \"$@\" | diff-highlight | less -R; }; f"
 	df = diff --name-only
 	ri = "!sh -c 't=\"${1:-master}\"; s=\"${2:-HEAD}\"; mb=\"$(git merge-base \"$t\" \"$s\")\"; if test \"x$mb\" = x ; then o=\"$t\"; else lm=\"$(git log -n1 --merges \"$t..$s\" --pretty=%H)\"; if test \"x$lm\" = x ; then o=\"$mb\"; else o=\"$lm\"; fi; fi; test $# -gt 0 && shift; test $# -gt 0 && shift; git rebase --interactive \"$o\" \"$@\"'"
-	su = submodule update --init
 	root = rev-parse --show-toplevel
 [url "git@github.com:"]
 	insteadOf = https://github.com/
