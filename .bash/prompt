@@ -36,7 +36,7 @@ __prompt_command() {
     PS1+="${C_WHITE}\A " # time
 
     PS1+="${C_YELLOW}\W " # workdir
-    PS1+="${C_RST}\$ " # $/#
+    PS1+="${C_RESET}\$ " # $/#
 }
 
 # leaving as unset allows to toggle colors later

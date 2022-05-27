@@ -19,3 +19,7 @@ HISTFILESIZE=2000
 # - duplicated commands
 # - and some specific commands (they are not interested)
 HISTIGNORE="&:ls:[bf]g*:jobs:exit*:clear:cd:cd -:history*"
+
+# turn off suspend terminal feature to
+# enable CTRL+S to search forward (opposite to CTRL+R)
+stty -ixon
