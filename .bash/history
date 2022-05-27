@@ -15,11 +15,7 @@ HISTCONTROL=ignorespace:ignoredups:erasedups
 HISTSIZE=1000
 HISTFILESIZE=2000
 
-# get rid of
+# get rid (they won't be in history) of
 # - duplicated commands
-# - ls
-# - bg, fg
-# - jobs
-# - exit
-# - cd, cd -
-HISTIGNORE="&:ls:[bf]g:jobs:exit:clear:cd:cd -"
+# - and some specific commands (they are not interested)
+HISTIGNORE="&:ls:[bf]g*:jobs:exit*:clear:cd:cd -:history*"

@@ -22,13 +22,8 @@ case $HOSTNAME in
         alias subl='"/c/Program Files/Sublime Text 3/sublime_text.exe"'
         alias code='"/c/Program Files/Microsoft VS Code/Code.exe"'
         alias cdp='cd /d/Work/Populus/Repo/_Populus/Populus'
-        alias cdl='cd /d/Work/Populus/Repo/_LSR/LSR'
-        alias cdg='cd /d/Work/Populus/Repo/_LSR/9831_GWM_Aptiv_LSR'
     ;;
     beta)
-        alias subl='/d/Programs/_Office/Sublime/sublime_text.exe'
-        alias cdp='cd /d/Populus/Populus'
-        alias cdpd='cd /d/Populus/PopulusDoc'
         USER=msuslov
         PATH="/d/Users/suslo/perl5/bin${PATH:+:${PATH}}"; export PATH;
         PERL5LIB="/d/Users/suslo/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
