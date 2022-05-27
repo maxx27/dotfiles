@@ -1,0 +1,25 @@
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# put multiline as single line into history
+# shopt -s cmdhist
+
+# See bash(1) for more options:
+# - don't put duplicate lines or
+# - lines starting with space in the history or
+# - erase duplicate in history
+HISTCONTROL=ignorespace:ignoredups:erasedups
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# get rid of
+# - duplicated commands
+# - ls
+# - bg, fg
+# - jobs
+# - exit
+# - cd, cd -
+HISTIGNORE="&:ls:[bf]g:jobs:exit:clear:cd:cd -"
