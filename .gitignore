@@ -47,13 +47,13 @@
 /.QtWebEngineProcess/
 /.VirtualBox/
 /.Xauthority
-/.android/
 /.anyconnect
 /.apport-ignore.xml
 /.cisco/
 /.codeintel/
 /.config/configstore/
 /.cups/
+/.dbus-keyrings/
 /.dbus/
 /.docker/
 /.ebookreader/
@@ -63,7 +63,9 @@
 /.gnupg/
 /.gtkrc*
 /.links2/
+/.local/
 /.minikube/
+/.motd_shown
 /.mozilla/
 /.npm/
 /.oracle_jre_usage/
@@ -77,8 +79,7 @@
 /.thumbnails/
 /.vagrant.d/
 /.vs-*/
-/.vscode-*/
-/.vscode/
+/.vscode*/
 /.wf_workspace/
 /.xsession-errors*
 /.yarnrc
@@ -138,7 +139,7 @@
 /.config/ranger/tagged
 
 # Python
-*.pyo
+*.py[co]
 /.idlerc/breakpoints.lst
 /.idlerc/recent-files.lst
 /.ptpython/history
@@ -195,12 +196,14 @@ __pycache__/
 /.steampid
 
 # Other
-/Calibre Library/
-/perl5/
-/tmp/
-/.dbus-keyrings/
-/.tabnine/
-/.crc/bin
+/.android/
+/.aws
+/.azure
 /.crc/
 /.iamlive/
 /.jfrog/
+/.tabnine/
+/.terraform.d/
+/Calibre Library/
+/perl5/
+/tmp*/
