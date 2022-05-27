@@ -55,6 +55,7 @@
 /.cups/
 /.dbus-keyrings/
 /.dbus/
+/.dlv/
 /.docker/
 /.ebookreader/
 /.eclipse/
@@ -67,7 +68,6 @@
 /.minikube/
 /.motd_shown
 /.mozilla/
-/.npm/
 /.oracle_jre_usage/
 /.pki/
 /.poetry/
@@ -139,18 +139,28 @@
 /.config/ranger/tagged
 
 # Python
-*.py[co]
-/.idlerc/breakpoints.lst
-/.idlerc/recent-files.lst
-/.ptpython/history
-/.PyCharm*/
-/.python-history
-/.python_history
 __pycache__/
 /.ipython/
 !/.ipython/profile_default/startup
-/.pylint.d/
+*.py[co]
 /.anaconda/
+/.conda/
+/.idlerc/breakpoints.lst
+/.idlerc/recent-files.lst
+/.jupyter/
+/.matplotlib/
+/.ptpython/history
+/.PyCharm*/
+/.pylint.d/
+/.python_history
+/.python-history
+
+# JavaScripy
+/.npm/
+/npm-cache/
+
+# Go
+/go/
 
 # Java
 /.Idea*/
@@ -159,6 +169,7 @@ __pycache__/
 /.p2/
 /IdeaProjects/
 /.IntelliJIdea*/
+/.javacpp/
 
 # local history
 /.bash_sessions/
@@ -177,8 +188,6 @@ __pycache__/
 
 # Local cache
 /.cache/
-/.kube*/cache/
-/.kube*/http-cache/
 
 # Dropbox
 /.dropbox*/
@@ -202,6 +211,7 @@ __pycache__/
 /.crc/
 /.iamlive/
 /.jfrog/
+/.kube/
 /.tabnine/
 /.terraform.d/
 /Calibre Library/
