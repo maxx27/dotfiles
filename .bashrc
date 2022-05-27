@@ -24,10 +24,13 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-
-. ~/.bash/history
-. ~/.bash/prompt
-. ~/.bash/aliases
-. ~/.bash/hosts
 . ~/.bash/paths
-. ~/.bash/commands
+
+# these settings are needed only in interactive mode
+if [[ $- == *i* ]]; then
+    . ~/.bash/history
+    . ~/.bash/prompt
+    . ~/.bash/aliases
+    . ~/.bash/hosts
+    . ~/.bash/commands
+fi
