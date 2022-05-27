@@ -10,11 +10,11 @@ source ~/bin/bash/color_prompt
 
 if [ "$color_prompt" = yes ]; then
 
-    echo_err  () { 1>&2 echo -e "${C_WHITE}ERROR: $*${C_RST}"   ; }
-    echo_fatal() { 1>&2 echo -e "${C_RED}FATAL: $*${C_RST}"     ; }
-    echo_warn () { 1>&2 echo -e "${C_YELLOW}WARNING: $*${C_RST}"; }
-    echo_info () { 1>&2 echo -e "${C_CYAN}INFO: $*${C_RST}"     ; }
-    echo_ok   () { 1>&2 echo -e "${C_GREEN}$*${C_RST}"          ; }
+    echo_err  () { 1>&2 echo -e "${C_WHITE}ERROR: $*${C_RESET}"   ; }
+    echo_fatal() { 1>&2 echo -e "${C_RED}FATAL: $*${C_RESET}"     ; }
+    echo_warn () { 1>&2 echo -e "${C_YELLOW}WARNING: $*${C_RESET}"; }
+    echo_info () { 1>&2 echo -e "${C_CYAN}INFO: $*${C_RESET}"     ; }
+    echo_ok   () { 1>&2 echo -e "${C_GREEN}$*${C_RESET}"          ; }
 
 else
 
