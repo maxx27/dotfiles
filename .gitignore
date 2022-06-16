@@ -52,6 +52,7 @@
 /.cisco/
 /.codeintel/
 /.config/configstore/
+/.config/packer/
 /.cups/
 /.dbus-keyrings/
 /.dbus/
@@ -203,6 +204,10 @@ __pycache__/
 /.steam/
 /.steampath
 /.steampid
+
+# Yandex Cloud
+/yandex-cloud/
+/.config/yandex-cloud/
 
 # Other
 /.android/

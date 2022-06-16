@@ -1,0 +1,8 @@
+
+yc() {
+    unset -f "${FUNCNAME[0]}"
+    # already done in .bash/paths
+    # export PATH=~/yandex-cloud:${PATH}
+    test -e ~/yandex-cloud/completion.bash.inc && source ~/yandex-cloud/completion.bash.inc
+    ${FUNCNAME[0]} "$@"
+}

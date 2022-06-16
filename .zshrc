@@ -136,6 +136,15 @@ if command -v aws >/dev/null; then
     }
 fi
 
+if command -v ~/yandex-cloud/bin/yc >/dev/null; then
+    yc() {
+        unfunction "$0"
+        export PATH=~/yandex-cloud:${PATH}
+        test -e ~/yandex-cloud/completion.zsh.inc && source ~/yandex-cloud/completion.zsh.inc
+        $0 "$@"
+    }
+fi
+
 autoload -U +X bashcompinit && bashcompinit
 if command -v terraform >/dev/null; then
     terraform() {

@@ -1,7 +1,7 @@
 
 # set PATH so it includes user's private bin if it exists
 NEWPATH=
-for d in .local/bin .poetry/bin bin; do
+for d in .local/bin bin .poetry/bin yandex-cloud/bin; do
     if [ -d "$HOME/$d" ] ; then
         NEWPATH="$NEWPATH$HOME/$d:"
     fi
