@@ -1,4 +1,11 @@
+#!/bin/bash
+
+# start:
 # source start_agent.sh
+
+# stop:
+# kill $SSH_AGENT_PID
+
 SSH_ENV="$HOME/.ssh/environment"
 function start_agent {
      if [ -f "${SSH_ENV}" ]; then
