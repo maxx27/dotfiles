@@ -24,7 +24,7 @@ __prompt_command() {
     # If this is an xterm set the title to user@host:dir
     # PS1='\[\e]2;новое название\a\]prompt > '
     case "$TERM" in
-        xterm*|rxvt*) PS1+="\[\e]2;\u@\h: \w\a";;
+        xterm*|rxvt*) PS1+="\[\e]0;\u@\h: \w\a\]";;
     esac
 
     if [ $EXIT -eq 0 ]; then
