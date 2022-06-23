@@ -23,19 +23,59 @@ ZSH=~/.oh-my-zsh
 # precedence over umasks except for filesystems mounted with option "noacl".
 umask g-w,o-w
 
-git clone \
-    -c core.eol=lf -c core.autocrlf=false \
-    -c fsck.zeroPaddedFilemode=ignore \
-    -c fetch.fsck.zeroPaddedFilemode=ignore \
-    -c receive.fsck.zeroPaddedFilemode=ignore \
-    --depth=1 https://github.com/robbyrussell/oh-my-zsh.git $ZSH
-git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions $ZSH/plugins/zsh-autosuggestions
-git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH/plugins/zsh-syntax-highlighting
+if [ -e $ZSH ]; then
+    pushd $ZSH
+    git fetch origin
+    git checkout origin/master
+    popd
+else
+    git clone \
+        -c core.eol=lf -c core.autocrlf=false \
+        -c fsck.zeroPaddedFilemode=ignore \
+        -c fetch.fsck.zeroPaddedFilemode=ignore \
+        -c receive.fsck.zeroPaddedFilemode=ignore \
+        --depth=1 https://github.com/robbyrussell/oh-my-zsh.git $ZSH
+fi
 
-git clone --depth=1 https://github.com/denysdovhan/spaceship-prompt.git $ZSH/themes/spaceship-prompt
-# it works on msys too than `ln -s`
-#ln -s ~/.oh-my-zsh/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-my-zsh/themes/spaceship.zsh-theme
-echo "source $ZSH/themes/spaceship-prompt/spaceship.zsh" > $ZSH/themes/spaceship.zsh-theme
+if [ -e $ZSH/plugins/zsh-autosuggestions ]; then
+    pushd $ZSH/plugins/zsh-autosuggestions
+    git fetch origin
+    git checkout origin/master
+    popd
+else
+    git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions $ZSH/plugins/zsh-autosuggestions
+fi
+
+if [ -e $ZSH/plugins/zsh-syntax-highlighting ]; then
+    pushd $ZSH/plugins/zsh-syntax-highlighting
+    git fetch origin
+    git checkout origin/master
+    popd
+else
+    git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH/plugins/zsh-syntax-highlighting
+fi
+
+if [ -e $ZSH/themes/powerlevel10k ]; then
+    pushd $ZSH/themes/powerlevel10k
+    git fetch origin
+    git checkout origin/master
+    popd
+else
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH/themes/powerlevel10k
+    echo "source $ZSH/themes/powerlevel10k/powerlevel10k.zsh-theme" > $ZSH/themes/powerlevel10k.zsh-theme
+fi
+
+if [ -e $ZSH/themes/spaceship-prompt ]; then
+    pushd $ZSH/themes/spaceship-prompt
+    git fetch origin
+    git checkout origin/master
+    popd
+else
+    git clone --depth=1 https://github.com/denysdovhan/spaceship-prompt.git $ZSH/themes/spaceship-prompt
+    # it works on msys too than `ln -s`
+    #ln -s ~/.oh-my-zsh/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-my-zsh/themes/spaceship.zsh-theme
+    echo "source $ZSH/themes/spaceship-prompt/spaceship.zsh" > $ZSH/themes/spaceship.zsh-theme
+fi
 
 echo 'Execute the following command to change default shell'
 echo 'chsh -s $(which zsh)'

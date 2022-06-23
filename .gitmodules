@@ -10,3 +10,6 @@
     path = .github/bash-git-prompt
     url = git@github.com:magicmonty/bash-git-prompt.git
     branch = master
+[submodule "/Users/msuslov/.github/powerlevel10k"]
+	path = /Users/msuslov/.github/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k.git

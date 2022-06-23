@@ -163,6 +163,9 @@ __pycache__/
 # Go
 /go/
 
+# Go
+/go/
+
 # Java
 /.Idea*/
 /.gradle/
