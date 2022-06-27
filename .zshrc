@@ -1,11 +1,12 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 # See http://zsh.sourceforge.net/Doc/Release/Parameters.html
+
+# Update PATH
+export -U PATH=/mingw64/bin${PATH:+:$PATH}
+export -U PATH=/bin${PATH:+:$PATH}
+export -U PATH=/usr/bin${PATH:+:$PATH}
+export -U PATH=/usr/local/bin${PATH:+:$PATH}
+export -U PATH=~/bin${PATH:+:$PATH}
 
 # Keypad
 # 0 . Enter
@@ -30,6 +31,9 @@ bindkey -s "^[Om" "-"
 bindkey -s "^[Oj" "*"
 bindkey -s "^[Oo" "/"
 
+# set emacs style
+bindkey -e
+
 # History
 mkdir -p ~/.cache/zsh
 HISTFILE=~/.cache/zsh/history
@@ -44,13 +48,20 @@ setopt nomatch
 unsetopt autocd
 unsetopt autopushd
 
-# set emacs style
-bindkey -e
+# You may need to manually set your language environment
+export LANG=en_US.UTF-8
+
+
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 
 # export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -70,12 +81,6 @@ bindkey -e
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-
-# Update PATH
-export -U PATH=~/bin${PATH:+:$PATH}
-export -U PATH=/usr/local/bin${PATH:+:$PATH}
-
 
 # autocompletion
 #zstyle :compinstall filename ~/.zshrc
