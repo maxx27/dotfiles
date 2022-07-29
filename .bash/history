@@ -18,7 +18,7 @@ HISTFILESIZE=2000
 # get rid (they won't be in history) of
 # - duplicated commands
 # - and some specific commands (they are not interested)
-HISTIGNORE="&:ls:[bf]g*:jobs:exit*:clear:cd:cd -:history*"
+HISTIGNORE="&:ls:[bf]g*:jobs:exit*:clear:cd:cd -:history*:*debugpy[\\/]launcher*"
 
 # turn off suspend terminal feature to
 # enable CTRL+S to search forward (opposite to CTRL+R)
