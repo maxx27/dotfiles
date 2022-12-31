@@ -28,9 +28,11 @@ __prompt_command() {
     esac
 
     if [ $EXIT -eq 0 ]; then
-        PS1+="${C_GREEN}✔ "
+        # symbol ✔ is too wide for some fonts
+        PS1+="${C_GREEN}🗸 "
     else
-        PS1+="${C_RED}× " # symbols ✖✘ aren't shown in red color
+        # symbols ✖✘ aren't shown in red color
+        PS1+="${C_RED}× "
     fi
 
     PS1+="${C_WHITE}\A " # time
