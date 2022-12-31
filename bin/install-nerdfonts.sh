@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -ex
 # from https://gist.github.com/matthewjberger/7dd7e079f282f8138a9dc3b045ebefa0?permalink_comment_id=4005789#gistcomment-4005789
 # see also
 # https://www.nerdfonts.com/font-downloads
@@ -27,7 +27,8 @@ declare -a fonts=(
 )
 
 version='2.2.2'
-fonts_dir="${HOME}/.local/share/fonts"
+# fonts_dir="${HOME}/.local/share/fonts"
+fonts_dir="/usr/local/share/fonts"
 
 if [[ ! -d "$fonts_dir" ]]; then
     mkdir -p "$fonts_dir"
