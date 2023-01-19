@@ -29,16 +29,16 @@ __prompt_command() {
 
     if [ $EXIT -eq 0 ]; then
         # symbol ✔ is too wide for some fonts
-        PS1+="${C_GREEN}🗸 "
+        PS1+="${C_GREEN}⦁" # ⦁🗸
     else
         # symbols ✖✘ aren't shown in red color
-        PS1+="${C_RED}× "
+        PS1+="${C_RED}×"   # ⦁
     fi
 
-    PS1+="${C_WHITE}\A " # time
+    PS1+="${C_WHITE}\A "   # time
 
-    PS1+="${C_YELLOW}\W " # workdir
-    PS1+="${C_RESET}\$ " # $/#
+    PS1+="${C_YELLOW}\W "  # workdir
+    PS1+="${C_RESET}\$ "   # $/#
 }
 
 # leaving as unset allows to toggle colors later
