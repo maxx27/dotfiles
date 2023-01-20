@@ -101,9 +101,12 @@ set hidden                           " switch between buffers without saving
 set splitright                       " split new vertical windows right of current window
 set splitbelow                       " split new horizontal windows under current window
 
-"set clipboard=unnamed               " Yank to the PRIMARY "* (system) clipboard
-"set clipboard=unnamedplus           " or yank to the CLIPBOARD "+ (X11) clipboard
-
+"if has('unnamed')
+"    set clipboard=unnamed            " Yank to the PRIMARY "* (system) clipboard
+"endif
+if has('unnamedplus')
+    set clipboard=unnamedplus        " or yank to the CLIPBOARD "+ (X11) clipboard
+endif
 
 " Search down into subfolders
 " Provides tab-completion for all file-related tasks
@@ -157,15 +160,17 @@ set undodir=~/.vim/.undo
 "====================================
 
 " see plugins/colorschemes.vim for colorscheme settings
+" preferrable scheme depends on terminal colors:
+" slate, cobalt2, quantum, elflord
 set background=dark
 if s:is_nvim
     " colorscheme PaperColor
     colorscheme afterglow
 elseif has("win32unix")
     " for MinGW another scheme
-    colorscheme PaperColor
+    colorscheme slate
 else
-    colorscheme cobalt2
+    colorscheme slate
 endif
 
 set ruler                           " Always show current position
@@ -176,7 +181,7 @@ set laststatus=2                    " Always show the statusline
 " line numbers
 set number                          " Show line numbers
 set relativenumber                  " Show relative numbers
-set numberwidth=4                   " Minimum of 4 columns for line numbers
+"set numberwidth=4                   " Minimum of 4 columns for line numbers
 
 set cursorline                      " Highlight current line for quick orientation
 
@@ -244,7 +249,7 @@ endif
 
 "" error bells
 "set noerrorbells
-"set visualbell
+set novisualbell
 "set t_vb=
 "set tm=500
 
@@ -346,23 +351,43 @@ set makeprg=make\ -j\ $(nproc)
 " - :cn and :cp to navigate forward and back
 
 "====================================
-" General Mappings
+" Lamguage Mappings
 "====================================
 
-" Use Russian layout during command mode
-"set keymap=russian-jcukenwin
-"set iminsert=0
-"set imsearch=0
+" Переключение между кириллицей и латиницей Ctrl+^ в режиме INSERT
+" (Просто Ctrl+6-ка в английской раскладке)
+
+" При этом, сохраняются все английские настройки для других режимов,
+" как будто используем английскую раскладку, хотя в режиме INSERT набираем текст по-русски
+
+" Подключение встроенного файла с русской йцукен клавиатурой.
+" Возможные варианты: russian-%вариация%:
+"   jcuken, jcukenwin, jcukenwintype, jcukenmac, typograph, yawerty, dvorak
+" set keymap=russian-jcukenwin
+
+" Все доступные раскладки лежат тут - %папка с конфигами Vim%/keymap/
+
+" Чтобы вставка и поиск работали, как надо
+" set iminsert=0
+" set imsearch=0
+
+" Чтобы можно было так же нажимать Ctrl-l для переключения, помимо Ctrl+^
+" inoremap <C-l> <C-^>
+
+" Дополнительная подсветка для курсора, чтобы различать режимы
 " Use another cursor color when language mapping are being used
 "highlight Cursor guifg=NONE guibg=Green
 "highlight lCursor guifg=NONE guibg=Cyan
+
+"====================================
+" General Mappings
+"====================================
 
 " Set mapleader
 let mapleader = ","
 let g:mapleader = ","
 " Map default leader to what , does normally
 nnoremap \ ,
-
 
 " Quicker way to press ESC
 " imap ;; <Esc>
@@ -441,7 +466,16 @@ if has('clipboard')
     endif
 endif
 
-"noremap <leader>d :BW!<cr>         " https://habr.com/post/149817/
+" Чтобы можно было сохранить файл, который может
+" редактировать root пользователь.
+" Введи :w!! и нажми Enter/Return в нормальном режиме -
+" Vim подставит нужную команду и сохранит файл
+cnoremap w!! w !sudo tee > /dev/null %
+
+" Перемещение Вверх/Вниз на один абзац текста
+" во всех режимах при нажатии Ctrl+Вверх/Вниз
+noremap <silent> <C-Up> {
+noremap <silent> <C-Down> }
 
 "====================================
 " SNIPPETS
@@ -496,5 +530,3 @@ endif
 if filereadable(expand("~/.vim.local"))
     source ~/.vim.local
 endif
-
-
