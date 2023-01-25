@@ -1,6 +1,9 @@
-#!/bin/bash
+#!/bin/bash -e
 # du_sort
-# du_sort src/* | head -n 2
-# TODO: folder with spaces aren't work
-du -sh $@ | perl -e 'sub h{%h=(K=>10,M=>20,G=>30);($n,$u)=shift=~/([0-9.]+)(\D)/; return $n*2**$h{$u}}print sort{h($b)<=>h($a)}<>;'
+# du_sort path1 path2 | head -n 5
 
+# This gives you:
+# - Size of hidden files/directories
+# - Size of non-hidden files/directories
+# - Grand total size of the current directory
+find $@ -maxdepth 1 -type d -exec du -shx {} \; | sort -hr

@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/bash -e
+# https://unix.stackexchange.com/questions/382693/how-to-find-the-largest-open-files
 lsof $* \
 | grep REG \
 | grep -v "stat: No such file or directory" \
