@@ -170,7 +170,8 @@ elseif has("win32unix")
     " for MinGW another scheme
     colorscheme slate
 else
-    colorscheme slate
+    colorscheme quantum
+    "colorscheme slate
 endif
 
 set ruler                           " Always show current position
@@ -183,7 +184,7 @@ set number                          " Show line numbers
 set relativenumber                  " Show relative numbers
 "set numberwidth=4                   " Minimum of 4 columns for line numbers
 
-set cursorline                      " Highlight current line for quick orientation
+"set cursorline                      " Highlight current line for quick orientation
 
 set scrolloff=3                     " Show 3 lines of context around the cursor (top and bottom)
 set sidescrolloff=5                 " Show 5 lines of context around the cursor (left and right)
