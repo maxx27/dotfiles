@@ -1,7 +1,7 @@
 @echo off
 docker container run --rm ^
   -v "%CD%":/work ^
-  dxctraining/ansible-control ansible %*
+  maxx27/ansible-control ansible %*
 
 ::  -v "%USERPROFILE%/.ansible/roles":/home/bond/.ansible/roles ^
 ::  -v "%USERPROFILE%/.ssh:/home/bond/.ssh:ro" ^

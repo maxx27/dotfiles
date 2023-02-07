@@ -1,4 +1,4 @@
 @echo off
 docker container run --rm ^
   -v "%CD%":/work ^
-  dxctraining/ansible-control ansible-vault %*
+  maxx27/ansible-control ansible-vault %*
