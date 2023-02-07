@@ -15,7 +15,7 @@
 # /mnt/d/aa/bb
 #
 # Change directory (silently)
-# $ wsl_path.sh -c 'C:\my\path'
+# $ source wsl_path.sh -c 'C:\my\path'
 # (do cd /mnt/c/my/path)
 
 change=false
