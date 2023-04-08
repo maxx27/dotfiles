@@ -104,21 +104,6 @@
 *.swp
 *.backup
 
-# Sublime
-/.config/sublime-text-3/
-!/.config/sublime-text-3/Packages/User/
-/.config/sublime-text-3/Packages/User/Package Control.cache
-/.config/sublime-text-3/Packages/User/Package Control.last-run
-/.codeintel/
-
-!/AppData/Roaming/Sublime Text 3/
-/AppData/Roaming/Sublime Text 3/*
-!/AppData/Roaming/Sublime Text 3/Packages/
-/AppData/Roaming/Sublime Text 3/Packages/*
-!/AppData/Roaming/Sublime Text 3/Packages/User/
-/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.cache
-/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.last-run
-
 # Vim
 /.vim/.netrwhist
 /.vim/.tmp/
@@ -141,13 +126,12 @@
 
 # Python
 __pycache__/
+*.py[co]
 /.ipython/
 !/.ipython/profile_default/startup
-*.py[co]
 /.anaconda/
 /.conda/
-/.idlerc/breakpoints.lst
-/.idlerc/recent-files.lst
+/.idlerc/
 /.jupyter/
 /.matplotlib/
 /.ptpython/history
@@ -163,17 +147,16 @@ __pycache__/
 # Go
 /go/
 
-# Go
-/go/
-
 # Java
-/.Idea*/
 /.gradle/
+/.Idea*/
+/.IntelliJIdea*/
+/.java-caller/
+/.javacpp/
 /.m2/
 /.p2/
 /IdeaProjects/
-/.IntelliJIdea*/
-/.javacpp/
+/Oracle/
 
 # local history
 /.bash_sessions/
@@ -220,8 +203,10 @@ __pycache__/
 /.azure
 /.crc/
 /.iamlive/
+/.jenkins-hpl-map
 /.jfrog/
 /.kube/
+/.lc/
 /.tabnine/
 /.terraform.d/
 /Calibre Library/

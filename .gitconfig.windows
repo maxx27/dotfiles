@@ -5,12 +5,14 @@
 	ui = true
 [core]
 	ignorecase = false
-	editor = \"C:/Program Files (x86)/GitExtensions/GitExtensions.exe\" fileeditor
+	editor = 'C:/Program Files (x86)/GitExtensions/GitExtensions.exe' fileeditor
 	autocrlf = input
 	quotepath = off
 	longpaths = true
 [rebase]
 	autoStash = false
+	autosquash = false
+	updateRefs = false
 [fetch]
 	prune = false
 [push]
