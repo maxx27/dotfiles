@@ -5,7 +5,7 @@
 #     debian_chroot=$(cat /etc/debian_chroot)
 # fi
 
-source ~/bin/bash/color_prompt
+source ~/.bash/bin/color_prompt
 
 PROMPT_COMMAND=__prompt_command # Func to gen PS1 after CMDs
 

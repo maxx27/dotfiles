@@ -1,4 +1,8 @@
 
+if [ ! -e ~/.github/fzf ]; then
+  return
+fi
+
 # Setup fzf
 if [[ ! "$PATH" == *.github/fzf/bin* ]]; then
   export PATH="$PATH:~/.github/fzf/bin"

@@ -6,7 +6,7 @@ fi
 
 [[ $(type -t echo_ok) == 'function' ]] && return
 
-source ~/bin/bash/color_prompt
+source ~/.bash/bin/color_prompt
 
 if [ "$color_prompt" = yes ]; then
 
