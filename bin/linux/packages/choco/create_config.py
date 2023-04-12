@@ -42,6 +42,8 @@ def main(args):
     f.write('<?xml version="1.0" encoding="utf-8"?>\n')
     f.write('<packages>\n')
     for line in output:
+        if '|' not in line:
+            continue
         package, version = line.strip().split('|')
         skip = False
         for regex in args.skip:
