@@ -28,10 +28,9 @@ EOF
 LIST_CASKS=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     # affinity-designer
     # alt-tab
-    # curseforge
-    transmission
-    # vlc
     # beyond-compare
+    # curseforge
+    # vlc
     affinity-designer
     affinity-photo
     daisydisk - Disk space visualizer
@@ -50,6 +49,7 @@ LIST_CASKS=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     scroll-reverser
     steam
     telegram
+    transmission
     visual-studio-code
     whatsapp
     zenmate-vpn
