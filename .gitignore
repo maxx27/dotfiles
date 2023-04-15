@@ -1,6 +1,16 @@
 # each repo has link to .gitconfig.<os>
 /.gitconfig
 
+# Personal Folders
+/Data/
+/Work/
+/Desktop/
+/Documents/
+/Downloads/
+/Movies/
+/Pictures/
+/Videos/
+
 # Windows
 /*.appx
 /3D Objects/
@@ -9,16 +19,12 @@
 /AppData/Roaming/*
 /Contacts/
 /Cookies/
-/Desktop/
-/Documents/
-/Downloads/
 /Favorites/
 /Games/
 /iCloudDrive/
 /IntelGraphicsProfiles/
 /Links/
 /Local Settings/
-/Luxoft/
 /MicrosoftEdgeBackups/
 /Music/
 /My Documents/
@@ -26,7 +32,6 @@
 /ntuser*
 /NTUSER*
 /OneDrive/
-/Pictures/
 /PrintHood/
 /Recent/
 /runtime-keygen.product/
@@ -34,36 +39,43 @@
 /Searches/
 /SendTo/
 /skype-export/
-/Snap/
 /Start Menu/
 /Templates/
 /Tracing/
-/Videos/
 /WordfastPro/
 /workspace/
 
 # Linux
-/.ICEauthority
-/.QtWebEngineProcess/
-/.VirtualBox/
-/.Xauthority
 /.anyconnect
 /.apport-ignore.xml
 /.cisco/
 /.codeintel/
+/.config/autostart/
+/.config/background
+/.config/cef_user_data/
 /.config/configstore/
+/.config/evolution/
+/.config/GitKraken/
+/.config/gnome-initial-setup-done
+/.config/google-chrome/
+/.config/ibus/
 /.config/packer/
+/.config/TabNine/
+/.config/zoom*
 /.cups/
 /.dbus-keyrings/
 /.dbus/
 /.dlv/
 /.docker/
+/.dotnet/
 /.ebookreader/
 /.eclipse/
 /.esets/
 /.fop/
+/.gitkraken/
 /.gnupg/
 /.gtkrc*
+/.ICEauthority
 /.links2/
 /.local/
 /.minikube/
@@ -73,15 +85,16 @@
 /.pki/
 /.poetry/
 /.qt-license
+/.QtWebEngineProcess/
 /.repoconfig/
 /.screenleap
 /.ssh/
 /.sudo_as_admin_successful
 /.thumbnails/
 /.vagrant.d/
-/.vs-*/
-/.vscode*/
+/.VirtualBox/
 /.wf_workspace/
+/.Xauthority
 /.xsession-errors*
 /.yarnrc
 /.zcompdump*
@@ -90,19 +103,23 @@
 /VirtualBox VMs/
 
 # Mac OS X
+.DS_Store
 /.CFUserTextEncoding
-/.DS_Store
 /.Trash/
-/Library/
-/Movies/
-/Public/
 /iCloud Drive (Archive)/
+/Library/
+/Public/
 
 # Backup
 *.bak
 *.log
 *.swp
 *.backup
+
+# VS Code
+/.vs-*/
+/.config/Code/
+/.vscode*/
 
 # Vim
 /.vim/.netrwhist
@@ -140,7 +157,7 @@ __pycache__/
 /.python_history
 /.python-history
 
-# JavaScripy
+# JavaScript
 /.npm/
 /npm-cache/
 
@@ -164,6 +181,7 @@ __pycache__/
 /.gdb_history
 /.kshdb_hist
 /.lesshst
+/.config/yandex-cloud/
 /.mysql_history
 /.picocom_history
 /.wget-hsts
@@ -182,20 +200,23 @@ __pycache__/
 /.dropbox*/
 /Dropbox/
 
-# Wine and friends
+# Steam, Wine and friends
 /.wine/
 /WindowsPrograms/
 /.PlayOnLinux/
 /PlayOnLinux*/
-
-# Steam
 /.steam/
 /.steampath
 /.steampid
+/.minecraft/
+# Flatpack
+/.var/app/
+/.gnome/apps/
+# Snap
+/snap/
 
 # Yandex Cloud
 /yandex-cloud/
-/.config/yandex-cloud/
 
 # Other
 /.android/
