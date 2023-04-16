@@ -105,7 +105,9 @@
 # Mac OS X
 .DS_Store
 /.CFUserTextEncoding
+/.swiftpm/
 /.Trash/
+/Applications/
 /iCloud Drive (Archive)/
 /Library/
 /Public/
@@ -198,7 +200,7 @@ __pycache__/
 
 # Dropbox
 /.dropbox*/
-/Dropbox/
+/Dropbox
 
 # Steam, Wine and friends
 /.wine/
@@ -228,6 +230,7 @@ __pycache__/
 /.jfrog/
 /.kube/
 /.lc/
+/.redhat/
 /.tabnine/
 /.terraform.d/
 /Calibre Library/
