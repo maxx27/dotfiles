@@ -11,12 +11,11 @@ LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     # tmux                       - terminal multiplexor
     # xz
     # yq
-    bash-completion            - autocomplete for bash
-    # beyond-compare
+    bash-completion              - autocomplete for bash
     fzf
-    git                        - VCS
-    python                     - python programming language
-    ranger                     - text file browser
+    git                          - VCS
+    python                       - python programming language
+    ranger                       - text file browser
     readline
     ripgrep
     vim
@@ -26,19 +25,19 @@ EOF
 )
 
 LIST_CASKS=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
-    # affinity-designer
     # alt-tab
     # beyond-compare
     # curseforge
     # vlc
     affinity-designer
     affinity-photo
-    daisydisk - Disk space visualizer
+    daisydisk                    - Disk space visualizer
     docker
     flux
-    font-inconsolata-lgc-nerd-font
+    foxitreader
+    gitfiend                     - Git GUI
     google-chrome
-    iina                      - video player
+    iina                         - video player
     lastpass
     musescore
     obs
@@ -52,8 +51,19 @@ LIST_CASKS=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     transmission
     visual-studio-code
     whatsapp
-    zenmate-vpn
     zoom
+
+    # cyberghost-vpn - requires VPN to download !
+    # zenmate-vpn
+EOF
+)
+
+# more fonts names at
+# https://gist.github.com/davidteren/898f2dcccd42d9f8680ec69a3a5d350e
+LIST_FONTS=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
+    font-inconsolata-lgc-nerd-font
+    font-dejavu-sans-mono-nerd-font
+    font-blex-mono-nerd-font
 EOF
 )
 
@@ -62,5 +72,10 @@ for PACKAGE in $LIST; do
 done
 
 for PACKAGE in $LIST_CASKS; do
-    brew install -- cask $PACKAGE
+    brew install --cask $PACKAGE
+done
+
+brew tap homebrew/cask-fonts
+for PACKAGE in $LIST_FONTS; do
+    brew install --cask $PACKAGE
 done
