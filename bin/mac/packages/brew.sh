@@ -12,6 +12,7 @@ LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     # xz
     # yq
     bash-completion              - autocomplete for bash
+    duti                         - set app associations
     fzf
     git                          - VCS
     python                       - python programming language
