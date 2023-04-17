@@ -1,3 +1,7 @@
+if [[ ! -e ~/.github/fzf ]]; then
+  return
+fi
+
 # Setup fzf
 # ---------
 if [[ ! "$PATH" == *~/.github/fzf/bin* ]]; then
