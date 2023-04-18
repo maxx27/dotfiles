@@ -38,7 +38,8 @@ LIST_CASKS=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     foxitreader
     gitfiend                     - Git GUI
     google-chrome
-    iina                         - video player
+    hiddenbar                    - Show less icons in the menu bar
+    iina                         - Video player
     lastpass
     musescore
     obs
