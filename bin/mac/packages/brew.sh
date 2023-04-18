@@ -32,15 +32,16 @@ LIST_CASKS=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     # vlc
     affinity-designer
     affinity-photo
-    daisydisk                    - Disk space visualizer
+    daisydisk                    - disk space visualizer
     docker
     flux
     foxitreader
-    gitfiend                     - Git GUI
+    gitfiend                     - git GUI
     google-chrome
-    hiddenbar                    - Show less icons in the menu bar
-    iina                         - Video player
+    hiddenbar                    - show less icons in the menu bar
+    iina                         - video player
     lastpass
+    logitech-options
     musescore
     obs
     obsidian
