@@ -1,0 +1,89 @@
+# autocompletion
+#zstyle :compinstall filename ~/.zshrc
+autoload -Uz compinit
+compinit -d ~/.cache/zsh/compdump
+
+if [[ "$OSTYPE" =~ ^(msys|cygwin)$ ]]; then
+    # Drives that cannot be reached by globbing.
+    local drives=($(mount | command grep --perl-regexp '^\w: on /\w ' | cut --delimiter=' ' --fields=3))
+    zstyle ':completion:*' fake-files "/:${(j. .)drives//\//}"
+
+    # Use kill completion for wkill.
+    compdef wkill=kill
+    zstyle ':completion:*:*:wkill:*:processes' command "ps --user "$USER" --windows"
+fi
+
+
+# host specific settings
+case $(hostname) in
+    Maxx-Air)
+        export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+        export PATH="/usr/local/Cellar/openjdk/15.0.1/bin:$PATH"
+esac
+
+
+if command -v kubectl >/dev/null; then
+    kubectl() {
+        unfunction "$0"
+        source <(kubectl completion zsh)
+        alias k=kubectl
+        complete -F __start_kubectl k
+        $0 "$@"
+    }
+fi
+
+if command -v kustomize >/dev/null; then
+    kustomize() {
+        unfunction "$0"
+        source <(kustomize completion zsh)
+        $0 "$@"
+    }
+fi
+
+if command -v minikube >/dev/null; then
+    minikube() {
+        unfunction "$0"
+        source <(minikube completion zsh)
+        $0 "$@"
+    }
+fi
+
+if command -v helm >/dev/null; then
+    helm() {
+        unfunction "$0"
+        source <(helm completion zsh)
+        $0 "$@"
+    }
+fi
+
+if command -v aws >/dev/null; then
+    aws() {
+        unfunction "$0"
+        complete -C aws_completer aws
+        $0 "$@"
+    }
+fi
+
+if command -v ~/yandex-cloud/bin/yc >/dev/null; then
+    yc() {
+        unfunction "$0"
+        export PATH=~/yandex-cloud:${PATH}
+        test -e ~/yandex-cloud/completion.zsh.inc && source ~/yandex-cloud/completion.zsh.inc
+        $0 "$@"
+    }
+fi
+
+autoload -U +X bashcompinit && bashcompinit
+if command -v terraform >/dev/null; then
+    terraform() {
+        unfunction "$0"
+        complete -o nospace -C terraform terraform
+        $0 "$@"
+    }
+fi
+
+# if [[ -e ~/.github/fzf-tab-completion ]]; then
+#     source ~/.github/fzf-tab-completion/zsh/fzf-zsh-completion.sh
+#     bindkey '^I' fzf_completion
+# fi
+[ -f ~/.zsh/.fzf.zsh ] && source ~/.zsh/.fzf.zsh

@@ -191,7 +191,7 @@ __pycache__/
 /.swipl-dir-history
 
 # zsh
-/.oh-my-zsh/
+/.github/.oh-my-zsh/
 /.zsh_history
 /.zsh_sessions/
 
