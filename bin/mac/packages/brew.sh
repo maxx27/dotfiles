@@ -34,6 +34,7 @@ LIST_CASKS=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     affinity-photo
     daisydisk                    - disk space visualizer
     docker
+    drawio
     flux
     foxitreader
     gitfiend                     - git GUI
@@ -53,6 +54,7 @@ LIST_CASKS=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     telegram
     transmission
     visual-studio-code
+    vlc
     whatsapp
     zoom
 

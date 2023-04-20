@@ -1,4 +1,3 @@
-
 #!/bin/bash
 # remove all detached users
 # https://superuser.com/questions/358835/force-logout-a-user
