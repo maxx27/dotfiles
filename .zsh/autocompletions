@@ -73,11 +73,21 @@ if command -v ~/yandex-cloud/bin/yc >/dev/null; then
     }
 fi
 
+# using bash completion
 autoload -U +X bashcompinit && bashcompinit
+
 if command -v terraform >/dev/null; then
     terraform() {
         unfunction "$0"
         complete -o nospace -C terraform terraform
+        $0 "$@"
+    }
+fi
+
+if command -v vault >/dev/null; then
+    vault() {
+        unfunction "$0"
+        complete -o nospace -C vault vault
         $0 "$@"
     }
 fi
