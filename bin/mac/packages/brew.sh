@@ -22,65 +22,66 @@ LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     vim
     youtube-dl
     yt-dlp
-EOF
-)
 
-LIST_CASKS=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
-    # alt-tab
-    # beyond-compare
-    # curseforge
-    # vlc
-    affinity-designer
-    affinity-photo
-    daisydisk                    - disk space visualizer
-    docker
-    drawio
-    flux
-    foxitreader
-    gitfiend                     - git GUI
-    google-chrome
-    hiddenbar                    - show less icons in the menu bar
-    iina                         - video player
-    lastpass
-    logitech-options
-    musescore
-    obs
-    obsidian
-    paragon-ntfs
-    parallels
-    reaper
-    scroll-reverser
-    steam
-    telegram
-    transmission
-    visual-studio-code
-    vlc
-    whatsapp
-    zoom
+    ansible
+    --cask vagrant
 
+    # --cask alt-tab
+    # --cask curseforge
+    # --cask vlc
+
+    --cask affinity-designer
+    --cask affinity-photo
+    --cask beyond-compare
+    --cask daisydisk                    - disk space visualizer
+    --cask drawio
+    --cask flux
+    --cask foxitreader
+    --cask gitfiend                     - git GUI
+    --cask google-chrome
+    --cask hiddenbar                    - show less icons in the menu bar
+    --cask iina                         - video player
+    --cask lastpass
+    --cask logitech-options
+    --cask musescore
+    --cask obs
+    --cask obsidian
+    --cask paragon-ntfs
+    --cask parallels
+    --cask reaper
+    --cask scroll-reverser
+    --cask steam
+    --cask telegram
+    --cask transmission
+    --cask visual-studio-code
+    --cask vlc
+    --cask yandex-music-unofficial
+    --cask whatsapp
+    --cask zoom
+
+    # Docker
+    # --cask docker
+    podman
+    podman-compose
+    --cask podman-desktop
+    lazydocker
+
+    # Kubernetesß
+    k9s
+    kubernetes-cli
+
+    # VPN
     # cyberghost-vpn - requires VPN to download !
     # zenmate-vpn
-EOF
-)
 
-# more fonts names at
-# https://gist.github.com/davidteren/898f2dcccd42d9f8680ec69a3a5d350e
-LIST_FONTS=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
-    font-inconsolata-lgc-nerd-font
-    font-dejavu-sans-mono-nerd-font
-    font-blex-mono-nerd-font
+    # Fonts
+    # more fonts names at https://gist.github.com/davidteren/898f2dcccd42d9f8680ec69a3a5d350e
+    --cask font-inconsolata-lgc-nerd-font
+    --cask font-dejavu-sans-mono-nerd-font
+    --cask font-blex-mono-nerd-font
 EOF
 )
 
 for PACKAGE in $LIST; do
     brew install $PACKAGE
-done
-
-for PACKAGE in $LIST_CASKS; do
-    brew install --cask $PACKAGE
-done
-
-brew tap homebrew/cask-fonts
-for PACKAGE in $LIST_FONTS; do
-    brew install --cask $PACKAGE
 done
