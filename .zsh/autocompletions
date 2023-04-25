@@ -13,14 +13,21 @@ if [[ "$OSTYPE" =~ ^(msys|cygwin)$ ]]; then
     zstyle ':completion:*:*:wkill:*:processes' command "ps --user "$USER" --windows"
 fi
 
+if command -v aws >/dev/null; then
+    aws() {
+        unfunction "$0"
+        complete -C aws_completer aws
+        $0 "$@"
+    }
+fi
 
-# host specific settings
-case $(hostname) in
-    Maxx-Air)
-        export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
-        export PATH="/usr/local/Cellar/openjdk/15.0.1/bin:$PATH"
-esac
-
+if command -v helm >/dev/null; then
+    helm() {
+        unfunction "$0"
+        source <(helm completion zsh)
+        $0 "$@"
+    }
+fi
 
 if command -v kubectl >/dev/null; then
     kubectl() {
@@ -48,18 +55,10 @@ if command -v minikube >/dev/null; then
     }
 fi
 
-if command -v helm >/dev/null; then
-    helm() {
+if command -v podman >/dev/null; then
+    podman() {
         unfunction "$0"
-        source <(helm completion zsh)
-        $0 "$@"
-    }
-fi
-
-if command -v aws >/dev/null; then
-    aws() {
-        unfunction "$0"
-        complete -C aws_completer aws
+        source <(podman completion zsh)
         $0 "$@"
     }
 fi

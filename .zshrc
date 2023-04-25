@@ -72,6 +72,13 @@ else
     export EDITOR='code -w'
 fi
 
+# host specific settings
+case $(hostname) in
+    Maxx-Air)
+        export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+        export PATH="/usr/local/Cellar/openjdk/15.0.1/bin:$PATH"
+esac
+
 source ~/.zsh/aliases
 source ~/.zsh/autocompletions
 

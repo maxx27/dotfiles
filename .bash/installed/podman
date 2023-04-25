@@ -1,0 +1,6 @@
+
+podman() {
+    unset -f "${FUNCNAME[0]}"
+    source <(podman completion bash)
+    ${FUNCNAME[0]} "$@"
+}
