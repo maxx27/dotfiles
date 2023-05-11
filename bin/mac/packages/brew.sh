@@ -1,63 +1,70 @@
 #!/bin/bash
 
 LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
-    # jq
-    # kubectx
-    # kubernetes-cli
     # macfuse
     # node
     # ntfs-3g
     # reattach-to-user-namespace - using system clipboard
-    # tmux                       - terminal multiplexor
-    # xz
-    # yq
-    bash-completion              - autocomplete for bash
-    duti                         - set app associations
-    fzf
-    git                          - VCS
     python                       - python programming language
-    ranger                       - text file browser
-    readline
-    ripgrep
-    vim
-    youtube-dl
-    yt-dlp
-
-    ansible
-    --cask vagrant
-
-    # --cask alt-tab
-    # --cask curseforge
-    # --cask vlc
-
     --cask affinity-designer
     --cask affinity-photo
     --cask beyond-compare
-    --cask daisydisk                    - disk space visualizer
     --cask drawio
-    --cask flux
-    --cask foxitreader
-    --cask gitfiend                     - git GUI
+    --cask foxitreader                  - (requires VPN)
     --cask google-chrome
-    --cask hiddenbar                    - show less icons in the menu bar
-    --cask iina                         - video player
     --cask lastpass
-    --cask logitech-options
     --cask musescore
     --cask obs
     --cask obsidian
     --cask paragon-ntfs
     --cask parallels
     --cask reaper
-    --cask scroll-reverser
-    --cask steam
-    --cask telegram
     --cask transmission
     --cask visual-studio-code
-    --cask vlc
     --cask yandex-music-unofficial
-    --cask whatsapp
     --cask zoom
+
+    # System
+    duti                         - set app associations
+    --cask hiddenbar                    - show less icons in the menu bar
+    --cask flux
+    # --cask alt-tab
+    --cask scroll-reverser
+    --cask keka                         - file archiver
+    --cask logitech-options
+
+    # Terminal
+    tmux                         - terminal multiplexor
+    --cask iterm2                - terminal replacement
+    bash-completion              - autocomplete for bash
+    jq
+    fzf
+    ranger                       - text file browser
+    readline
+    rename                       - Perl-powered file rename script with many helpful built-ins
+    ripgrep
+    vim
+    # xz
+
+    # Multimedia
+    ffmpeg
+    # youtube-dl # looks outdated, use yt-dlp
+    yt-dlp
+    --cask iina                         - video player
+    --cask vlc
+
+    # Infrastructure
+    ansible
+    --cask vagrant
+
+    # Git
+    git                          - VCS
+    --cask gitfiend                     - git GUI
+
+
+    # Messagers
+    --cask telegram
+    --cask whatsapp
 
     # Docker
     # --cask docker
@@ -66,9 +73,13 @@ LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     --cask podman-desktop
     lazydocker
 
-    # Kubernetesß
-    k9s
+    # Kubernetes
     kubernetes-cli
+    k9s
+    --cask openlens
+    kubectx
+    minikube
+    # kind - не понравился, minikube лучше
 
     # VPN
     # cyberghost-vpn - requires VPN to download !
@@ -79,6 +90,11 @@ LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     --cask font-inconsolata-lgc-nerd-font
     --cask font-dejavu-sans-mono-nerd-font
     --cask font-blex-mono-nerd-font
+
+    # Games
+    --cask steam
+    --cask epic-games
+    # --cask curseforge
 EOF
 )
 
