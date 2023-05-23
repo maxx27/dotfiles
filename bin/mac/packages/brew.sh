@@ -10,41 +10,46 @@ LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     --cask affinity-photo
     --cask beyond-compare
     --cask drawio
-    --cask foxitreader                  - (requires VPN)
     --cask google-chrome
     --cask lastpass
     --cask musescore
     --cask obs
-    --cask obsidian
     --cask paragon-ntfs
     --cask parallels
     --cask reaper
     --cask transmission
-    --cask visual-studio-code
     --cask yandex-music-unofficial
     --cask zoom
 
     # System
     duti                         - set app associations
-    --cask hiddenbar                    - show less icons in the menu bar
+    --cask hiddenbar             - show less icons in the menu bar
     --cask flux
     # --cask alt-tab
-    --cask scroll-reverser
-    --cask keka                         - file archiver
+    --cask scroll-reverser       - reverse direction for mouse only
+    --cask keka                  - file archiver
     --cask logitech-options
+    # --cask glance-chamburr       - more preview formats (syntax-highlight лучше чем это)
+    --cask --no-quarantine syntax-highlight      - more preview formats
 
     # Terminal
-    tmux                         - terminal multiplexor
     --cask iterm2                - terminal replacement
+    tmux                         - terminal multiplexor
     bash-completion              - autocomplete for bash
-    jq
     fzf
+    jq
+    ncdu
     ranger                       - text file browser
     readline
     rename                       - Perl-powered file rename script with many helpful built-ins
     ripgrep
     vim
     # xz
+
+    # File Managers
+    --cask nimble-commander
+    --cask commander-one
+    # --cask dcommander - payed
 
     # Multimedia
     ffmpeg
@@ -58,9 +63,19 @@ LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     --cask vagrant
 
     # Git
-    git                          - VCS
-    --cask gitfiend                     - git GUI
+    git
+    --cask gittyup               - не может быть проверен
+    # glint?
+    --cask fork
+    --cask sourcetree
+    # --cask gitkraken # платный
+    # --cask gitfiend                     - git GUI не понравился
 
+    # Office
+    plantuml
+    --cask obsidian
+    --cask visual-studio-code
+    --cask foxitreader                  - (requires VPN)
 
     # Messagers
     --cask telegram
@@ -80,6 +95,7 @@ LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     kubectx
     minikube
     # kind - не понравился, minikube лучше
+    helm
 
     # VPN
     # cyberghost-vpn - requires VPN to download !
@@ -94,7 +110,7 @@ LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     # Games
     --cask steam
     --cask epic-games
-    # --cask curseforge
+    --cask curseforge
 EOF
 )
 
