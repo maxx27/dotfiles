@@ -110,7 +110,8 @@ LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     # Games
     --cask steam
     --cask epic-games
-    --cask curseforge
+    # --cask curseforge
+    --cask --no-quarantine prismlauncher
 EOF
 )
 
