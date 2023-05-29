@@ -44,6 +44,7 @@ LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     rename                       - Perl-powered file rename script with many helpful built-ins
     ripgrep
     vim
+    wget
     # xz
 
     # File Managers

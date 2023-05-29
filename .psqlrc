@@ -1,0 +1,6 @@
+-- \set PROMPT1 '%R%n@%/%x%# '
+-- \set PROMPT2 '%R%# '
+\set PROMPT1 '%R%001%033[0;32m%002%n%001%033[0m%002@%001%033[0;33m%002%/%001%033[0;31m%002%x%001%033[0m%002%# '
+\set PROMPT2 '%001%[%033[1;33;40m%]%002%R%001%[%033[0m%]%002%# '
+\timing on
+\set HISTCONTROL ignoreboth
