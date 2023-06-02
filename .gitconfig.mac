@@ -21,26 +21,28 @@
 	ff = only
 	rebase = false
 [diff]
-	# tool = bc
-	tool = vimdiff
+	tool = bc
+	# tool = vimdiff
 	guitool = bc
 	renameLimit = 10000
 [difftool]
 	prompt = false
 [difftool "bc"]
-	cmd = /usr/bin/bcompare \"$LOCAL\" \"$REMOTE\"
+	cmd = /usr/local/bin/bcomp \"$LOCAL\" \"$REMOTE\"
+[difftool "vscode"]
+    cmd = code --wait --new-window --diff \"$LOCAL\" \"$REMOTE\"
 [merge]
 	tool = bc
-	tool = kdiff3
-	tool = wm
-	renamelimit = 10000
+	# tool = kdiff3
+	# tool = wm
 	guitool = bc
+	renamelimit = 10000
 [mergetool]
 	prompt = false
 	keepBackup = false
 	keepTemporaries = false
 [mergetool "bc"]
-	cmd = /usr/bin/bcompare \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+	cmd = /usr/local/bin/bcomp \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
 	trustExitCode = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -64,3 +66,9 @@
 	root = rev-parse --show-toplevel
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[difftool "sourcetree"]
+	cmd = /usr/local/bin/bcomp \"$LOCAL\" \"$REMOTE\"
+	path = -ro
+[mergetool "sourcetree"]
+	cmd = /usr/local/bin/bcomp \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+	trustExitCode = true
