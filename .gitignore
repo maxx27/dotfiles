@@ -54,6 +54,7 @@
 /.config/background
 /.config/cef_user_data/
 /.config/configstore/
+/.config/containers
 /.config/evolution/
 /.config/GitKraken/
 /.config/gnome-initial-setup-done
@@ -76,8 +77,10 @@
 /.gnupg/
 /.gtkrc*
 /.ICEauthority
+/.iterm2/
 /.links2/
 /.local/
+/.kafkatool2/
 /.minikube/
 /.motd_shown
 /.mozilla/
@@ -89,6 +92,7 @@
 /.repoconfig/
 /.screenleap
 /.ssh/
+/.subversion/
 /.sudo_as_admin_successful
 /.thumbnails/
 /.vagrant.d/
@@ -101,6 +105,9 @@
 /.zenmap/
 /.zoom/
 /VirtualBox VMs/
+# Usually installed separately
+.fzf.*
+
 
 # Mac OS X
 .DS_Store
@@ -236,3 +243,6 @@ __pycache__/
 /Calibre Library/
 /perl5/
 /tmp*/
+
+# Tinkoff
+/.dp

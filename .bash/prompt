@@ -1,5 +1,4 @@
 
-
 # set variable identifying the chroot you work in (used in the prompt below)
 # if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 #     debian_chroot=$(cat /etc/debian_chroot)
@@ -36,7 +35,6 @@ __prompt_command() {
     fi
 
     PS1+="${C_WHITE}\A "   # time
-
     PS1+="${C_YELLOW}\W "  # workdir
     PS1+="${C_RESET}\$ "   # $/#
 }

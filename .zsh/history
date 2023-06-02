@@ -1,0 +1,46 @@
+# History
+
+# show history with timestamps:
+# $ history -E -10
+
+# for zsh
+# HISTORY_IGNORE="(cd(| *)|ls(| *)|git add *)"
+HISTORY_IGNORE="(cd|cd ..|ls|pwd|exit|clear)"
+
+mkdir -p ~/.cache/zsh
+HISTFILE=~/.cache/zsh/history
+HISTSIZE=1000
+SAVEHIST=1000
+
+# append history list to the history file, rather than replace it
+setopt APPEND_HISTORY
+
+# write command with timestamp and duration
+setopt EXTENDED_HISTORY
+
+# remove duplicates commands
+setopt HIST_IGNORE_ALL_DUPS
+
+# do not add duplicates commands (disabled)
+unsetopt HIST_IGNORE_DUPS
+
+# ignore commands starting with space
+setopt HIST_IGNORE_SPACE
+
+# remove extra blanks from commands
+setopt HIST_REDUCE_BLANKS
+
+# ignore duplicates while searching
+setopt HIST_FIND_NO_DUPS
+
+# not needed due HIST_IGNORE_ALL_DUPS
+# setopt HIST_SAVE_NO_DUPS
+
+# left command after expansion for editing
+setopt HIST_VERIFY
+
+# append right after command entering
+unsetopt INC_APPEND_HISTORY
+
+# both INC_APPEND_HISTORY + EXTENDED_HISTORY
+unsetopt SHARE_HISTORY

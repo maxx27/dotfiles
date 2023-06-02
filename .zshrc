@@ -1,6 +1,9 @@
 
 # See http://zsh.sourceforge.net/Doc/Release/Parameters.html
 
+# show all parameters
+# set -o
+
 # Update PATH
 export -U PATH=/mingw64/bin${PATH:+:$PATH}
 export -U PATH=/bin${PATH:+:$PATH}
@@ -34,12 +37,6 @@ bindkey -s "^[Oo" "/"
 # set emacs style
 bindkey -e
 
-# History
-mkdir -p ~/.cache/zsh
-HISTFILE=~/.cache/zsh/history
-HISTSIZE=1000
-SAVEHIST=1000
-
 # Options
 # See https://linux.die.net/man/1/zshoptions
 setopt correct
@@ -60,10 +57,10 @@ if [[ $ZSH_THEME == "powerlevel10k/powerlevel10k" ]]; then
     if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
         source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
     fi
+
+    # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+    [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 fi
-
-
-# export MANPATH="/usr/local/man:$MANPATH"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -71,16 +68,6 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
     export EDITOR='code -w'
 fi
-
-# host specific settings
-case $(hostname) in
-    Maxx-Air)
-        export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
-        export PATH="/usr/local/Cellar/openjdk/15.0.1/bin:$PATH"
-esac
-
-source ~/.zsh/aliases
-source ~/.zsh/autocompletions
 
 if [[ -e ~/.zsh/.zshmyrc && -e ~/.github/.oh-my-zsh ]]; then
     # oh-my-zsh settings
@@ -90,5 +77,10 @@ else
     # source ~/.github/.oh-my-zsh/plugins/zsh-syntax-highlighting
 fi
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
+
+source ~/.zsh/aliases
+source ~/.zsh/autocompletions
+# oh-my-zsh resets history settings, thus they are after oh-my-zsh
+source ~/.zsh/history

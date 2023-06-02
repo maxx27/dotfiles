@@ -34,3 +34,5 @@ if [[ $- == *i* ]]; then
     . ~/.bash/hosts
     . ~/.bash/commands
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
