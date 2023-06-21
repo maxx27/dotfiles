@@ -13,3 +13,11 @@ https://apps.apple.com/ru/app/hidden-bar/id1452453066?l=en&mt=12
 iScreen Shoter: Screenshot App
 Screen Capture & OCR Scanner
 https://apps.apple.com/ru/app/iscreen-shoter-screenshot-app/id1596559494?l=en&mt=12
+
+---
+
+Notability
+https://apps.apple.com/ru/app/notability/id360593530?l=en
+
+- альтернатива GoodNotes 5
+  https://apps.apple.com/ru/app/goodnotes-5/id1444383602?l=en

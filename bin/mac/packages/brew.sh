@@ -1,36 +1,21 @@
 #!/bin/bash
 
 LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
-    # macfuse
-    # node
-    # ntfs-3g
-    # reattach-to-user-namespace - using system clipboard
-    python                       - python programming language
-    --cask affinity-designer
-    --cask affinity-photo
-    --cask beyond-compare
-    --cask drawio
-    --cask google-chrome
-    --cask lastpass
-    --cask musescore
-    --cask obs
-    --cask paragon-ntfs
-    --cask parallels
-    --cask reaper
-    --cask transmission
-    --cask yandex-music-unofficial
-    --cask zoom
 
     # System
     duti                         - set app associations
-    --cask hiddenbar             - show less icons in the menu bar
-    --cask flux
-    # --cask alt-tab
-    --cask scroll-reverser       - reverse direction for mouse only
-    --cask keka                  - file archiver
-    --cask logitech-options
-    # --cask glance-chamburr       - more preview formats (syntax-highlight лучше чем это)
     --cask --no-quarantine syntax-highlight      - more preview formats
+    --cask --no-quarantine qlmarkdown
+    # --cask glance-chamburr       - more preview formats (syntax-highlight лучше чем это)
+    --cask cheatsheet            - show cheet sheet
+    --cask flux
+    --cask hiddenbar             - show less icons in the menu bar
+    --cask logitech-options
+    --cask obs
+    --cask paragon-ntfs
+    --cask scroll-reverser       - reverse direction for mouse only
+    --cask alt-tab
+    # ntfs-3g
 
     # Terminal
     --cask iterm2                - terminal replacement
@@ -38,55 +23,62 @@ LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     bash-completion              - autocomplete for bash
     fzf
     jq
+    noahgorstein/tap/jqp         - playground TUI for jq
     ncdu
     ranger                       - text file browser
     readline
     rename                       - Perl-powered file rename script with many helpful built-ins
     ripgrep
+    tree
     vim
     wget
     # xz
 
-    # File Managers
-    --cask nimble-commander
-    --cask commander-one
-    # --cask dcommander - payed
+    # Development
+    git
+    plantuml
+    pre-commit                   - hook usage for project validations
+    python                       - python programming language
+    --cask beyond-compare
+    --cask fork                  - Git UI
+    --cask visual-studio-code
+    # node
+
+    # ???
+    --cask drawio
+    --cask foxitreader           - (requires VPN)
+    --cask google-chrome
+    --cask keka                  - file archiver
+    --cask lastpass
+    --cask nimble-commander      - Two-pane file manager
+    --cask obsidian
+    --cask parallels
+    --cask transmission
+    --cask yandex-music-unofficial
+    --cask zoom
+    # --cask affinity-designer
+    # --cask affinity-photo
+
+    # Music
+    --cask musescore
+    --cask reaper
 
     # Multimedia
     ffmpeg
     # youtube-dl # looks outdated, use yt-dlp
     yt-dlp
-    --cask iina                         - video player
+    --cask iina                  - video player
     --cask vlc
 
     # Infrastructure
     ansible
     --cask vagrant
 
-    # Git
-    git
-    --cask gittyup               - не может быть проверен
-    # glint?
-    --cask fork
-    --cask sourcetree
-    # --cask gitkraken # платный
-    # --cask gitfiend                     - git GUI не понравился
-
-    # Office
-    plantuml
-    --cask obsidian
-    --cask visual-studio-code
-    --cask foxitreader                  - (requires VPN)
-
-    # Messagers
-    --cask telegram
-    --cask whatsapp
-
     # Docker
     # --cask docker
     podman
     podman-compose
-    --cask podman-desktop
+    # --cask podman-desktop
     lazydocker
 
     # Kubernetes
@@ -97,6 +89,10 @@ LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     minikube
     # kind - не понравился, minikube лучше
     helm
+
+    # Messagers
+    --cask telegram
+    --cask whatsapp
 
     # VPN
     # cyberghost-vpn - requires VPN to download !
