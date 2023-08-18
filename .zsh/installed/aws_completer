@@ -1,0 +1,6 @@
+
+aws() {
+    unfunction "$0"
+    complete -C aws_completer aws
+    $0 "$@"
+}

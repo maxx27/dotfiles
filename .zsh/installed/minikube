@@ -1,0 +1,6 @@
+
+minikube() {
+    unfunction "$0"
+    source <(minikube completion zsh)
+    $0 "$@"
+}

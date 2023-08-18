@@ -1,1 +1,5 @@
-complete -C vault vault
+vault() {
+    unset -f "${FUNCNAME[0]}"
+    complete -C vault vault
+    ${FUNCNAME[0]} "$@"
+}

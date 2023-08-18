@@ -1,0 +1,7 @@
+
+yc() {
+    unfunction "$0"
+    export PATH=~/yandex-cloud/bin:${PATH}
+    [ -e ~/yandex-cloud/completion.zsh.inc ] && source ~/yandex-cloud/completion.zsh.inc
+    $0 "$@"
+}

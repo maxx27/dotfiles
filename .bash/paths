@@ -1,10 +1,17 @@
 
-# set PATH so it includes user's private bin if it exists
-NEWPATH=
-for d in .local/bin bin .poetry/bin yandex-cloud/bin; do
-    if [ -d "$HOME/$d" ] ; then
-        NEWPATH="$NEWPATH$HOME/$d:"
+newpath=
+paths=(
+    ~/.local/bin
+    ~/bin
+    ~/.poetry/bin
+    ~/yandex-cloud/bin
+)
+for d in ${paths[@]}; do
+    if [ -d "$d" ] ; then
+        newpath="$newpath$HOME/$d:"
     fi
 done
-export PATH="$NEWPATH$PATH"
-unset NEWPATH
+if [ ! -z "$newpath" ]; then
+    export PATH="$newpath$PATH"
+fi
+unset newpath paths

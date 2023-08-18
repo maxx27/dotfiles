@@ -1,0 +1,16 @@
+# Update PATH
+typeset -a paths
+paths=(
+    /mingw64/bin
+    /bin
+    /usr/bin
+    /usr/local/bin
+    ~/yandex-cloud/bin
+    ~/bin
+)
+for p in $paths; do
+    if [ -d "$p" ]; then
+        export -U PATH="$p${PATH:+:$PATH}"
+    fi
+done
+unset paths

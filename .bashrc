@@ -32,7 +32,7 @@ if [[ $- == *i* ]]; then
     . ~/.bash/prompt
     . ~/.bash/aliases
     . ~/.bash/hosts
-    . ~/.bash/commands
+    . ~/.bash/programs
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

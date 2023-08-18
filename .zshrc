@@ -1,16 +1,21 @@
 
 # See http://zsh.sourceforge.net/Doc/Release/Parameters.html
 
-# show all parameters
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# Show all parameters
 # set -o
 
-# Update PATH
-export -U PATH=/mingw64/bin${PATH:+:$PATH}
-export -U PATH=/bin${PATH:+:$PATH}
-export -U PATH=/usr/bin${PATH:+:$PATH}
-export -U PATH=/usr/local/bin${PATH:+:$PATH}
-export -U PATH=~/bin${PATH:+:$PATH}
-
+# See https://linux.die.net/man/1/zshoptions
+setopt correct
+setopt extendedglob
+setopt nomatch
+unsetopt autocd
+unsetopt autopushd
 # Keypad
 # 0 . Enter
 bindkey -s "^[Op" "0"
@@ -36,14 +41,6 @@ bindkey -s "^[Oo" "/"
 
 # set emacs style
 bindkey -e
-
-# Options
-# See https://linux.die.net/man/1/zshoptions
-setopt correct
-setopt extendedglob
-setopt nomatch
-unsetopt autocd
-unsetopt autopushd
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -77,10 +74,10 @@ else
     # source ~/.github/.oh-my-zsh/plugins/zsh-syntax-highlighting
 fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
-
+source ~/.zsh/paths
+source ~/.zsh/programs
 source ~/.zsh/aliases
-source ~/.zsh/autocompletions
 # oh-my-zsh resets history settings, thus they are after oh-my-zsh
 source ~/.zsh/history
+
+[ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh

@@ -1,0 +1,25 @@
+
+# in `always` because it checks path
+
+if [ -e ~/.github/fzf ]; then
+    if [[ ! "$PATH" == *.github/fzf/bin* ]]; then
+        export PATH="$PATH:~/.github/fzf/bin"
+    fi
+
+    # Auto-completion
+    [[ $- == *i* ]] && source ~/.github/fzf/shell/completion.bash 2> /dev/null
+
+    # Key bindings
+    source ~/.github/fzf/shell/key-bindings.bash
+
+    # if [[ -e ~/.github/fzf-tab-completion ]]; then
+    #     source ~/.github/fzf-tab-completion/zsh/fzf-zsh-completion.sh
+    #     bindkey '^I' fzf_completion
+    # fi
+
+elif [ -f ~/.fzf.zsh ]; then
+    source ~/.fzf.zsh
+
+elif [ -f ~/.zsh/.fzf.zsh ]; then
+    source ~/.zsh/.fzf.zsh
+fi

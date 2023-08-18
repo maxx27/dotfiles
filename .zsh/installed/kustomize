@@ -1,0 +1,6 @@
+
+kustomize() {
+    unfunction "$0"
+    source <(kustomize completion zsh)
+    $0 "$@"
+}

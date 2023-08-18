@@ -1,0 +1,5 @@
+vault() {
+    unfunction "$0"
+    complete -o nospace -C vault vault
+    $0 "$@"
+}

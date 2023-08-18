@@ -1,0 +1,5 @@
+terraform() {
+    unfunction "$0"
+    complete -o nospace -C terraform terraform
+    $0 "$@"
+}

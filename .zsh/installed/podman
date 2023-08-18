@@ -1,0 +1,6 @@
+
+podman() {
+    unfunction "$0"
+    source <(podman completion zsh)
+    $0 "$@"
+}

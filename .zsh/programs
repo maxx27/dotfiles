@@ -1,0 +1,29 @@
+# autocompletion
+#zstyle :compinstall filename ~/.zshrc
+autoload -Uz compinit
+compinit -d ~/.cache/zsh/compdump
+
+# using bash completion
+autoload -U +X bashcompinit && bashcompinit
+
+if [[ "$OSTYPE" =~ ^(msys|cygwin)$ ]]; then
+    # Drives that cannot be reached by globbing.
+    local drives=($(mount | command grep --perl-regexp '^\w: on /\w ' | cut --delimiter=' ' --fields=3))
+    zstyle ':completion:*' fake-files "/:${(j. .)drives//\//}"
+
+    # Use kill completion for wkill.
+    compdef wkill=kill
+    zstyle ':completion:*:*:wkill:*:processes' command "ps --user "$USER" --windows"
+fi
+
+for file in $(ls ~/.zsh/always); do
+    [[ $file =~ _disable ]] && continue
+    . ~/.zsh/always/$file
+done
+
+for file in $(ls ~/.zsh/installed); do
+    [[ $file =~ _disable ]] && continue
+    if command -v $file >/dev/null; then
+        . ~/.zsh/installed/$file
+    fi
+done

@@ -1,1 +1,5 @@
-complete -C terraform terraform
+terraform() {
+    unset -f "${FUNCNAME[0]}"
+    complete -C terraform terraform
+    ${FUNCNAME[0]} "$@"
+}

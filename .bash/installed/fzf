@@ -1,11 +1,11 @@
 
 if [ ! -e ~/.github/fzf ]; then
-  return
+    return
 fi
 
 # Setup fzf
 if [[ ! "$PATH" == *.github/fzf/bin* ]]; then
-  export PATH="$PATH:~/.github/fzf/bin"
+    export PATH="$PATH:~/.github/fzf/bin"
 fi
 
 # Auto-completion
