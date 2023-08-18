@@ -69,6 +69,7 @@ LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     yt-dlp
     --cask iina                  - video player
     --cask vlc
+    imagemagick
 
     # Infrastructure
     ansible

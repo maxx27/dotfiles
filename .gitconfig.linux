@@ -28,13 +28,15 @@
 [difftool]
 	prompt = false
 [difftool "bc"]
-	cmd = /usr/bin/bcompare \"$LOCAL\" \"$REMOTE\"
+	cmd = /usr/local/bin/bcomp \"$LOCAL\" \"$REMOTE\"
+[difftool "vscode"]
+    cmd = code --wait --new-window --diff \"$LOCAL\" \"$REMOTE\"
 [merge]
 	tool = bc
-	tool = kdiff3
-	tool = wm
-	renamelimit = 10000
+	# tool = kdiff3
+	# tool = wm
 	guitool = bc
+	renamelimit = 10000
 [mergetool]
 	prompt = false
 	keepBackup = false

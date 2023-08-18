@@ -1,0 +1,6 @@
+chmod
+Gitea
+kubernetes
+netbox
+SIGKILL
+SIGTERM
