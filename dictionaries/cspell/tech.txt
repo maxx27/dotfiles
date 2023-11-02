@@ -1,6 +1,12 @@
 chmod
+filebeat
 Gitea
 kubernetes
 netbox
+plantuml
+pydantic
 SIGKILL
 SIGTERM
+Structurizr
+дашбордах
+инстансы

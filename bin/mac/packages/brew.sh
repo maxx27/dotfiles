@@ -43,9 +43,14 @@ LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     --cask fork                  - Git UI
     --cask visual-studio-code
     # node
+    --cask processing
+    openjdk@17
+    --cask intellij-idea-ce
+    go
 
     # ???
     --cask drawio
+    structurizr-cli              - C4 Model
     --cask foxitreader           - (requires VPN)
     --cask google-chrome
     --cask keka                  - file archiver
