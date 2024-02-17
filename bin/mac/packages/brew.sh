@@ -16,6 +16,7 @@ LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     --cask scroll-reverser       - reverse direction for mouse only
     --cask alt-tab
     # ntfs-3g
+    fio                          - disk speed test
 
     # Terminal
     --cask iterm2                - terminal replacement
@@ -115,6 +116,9 @@ LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     --cask epic-games
     # --cask curseforge
     --cask --no-quarantine prismlauncher
+
+    # Game Development
+    --cask godot
 EOF
 )
 
