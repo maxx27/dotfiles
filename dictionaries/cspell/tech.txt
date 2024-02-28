@@ -1,3 +1,4 @@
+argparser
 chmod
 filebeat
 Gitea
@@ -5,8 +6,10 @@ kubernetes
 netbox
 plantuml
 pydantic
+ruamel
 SIGKILL
 SIGTERM
 Structurizr
+uvicorn
 дашбордах
 инстансы

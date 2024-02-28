@@ -16,7 +16,14 @@ label="structurizr"
 deamon="-d"
 
 function startDevelopmentContainer() {
+    check_filename="$dirname/$filename.dsl"
+    if [[ ! -e $check_filename ]]; then
+        # to avoid creation of new empty files (probably by mistake)
+        echo "ERROR: $check_filename does not exist"
+        exit 1
+    fi
     docker pull structurizr/lite
+    set -x
     docker run $deamon --rm \
         -l "$label" \
         --name "$cont" \
@@ -24,6 +31,7 @@ function startDevelopmentContainer() {
         -v "$dirname":/usr/local/structurizr \
         -e STRUCTURIZR_WORKSPACE_FILENAME="$filename" \
         structurizr/lite
+    set +x
 }
 
 function stopDevelopmentContainer(){
@@ -47,6 +55,10 @@ function parseWorkspaceArg(){
                 ;;
             -f|--file)
                 filename="$2"
+                if [[ $filename == *.dsl || $filename == *.json ]]; then
+                    echo "WARNING: remove file extension"
+                    filename=${filename%.*}
+                fi
                 shift # past argument
                 shift # past value
                 ;;
@@ -107,6 +119,17 @@ function echoHelp(){
 }
 
 parseWorkspaceArg
+
+echo ""
+echo "Debug information:"
+echo "operation: $operation"
+echo "  dirname: $dirname"
+echo " filename: $filename"
+echo "     port: $port"
+echo "     cont: $cont"
+echo "    label: $label"
+echo "   deamon: $deamon"
+echo ""
 
 if [[ $operation == "help" ]]; then
     echoHelp

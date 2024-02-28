@@ -24,6 +24,9 @@ LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     bash-completion              - autocomplete for bash
     fzf
     jq
+    # Choose one yq:
+    # yq                           - https://github.com/mikefarah/yq
+    python-yq                    - https://github.com/kislyuk/yq
     noahgorstein/tap/jqp         - playground TUI for jq
     ncdu
     ranger                       - text file browser
@@ -37,7 +40,6 @@ LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
 
     # Development
     git
-    plantuml
     pre-commit                   - hook usage for project validations
     python                       - python programming language
     --cask beyond-compare
@@ -48,10 +50,32 @@ LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     openjdk@17
     --cask intellij-idea-ce
     go
+    adr-tools
+    structurizr-cli              - C4 Model
+    --cask drawio
+    plantuml
+
+    # Infrastructure
+    ansible
+    --cask vagrant
+
+    # Docker
+    --cask docker
+    # podman
+    # podman-compose
+    # --cask podman-desktop
+    lazydocker
+
+    # Kubernetes
+    kubernetes-cli
+    k9s
+    --cask openlens
+    kubectx
+    minikube
+    # kind - не понравился, minikube лучше
+    helm
 
     # ???
-    --cask drawio
-    structurizr-cli              - C4 Model
     --cask foxitreader           - (requires VPN)
     --cask google-chrome
     --cask keka                  - file archiver
@@ -77,29 +101,12 @@ LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     --cask vlc
     imagemagick
 
-    # Infrastructure
-    ansible
-    --cask vagrant
-
-    # Docker
-    # --cask docker
-    podman
-    podman-compose
-    # --cask podman-desktop
-    lazydocker
-
-    # Kubernetes
-    kubernetes-cli
-    k9s
-    --cask openlens
-    kubectx
-    minikube
-    # kind - не понравился, minikube лучше
-    helm
-
     # Messagers
     --cask telegram
     --cask whatsapp
+
+    # Office
+    --cask xmind
 
     # VPN
     # cyberghost-vpn - requires VPN to download !
@@ -114,7 +121,6 @@ LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     # Games
     --cask steam
     --cask epic-games
-    # --cask curseforge
     --cask --no-quarantine prismlauncher
 
     # Game Development
