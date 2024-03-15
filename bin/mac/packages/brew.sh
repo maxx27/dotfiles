@@ -37,6 +37,13 @@ LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     vim
     wget
     # xz
+    # GNU utils - more at https://github.com/darksonic37/linuxify/blob/master/linuxify
+    coreutils
+    binutils
+    diffutils
+    findutils
+    gnu-sed
+    grep
 
     # Development
     git
@@ -54,10 +61,13 @@ LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     structurizr-cli              - C4 Model
     --cask drawio
     plantuml
+    pandoc
 
     # Infrastructure
     ansible
     --cask vagrant
+    brew tap hashicorp/tap
+    brew install hashicorp/tap/vault
 
     # Docker
     --cask docker
