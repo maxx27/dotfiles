@@ -1,4 +1,5 @@
 # Update PATH
+newpath=
 while IFS= read -r p || [[ "$p" ]]; do
     # replace ~ with home directory
     p="${p/#\~/$HOME}"
@@ -7,11 +8,17 @@ while IFS= read -r p || [[ "$p" ]]; do
 
     # skip comments and missing directories and already added in PATH
     if ! [[ "$p" =~ ^#\ .* ]] && [ -d "$p" ] && [[ ":$PATH:" != *":$p:"* ]]; then
-        # export -U PATH="$p${PATH:+:$PATH}"
-        export PATH="$p:$PATH"
+        newpath="$newpath:$p"
         # echo "--> $p"
     else
         # echo "skip --> $p"
     fi
 done < ~/.misc/paths
-unset p
+
+if [ ! -z "$newpath" ]; then
+    newpath=${newpath/:}
+    # echo "new --> $newpath"
+    export PATH="$newpath:$PATH"
+fi
+
+unset newpath p

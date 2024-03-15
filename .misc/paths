@@ -1,8 +1,11 @@
+# выше - раньше в PATH
+# используется в
+# ~/.bash/paths
+# ~/.zsh/paths
+
+/opt/homebrew/bin
 /mingw64/bin
-/bin
-/usr/bin
 /usr/local/bin
 # ~/yandex-cloud/bin
 ~/.local/bin
-# ~/.poetry/bin
 ~/bin
