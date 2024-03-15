@@ -1,0 +1,8 @@
+/mingw64/bin
+/bin
+/usr/bin
+/usr/local/bin
+# ~/yandex-cloud/bin
+~/.local/bin
+# ~/.poetry/bin
+~/bin

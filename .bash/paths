@@ -1,17 +1,17 @@
+# Update PATH
+while IFS= read -r p || [[ "$p" ]]; do
+    # replace ~ with home directory
+    p="${p/#\~/$HOME}"
+    # remove last trailing slash
+    p=${p%/}
 
-newpath=
-paths=(
-    ~/.local/bin
-    ~/bin
-    ~/.poetry/bin
-    ~/yandex-cloud/bin
-)
-for d in ${paths[@]}; do
-    if [ -d "$d" ] ; then
-        newpath="$newpath$HOME/$d:"
+    # skip comments and missing directories and already added in PATH
+    if ! [[ "$p" =~ ^#\ .* ]] && [ -d "$p" ] && [[ ":$PATH:" != *":$p:"* ]]; then
+        export PATH="$p:$PATH"
+        # echo "--> $p"
+    else
+        # echo "skip --> $p"
+        : # to avoid parsing error for empty else/fi
     fi
-done
-if [ ! -z "$newpath" ]; then
-    export PATH="$newpath$PATH"
-fi
-unset newpath paths
+done < ~/.misc/paths
+unset p
