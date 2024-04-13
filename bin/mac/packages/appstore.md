@@ -10,9 +10,14 @@ https://apps.apple.com/ru/app/hidden-bar/id1452453066?l=en&mt=12
 
 ---
 
-iScreen Shoter: Screenshot App
+iScreen Shooter: Screenshot App
 Screen Capture & OCR Scanner
 https://apps.apple.com/ru/app/iscreen-shoter-screenshot-app/id1596559494?l=en&mt=12
+
+---
+
+WireGuard
+https://apps.apple.com/ru/app/wireguard/id1451685025?l=en-GB&mt=12
 
 ---
 
