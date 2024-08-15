@@ -1,10 +1,12 @@
 # Add customs types
 --type-add
+gitlab:.gitlab-ci.{yml,yaml}
+--type-add
 batch:*.{bat,cmd}
 
 # Using glob patterns to include/exclude files or folders
 --glob
-!git/*
+!.git/*
 
 # Because who cares about case!?
 --smart-case

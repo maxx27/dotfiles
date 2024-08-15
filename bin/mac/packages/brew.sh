@@ -10,7 +10,7 @@ LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     --cask cheatsheet            - show cheet sheet
     --cask flux
     --cask hiddenbar             - show less icons in the menu bar
-    --cask logitech-options
+    # --cask logitech-options    - deprecated, logitech options plus isn't available in brew; download it manually
     --cask obs
     --cask paragon-ntfs
     --cask scroll-reverser       - reverse direction for mouse only

@@ -1,0 +1,8 @@
+
+export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
+
+function rgf {
+    folder=$1
+    shift
+    rg --files $folder | rg $@
+}
