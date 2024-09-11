@@ -1,6 +1,6 @@
 [user]
 	name = Maksim Suslov
-	email = m.suslov@tinkoff.ru
+	email = m.suslov@tbank.ru
 [color]
 	ui = true
 [core]
@@ -10,7 +10,7 @@
 	autocrlf = input
 	quotepath = off
 	longpaths = true
-	excludesfile = /Users/m.suslov/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [rebase]
 	autoStash = false
 [fetch]
@@ -64,11 +64,13 @@
 	su = submodule update --init
 	cl = clean -dfx
 	root = rev-parse --show-toplevel
-[url "git@github.com:"]
-	insteadOf = https://github.com/
 [difftool "sourcetree"]
 	cmd = /usr/local/bin/bcomp \"$LOCAL\" \"$REMOTE\"
 	path = -ro
 [mergetool "sourcetree"]
 	cmd = /usr/local/bin/bcomp \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
 	trustExitCode = true
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[url "ssh://git@gitlab.tcsbank.ru:7999/"]
+	insteadOf = https://gitlab.tcsbank.ru/
