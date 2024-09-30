@@ -33,6 +33,7 @@ LIST=$(cat <<EOF | perl -ne 'print "$1\n" if /^\s*(\S+)/'
     readline
     rename                       - Perl-powered file rename script with many helpful built-ins
     ripgrep
+    rsync
     tree
     vim
     wget
