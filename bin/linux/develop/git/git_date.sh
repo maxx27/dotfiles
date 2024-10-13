@@ -1,6 +1,6 @@
 # usage:
-#   . <path to file>
-#   git_date "2035-03-06 18:00:00" commit -m "Sync changes"
+#   $ source <path to this file>/git_date.sh
+#   $ git_date "2035-03-06 18:00:00" commit -m "Sync changes"
 function git_date() {
     local date=$1
     shift 1
