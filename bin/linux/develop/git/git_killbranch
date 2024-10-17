@@ -1,11 +1,13 @@
-#!/bin/sh
-
+#!/bin/sh -e
 # Git remove a branch or branches from everywhere
 
 if [[ $# == 0 ]]; then
     echo "Must provide at least one branch"
     exit 1
 fi
+
+# make sure that deleted branche isn't checked out
+# if so, then checkout detached commit
 
 for branch in "$@"; do
     git branch -D "$branch"

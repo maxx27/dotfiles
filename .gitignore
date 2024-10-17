@@ -232,17 +232,23 @@ __pycache__/
 
 # Other
 /.android/
+/.aspnet/
 /.aws
 /.azure
+/.cachier/
+/.config/
 /.crc/
 /.iamlive/
 /.jenkins-hpl-map
 /.jfrog/
+/.k8slens/
 /.kube/
 /.lc/
+/.nuget/
 /.redhat/
 /.tabnine/
 /.terraform.d/
+/.vnc/
 /Calibre Library/
 /perl5/
 

@@ -1,5 +1,4 @@
-#!/bin/sh
-
+#!/bin/sh -e
 # Git fetch name branch from named remote and reset local branch to point to it
 
 if [[ $1 == "" ]]; then

@@ -1,7 +1,4 @@
 #!/bin/bash
-# Author: Maxim Suslov
-# Last updated: 2014.12.02
-
 if [[ "$1" == "" || "$2" == "" ]]; then
 	echo "usage: `basename $0` <dir> <submodule>"
 	exit 1
