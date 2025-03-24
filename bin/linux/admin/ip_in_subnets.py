@@ -1,4 +1,8 @@
 import ipaddress
+import os
+import subprocess
+import sys
+import re
 
 def check_ips_in_ranges(ip_ranges, ip_list):
     results = {}
@@ -17,7 +21,31 @@ def check_ips_in_ranges(ip_ranges, ip_list):
             results[ip] = None  # Некорректный IP
     return results
 
-if __name__ == "__main__":
+
+def capture(executable=None, args=[], timeout=None):
+    to_exec = [executable if executable is not None else sys.executable, *args]
+    proc = subprocess.Popen(
+        to_exec,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        env={**os.environ, 'PYTHONIOENCODING': 'utf-8'},
+    )
+    out, err = proc.communicate(timeout=timeout)
+    return out, err, proc.returncode
+
+def find_ip_addresses(text):
+    ip_pattern = r'\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b'
+    ip_addresses = re.findall(ip_pattern, text)
+    return ip_addresses
+
+def get_blocked_ip():
+    out, err, code = capture(executable='fail2ban-client', args=['banned'])
+    assert code == 0
+    found_ips = find_ip_addresses(out.decode())
+    return found_ips
+
+
+def main():
     # Указанные диапазоны в формате CIDR
     ip_ranges = [
         # cloudflare https://www.cloudflare.com/ips-v4/
@@ -39,21 +67,25 @@ if __name__ == "__main__":
     ]
 
     # Список IP-адресов для проверки
-    ip_list = [
-        "1.95.159.116",
-        "102.212.216.147",
-        "103.102.230.8",
-        "98.80.104.243",
-    ]
+    ip_blocked_list = get_blocked_ip()
 
     # Проверка IP-адресов
-    results = check_ips_in_ranges(ip_ranges, ip_list)
+    results = [ip for ip, matching_ranges in check_ips_in_ranges(ip_ranges, ip_blocked_list).items() if matching_ranges]
+    if results:
+        out, err, code = capture(executable='fail2ban-client', args=['unban', *results])
+        assert code == 0
+        print(f'got {out} results')
+    else:
+        print(f'nothing to unban')
 
     # Вывод результатов
-    for ip, matching_ranges in results.items():
-        if matching_ranges is None:
-            print(f"IP {ip} имеет некорректный формат")
-        elif matching_ranges:
-            print(f"IP {ip} принадлежит диапазонам: {', '.join(matching_ranges)}")
-        # else:
-        #     print(f"IP {ip} не принадлежит ни одному из заданных диапазонов")
+    # for ip, matching_ranges in results.items():
+    #     if matching_ranges is None:
+    #         print(f"IP {ip} имеет некорректный формат")
+    #     elif matching_ranges:
+    #         print(f"IP {ip} принадлежит диапазонам: {', '.join(matching_ranges)}")
+    #     else:
+    #         print(f"IP {ip} не принадлежит ни одному из заданных диапазонов")
+
+if __name__ == "__main__":
+    main()
