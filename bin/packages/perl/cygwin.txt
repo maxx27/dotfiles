@@ -1,0 +1,7 @@
+make
+g++
+perl-YAML
+libcrypt-devel
+
+perl -MCPAN -e shell
+cpan[1]> install Encode::Detect::Detector
