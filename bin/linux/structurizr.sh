@@ -92,7 +92,7 @@ function parseWorkspaceArg(){
         esac
     done
 
-    set -- "${positional_args[@]}" # restore positional parameters
+    set -- "${positional_args[@]}" # restore positional parameters $1, $2, etc.
     len=${#positional_args[@]}
 
     if [[ ${#positional_args[@]} == 0 || ${positional_args[0]} == "help" ]]; then
