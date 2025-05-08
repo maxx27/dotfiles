@@ -5,6 +5,7 @@ Gitea
 kubernetes
 netbox
 plantuml
+postanalysis
 promql
 pydantic
 ruamel
