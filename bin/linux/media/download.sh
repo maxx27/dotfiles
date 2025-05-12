@@ -27,7 +27,7 @@ set -- "${positional[@]}"
 # FORMAT='m3u8-1544-0'
 # FORMAT='bv*[ext=mp4][width<=1280]+ba[ext=m4a]/b[ext=mp4]/b[width<=1280]'
 # FORMAT='bv*[ext=mp4][width<=900]+ba[ext=m4a]/b[ext=mp4][width<=900]/b[width<=900]'
-FORMAT="bv*[ext=mp4][width<=$width]+ba[ext=m4a]/b[ext=mp4]/b[width<=$width]"
+FORMAT="bv*[ext=mp4][width<=$width]+ba[ext=m4a]/b[ext=mp4][width<=$width]/b[width<=$width]"
 
 if [ $# -ne 0 ]; then
     if [[ $1 == *"playlist"* ]]; then
